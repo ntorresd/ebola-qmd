@@ -1,0 +1,786 @@
+---
+title: "Estadísticas y métodos para el análisis de la respuesta a brotes."
+subtitle: "Día 2"
+format: revealjs
+editor: visual
+---
+
+## Agenda:
+
+1.  Presentación del equipo de talleristas
+
+2.  Introducción a la biología del virus del Ébola
+
+3.  Taller
+
+4.  Discusión
+
+## Contexto:
+
+-   La enfermedad apareció en **1976** en brotes casi simultáneos en la República **Democrática del Congo (RDC)** y **Sudán del Sur**
+
+-   Entre **1979 y 1994** no se detectaron casos ni brotes
+
+-   Desde **1994 se han reconocido brotes** con una frecuencia cada vez mayor
+
+-   El mayor brote hasta la fecha tuvo lugar en **África Occidental** entre **marzo de 2014 y junio de 2016**
+
+## Brotes del virusdel ébola
+
+![doi: 10.1038/s41572-020-0147-3.](TallerEbola-ppt_files/img/ebola_outbreaks.jpg)
+
+# Instrucciones del taller en cada grupo (5min)
+
+## Introducción
+
+-   Esta práctica simula **la evaluación temprana** y la **reconstrucción** de un **brote** de enfermedad por el **virus del Ébola (EVE).**
+
+-   Introduce varios aspectos del análisis de la etapa inicial de un brote, incluida la **probabilidad de muerte en los casos** (CFR por sus siglas en inglés de Case Fatality Ratio), **curvas epidemiológicas**, **rastreo de contactos** y proyecciones de la **tasa de duplicación** de los casos y el **número reproductivo instantáneo** (Rt).
+
+## Objetivos
+
+<font size="6">
+
+-   Identificar los parámetros necesarios en casos de  transmisión de enfermedades infecciosas de persona a persona. 
+
+-   Estimar e interpretar la tasa de crecimiento y el tiempo en que se duplica la epidemia.
+
+-   Estimar el intervalo serial a partir de los datos pareados de individuos infectantes e individuos infectados. 
+
+-   Estimar e interpretar el número de reproducción instantáneo  de la epidemia
+
+-   Estimar la tasa de letalidad (CFR)
+
+-   Calcular y graficar la incidencia
+
+</font>
+
+## Conceptos básicos a desarrollar:
+
+-   Transmisión de enfermedades infecciosas de persona a persona
+
+-   Intervalo serial
+
+-   Número reproductivo efectivo
+
+-   Radio de letalidad (IFR, CFR)
+
+-   Tasa de crecimiento y duplicación
+
+-   Incidencia
+
+# Situación a analizar
+
+## Un nuevo brote de EVE en un país ficticio de África occidental
+
+<br>
+
+Se ha notificado un nuevo brote de EVE en un país ficticio de África occidental. 
+
+<br>
+
+El Ministerio de Salud se encarga de coordinar la respuesta al brote, y lo ha contratado a usted como consultor en análisis epidémico para informar la respuesta en tiempo real.
+
+## Al inicio del brote
+
+::: columns
+::: {.column width="70%"}
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/inicio_del_brote.png)
+:::
+
+::: {.column width="30%"}
+Análisis rápido de la situación para orientar la toma de decisiones
+
+<br><br>
+
+**¿Qué datos necesito?**
+:::
+:::
+
+## Datos mínimos necesarios usuales en epidemias nuevas
+
+-   Fecha de inicio de síntomas: date of onset
+
+-   Fecha de exposición/infección: infection date
+
+-   Fecha del desenlace (recuperación, muerte): outcome date
+
+-   Datos generales de individuo: edad, género, ocupación, etc
+
+-   Datos de brotes anteriores
+
+## Al inicio del brote
+
+::: columns
+::: {.column width="70%"}
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/inicio_del_brote.png)
+:::
+
+::: {.column width="30%"}
+Análisis rápido de la situación para orientar la toma de decisiones
+
+<br><br>
+
+**¿Qué preguntas surgen inmediatamente?**
+:::
+:::
+
+## **Al inicio de una epidemia**
+
+Se requieren datos para **planear la respuesta:**
+
+-   ¿Qué tan rápido crece una epidemia?
+
+-   ¿Cuál es el riesgo de muerte?
+
+-   ¿Cuántos casos puedo esperar en los próximos días?
+
+-   ¿Cuánta capacidad hospitalaria y del sistema de salud requeriremos en los próximos días?
+
+# Pasemos a R 👩‍💻👨‍💻
+
+## Instrucciones
+
+-   En su carpeta "**Taller-Params-Ebola**" abra el archivo llamado **Taller-Params-Ebola.Rproj**
+
+-   Verifique que tiene una carpeta llamada **data** con dos archivos: 
+
+    -   linelist_clean.rds 
+
+    -   contacts_20140701.xlsx
+
+-   Abra el script llamado **script-Ebola.R**
+
+## Instrucciones:
+
+-   Cargue las librerías necesarias:
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+library(tidyverse) # read_rds, ggplot2
+library(readxl) # read_excel | tidyverse
+library(binom) # binom.confint
+library(knitr) # kable
+library(incidence) # incidence, fit
+library(epicontacts)# make_epicontacts, epicontacts
+library(epitrix) # fit_disc_gamma
+library(EpiEstim) # make_config, estimate_R
+```
+
+## Instrucciones
+
+-   Cargue las bases de datos:
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+linelist_clean <- read_rds("data/linelist_clean.rds")
+contacts <- read_excel("data/contacts_20140701.xlsx", na = c("", "NA"))
+```
+
+-   Tómese su tiempo para mirar los datos y la estructura
+
+```{r echo=TRUE, message=FALSE, results=FALSE, warning=FALSE,comment=""}
+str(contacts)
+str(linelist_clean)
+```
+
+## Estructura de los datos:
+
+::: columns
+::: {.column width="50%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+str(contacts)
+```
+:::
+
+::: {.column width="50%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+str(linelist_clean)
+```
+:::
+:::
+
+<font size="5">
+
+-   ¿ Son los datos y el formato similares a bases de datos de casos que ha visto en el pasado?
+
+-   ¿Qué otra información le gustaría recopilar?
+
+</font>
+
+## Probabilidad de muerte en los casos (CFR)
+
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/CFR_pie.png)
+
+## Instrucciones
+
+<font size="5">
+
+::: columns
+::: {.column width="55%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+table(linelist_clean$outcome, useNA = "ifany")
+```
+:::
+
+::: {.column width="45%"}
+¿Cómo calcularía el CFR a partir de esto?
+
+Piense en qué hacer con los casos cuyo resultado es \`NA\`
+:::
+:::
+
+::: columns
+::: {.column width="65%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment="", results=FALSE}
+n_dead <- sum(linelist_clean$outcome %in% "Death")
+n_known_outcome <- sum(linelist_clean$outcome %in% c("Death", "Recover"))
+cfr <- n_dead / n_known_outcome
+cfr_with_CI <- binom.confint(n_dead, n_known_outcome, method = "exact")
+kable(cfr_with_CI, caption = "cfr_with_CI")
+```
+:::
+
+::: {.column width="35%"}
+Cálculo de CFR
+:::
+:::
+
+::: columns
+::: {.column width="65%"}
+```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
+n_dead <- sum(linelist_clean$outcome %in% "Death")
+n_known_outcome <- sum(linelist_clean$outcome %in% c("Death", "Recover"))
+cfr <- n_dead / n_known_outcome
+cfr_with_CI <- binom.confint(n_dead, n_known_outcome, method = "exact")
+kable(cfr_with_CI, caption = "cfr_with_CI")
+```
+:::
+
+::: {.column width="35%"}
+¿Cómo interpreta estos resultados?
+:::
+:::
+
+</font>
+
+## **No confundir CFR con IFR**
+
+-   **CFR:** Es la proporción de casos reportados que mueren a causa de la infección
+
+    $\rightarrow$ <font size="5"> CFR se puede calcular con los datos de vigilancia epidemiológica </font>
+
+<br>
+
+-   **IFR:** Es la proporción de infecciones (detectadas y no detectadas) que mueren a causa de la infección
+
+    $\rightarrow$ <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font>
+
+## Incidencia
+
+**Número de casos nuevos en un período de tiempo determinado**
+
+-   Se basa en las fechas, por lo general de inicio de los síntomas.
+
+-   Se afecta por los **rezagos de reporte** (e.g. quienes iniciaron síntomas ayer sólo van a ser reportados algunos días después)
+
+## Incidencia
+
+**Miremos las curvas de incidencia**
+
+-   El primer paso del análisis es descriptivo: **queremos dibujar una epicurva o curva epidemiológica**. Esto permite visualizar la incidencia a lo largo del tiempo por fecha de inicio de los síntomas.
+
+-   La primera pregunta que queremos responder es:  **¿qué tan grave es la situación?**
+
+## Incidencia
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+i_daily <- incidence(linelist_clean$date_of_onset)
+i_daily
+```
+
+<center>**¿Qué observa?**</center>
+
+## Incidencia diaria según fecha de inicio de síntomas
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+plot(i_daily, border = "black")
+```
+
+## Pregunta
+
+### ¿Cuál es la mejor clasificación de la epidemia a partir de la información de la curva epidémica?
+
+A. Fuente común puntual
+
+B. Fuente común continua
+
+C. Fuente común intermitente
+
+D. Propagada (persona a persona)
+
+## Pregunta
+
+### Su jefe le pregunta, ¿en qué fecha inició síntomas el primer caso (caso iíndice)?
+
+Usted diría que fue...
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
+plot(i_daily, border = "black")
+```
+
+## Instrucciones
+
+-   Otro problema es que **puede ser difícil interpretar las tendencias al observar la incidencia diaria**
+
+-   Calcule y grafique la incidencia semanal **i_weekly**
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment="", results=FALSE}
+i_weekly <- incidence(linelist_clean$date_of_onset, interval = 7, 
+                      last_date = as.Date(max(linelist_clean$date_of_hospitalisation, na.rm = TRUE)))
+i_weekly
+```
+
+## Incidencia semanal
+
+::: columns
+::: {.column width="40%"}
+```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
+i_weekly <- incidence(linelist_clean$date_of_onset, interval = 7, 
+                      last_date = as.Date(max(linelist_clean$date_of_hospitalisation, na.rm = TRUE)))
+i_weekly
+```
+:::
+
+::: {.column width="60%"}
+```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
+plot(i_weekly, border = "black")
+```
+
+**¿Qué opina de esta nueva gráfica?**
+:::
+:::
+
+## Estimación de la tasa de crecimiento mediante un modelo  log-lineal
+
+-   Es probablemente el **modelo de incidencia más simple**
+
+-   **Modelo de regresión lineal sobre incidencias transformadas logarítmicamente**
+
+-   Para ello trabajaremos con **incidencia semanal**, para evitar tener demasiados problemas con incidencia cero (que no se pueden registrar).
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/curv_epi_loglineal.png)
+
+<font size="5.5">
+
+$$
+\left.
+\begin{matrix}
+y:\text{número de casos incidentes} \\
+r:\text{tasa de crecimiento} \\
+\beta_0: \text{intercepto}
+\end{matrix}
+\right\} \log(y) = \beta_0 + rt + \epsilon \Rightarrow \hat{y} = \exp^{rt+\beta_0}
+$$
+
+</font>
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+::: columns
+::: {.column width="30%"}
+<font size="5">
+
+-   Grafique la incidencia transformada logarítmicamente
+
+<!-- -->
+
+-   ¿Qué le dice esta gráfica sobre la epidemia?
+
+</font>
+
+![](TallerEbola-ppt_files/img/curv_epi_exp.png)
+:::
+
+::: {.column width="70%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+ggplot(as.data.frame(i_weekly)) + 
+  geom_point(aes(x = dates, y = log(counts))) + 
+  scale_x_incidence(i_weekly) +
+  xlab("date") +
+  ylab("log weekly incidence") + 
+  theme_minimal()
+```
+:::
+:::
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+#### Ajuste un modelo log-lineal a los datos de incidencia
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+f <- incidence::fit(i_weekly)
+f
+```
+
+<center>**¿Qué le dicen estos datos?**</center>
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+plot(i_weekly, fit = f)
+```
+
+<center><font size="6">Mirando la gráfica y el ajuste, **¿cree que este es un ajuste razonable?**</font></center>
+
+## Instrucciones
+
+-   Utilizando la gráfica del logaritmo (incidencia) que graficó anteriormente, y pensando en por qué el crecimiento exponencial no puede observarse en las últimas semanas**, elija una fecha límite** y **ajuste el modelo logarítmico lineal** a una sección adecuada de la epicurva donde crea que puede estimar de manera más confiable la tasa de crecimiento r, y el tiempo de duplicación.
+
+-   Es posible que desee examinar **cuánto tiempo después de la aparición de los síntomas los casos son hospitalizados**
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+#### ¿Cuántas semanas debe descartar al final de la epicurva?
+
+-   Trunca la incidencia semanal según las semanas descartadas
+
+    ```{r echo=TRUE, message=FALSE, warning=FALSE,comment="", results=FALSE}
+    n_weeks_to_discard <- 2
+    min_date <- min(i_daily$dates)
+    max_date <- max(i_daily$dates) - n_weeks_to_discard * 7
+    # Para truncar la incidencia semanal 
+    i_weekly_trunc <- subset(i_weekly, 
+                             from = min_date, 
+                             to = max_date) # descarte las últimas semanas de datos
+    # incidencia diaria truncada.
+    #No la usamos para la regresión lineal pero se puede usar más adelante
+    i_daily_trunc <- subset(i_daily, 
+                             from = min_date, 
+                             to = max_date) # eliminamos las últimas dos semanas de datos
+    ```
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+<font size="6">
+
+Vuelva a montar y a graficar el modelo logarítmico lineal, pero utilizando los datos truncados **i_weekly_trunc**.
+
+::: columns
+::: {.column width="40%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+f <- incidence::fit(i_weekly_trunc)
+f
+```
+:::
+
+::: {.column width="60%"}
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+plot(i_weekly_trunc, fit = f)
+```
+
+<center>Mirando la gráfica y el ajuste, **¿cree que este es un ajuste más razonable comparado con el anterior?**</center>
+:::
+:::
+
+</font>
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+#### Observe las estadísticas resumidas de su ajuste:
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+summary(f$model)
+```
+
+<center>**¿El modelo se ajusta bien a los datos?**</center>
+
+## <font size=14>Curva epidémica con modelo log lineal</font>
+
+#### Estimacion de la tasa de crecimiento
+
+¿Cuál es la tasa de crecimiento estimada de la epidemia?, ¿Cómo lo interpreta?
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+daily_growth_rate <- f$model$coefficients['dates.x']
+daily_growth_rate
+# intervalo de confianza:
+daily_growth_rate_CI <- confint(f$model, 'dates.x', level=0.95)
+daily_growth_rate_CI
+```
+
+## Tiempo de duplicación
+
+::: columns
+::: {.column width="60%"}
+<font size="5"> [![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/doubling_time_scheme.png)](https://www.reconlearn.org/post/outbreakstatsprimer.html)
+
+$$
+\left.
+\begin{matrix}
+y:\text{número de casos incidentes} \\
+r:\text{tasa de crecimiento} \\
+\beta_0: \text{intercepto}
+\end{matrix}
+\right\} \hat{y} = \exp^{rt + \beta_0}
+$$
+
+</font>
+:::
+
+::: {.column width="40%"}
+$T$ es el tiempo que le toma a la curva epidémica para **duplicarse:**
+
+$$  \hat{y}_2 = 2\hat{y}_1 \\ 2 = \frac{\hat{y}_2}{\hat{y}_1} = \frac{\exp^{rt_2 + \beta_0}}{\exp^{rt_1 + \beta_0}} \\ 2 = \exp^{r(t_2-t_1)} = \exp^{rT}\\ \Rightarrow T = \frac{\log(2)}{r} $$
+:::
+:::
+
+## Tiempo de duplicación
+
+¿ Cuál es el **tiempo de duplicación** estimado de la epidemia?,
+
+¿Cómo lo interpreta?
+
+```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+doubling_time_days <- log(2) / daily_growth_rate
+doubling_time_days 
+# intervalo de confianza:
+doubling_time_days_CI <- log(2) / rev(daily_growth_rate_CI)
+doubling_time_days_CI
+```
+
+## <font size=14>Generar red de contactos con epicontacts</font>
+
+<font size="6.5">
+
+**El rastreo de contactos es uno de los pilares de la respuesta a un brote.**
+
+#### Procedimientos claves:
+
+-   **Definir tiempo de rastreo:** para el ejemplo de ébola se vigilan durante 21 días (el límite superior del período de incubación)
+
+-   **Definir base de datos a usar:** para el ejemplo base de datos completa o base inicial
+
+-   **Paquete a usar:** "epicontacts"
+
+-   **Función y argumentos:**
+
+    -   **make_epicontacts()**
+
+</font>
+
+## <font size=14>Generar red de contactos con epicontacts</font>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+epi_contacts <- make_epicontacts(linelist_clean, 
+                                 contacts, 
+                                 id = "case_id",
+                                 from = "infector",
+                                 to = "case_id")
+epi_contacts
+```
+
+## <font size=14>Generar red de contactos con epicontacts</font>
+
+Usted puede graficar fácilmente estos contactos, pero con un poco de ajuste (ver **?vis_epicontacts**). Puede personalizar, por ejemplo, símbolos por género y colores de flechas por fuente de exposición (u otras variables de interés):
+
+```{r table_contact_type}
+# observe la fuente de infección reportada de los contactos.
+table(epi_contacts$contacts$source, useNA = "ifany")
+```
+
+## Red de contactos
+
+```{r plot_contacts, eval = TRUE}
+p <- plot(epi_contacts, node_shape = "gender", shapes = c(m = "male", f = "female"), node_color = "gender", edge_color = "source", selector = FALSE)
+p
+```
+
+## Instrucciones
+
+-   Usando la función **match** ( ver **?match** ) verifique que los contactos visualizados sean realmente casos.
+
+```{r check_contact_cases}
+match(contacts$case_id, linelist_clean$case_id)
+```
+
+-   Una vez se asegure de que todos estos son casos, mire la red: ¿Parece que hay superpropagación (transmisión heterogénea)?
+
+## Modelo de proceso de ramificación
+
+-   La transmisibilidad de la enfermedad puede evaluarse mediante la **estimación del número de reproducción (R)**, definido como el número esperado de casos secundarios por caso infectado.
+
+-    En las primeras etapas de un brote, y asumiendo una gran población sin inmunidad, esta cantidad corresponde al **número de reproducción básico  R(0)** es decir, en una gran población totalmente susceptible.
+
+## Modelo de proceso de ramificación
+
+-   El paquete **EpiEstim** implementa una **estimación bayesiana del número reproductivo**, utilizando las fechas de inicio de los síntomas y la distribución del intervalo serial
+
+-   Descripción de **la incidencia en un día** dado como la distribución de Poisson, con una **media determinada por la fuerza total de infección en ese día**:
+
+$$
+I_t \sim Poisson(\lambda_t)
+$$
+
+## Modelo de proceso de ramificación
+
+-   Teniendo en cuenta  que $R$es el número de reproducción y $w$ la distribución del intervalo serial discreta, la **fuerza de infección** se define como:
+
+$$
+\lambda_t = R \sum_{s=1}^{t} I_s w(t-s)
+$$
+
+## Verosimilitud (Likelihood)
+
+Una medida relativa de ajuste entre los datos y el modelo. Se define como una función de R:
+
+![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#19](TallerEbola-ppt_files/img/likelihood_reminder.png)
+
+## Estimación del intervalo serial
+
+![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16](TallerEbola-ppt_files/img/serial_interval_toon.png)
+
+## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
+
+-   **Función y argumentos:**
+
+    -   **get_pairwise(), argumentos relevantes "x" y "attribute" los cuales corresponden a la base y a la variable que contenga las fechas para el cálculo de intervalos.**
+
+<!-- -->
+
+-   Posteriormente puedes graficar la frecuencia que hay del número de días, y observar la distribución empírica que sigue.
+
+## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
+
+-   Dado que los **datos se recopilaron sobre pares de individuos infecciosos e infectados**, esto debería ser suficiente para estimar la distribución del intervalo  serial
+
+<!-- -->
+
+-   **Si ese no fuera el caso, que hubiera hecho para obtener esta estimación?**
+
+-   Utilice la función **get_pairwise** para extraer el intervalo serial
+
+## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
+
+-   Utilice la función **get_pairwise** para extraer el intervalo serial
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+si_obs <- get_pairwise(epi_contacts, "date_of_onset")
+summary(si_obs)
+```
+
+## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+hist(si_obs, breaks = 0:30,
+     xlab = "Días después de la aparición de los síntomas", ylab = "Frecuencia",
+     main = "intervalo serial (distribución empírica)",
+     col = "grey", border = "white")
+```
+
+<center>**¿Qué opina de esta distribución?**</center>
+
+## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
+
+Estas distribuciones además **pueden ajustarse a varios modelos paramétricos, siendo el más frecuente el modelo gamma**, de la siguiente forma:
+
+-   **Función y argumentos:**
+
+    -   **fit_disc_gamma(x),** donde x corresponde a las observaciones de los intervalos seriales
+
+## Ajuste a distribucion gamma
+
+::: columns
+::: {.column width="40%"}
+<font size="5">Use la función fit_disc_gamma del paquete epitrix para ajustar estos datos a una distribución Gamma de valores discretos </font>
+
+<br>
+
+<center>**¿Cómo interpreta estos hallazgos?**</center>
+:::
+
+::: {.column width="60%"}
+<font size="5">
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+si_fit <- fit_disc_gamma(si_obs, w = 1)
+si_fit
+```
+
+</font>
+:::
+:::
+
+## Ajuste a distribucion gamma
+
+**si_fit** contiene información diversa sobre los retrasos ajustados, incluida la distribución estimada. 
+
+Puede comparar esta distribución con los datos empíricos en la siguiente tabla:
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+si <- si_fit$distribution
+si
+```
+
+## Ajuste a distribucion gamma
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+## compare fitted distribution
+hist(si_obs, xlab = "Días después de la aparición de los síntomas", ylab = "Frecuencia",
+     main = "intervalo serial: ajustar a los datos", col = "salmon", border = "white",
+     50, ylim = c(0, 0.15), freq = FALSE, breaks = 0:35)
+points(0:60, si$d(0:60), col = "#9933ff", pch = 20)
+points(0:60, si$d(0:60), col = "#9933ff", type = "l", lty = 2)
+```
+
+## Estimación del número reproductivo instantáneo (Rt)
+
+-   Cuando la suposición de que (R) es constante en el tiempo se vuelve insostenible, **una alternativa es estimar la transmisibilidad variable en el tiempo utilizando el número de reproducción instantánea (Rt).**
+
+-   Este enfoque se implementa en el paquete \`EpiEstim.\` 
+
+-   Estima (Rt) para ventanas de tiempo personalizadas (el valor predeterminado es una **sucesión de ventanas de tiempo deslizantes), utilizando la probabilidad de Poisson**
+
+## Estimación del número reproductivo instantáneo (Rt)
+
+A continuación, estimamos la transmisibilidad para ventanas de tiempo deslizantes de 1 semana (el valor predeterminado de **estimate_R**):
+
+<font size="5">
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+config <- make_config(mean_si = si_fit$mu, # media de la distribución si estimada anteriormente
+                      std_si = si_fit$sd,  # desviación estándar de la distribución si estimada anteriormente
+                      t_start = 2,         # día de inicio de la ventana de tiempo
+                      t_end = length(i_daily_trunc$counts)) # último día de la ventana de tiempo
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+config = make_config(list(mean_si = si_fit$mu, std_si = si_fit$sd))  
+# t_start y t_end se configuran automáticamente para estimar R en ventanas deslizantes para 1 semana de forma predeterminada.
+```
+
+</font>
+
+## Estimacion del número reproductivo instantáneo (Rt)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+# use estimate_R using method = "parametric_si"
+Rt <- estimate_R(i_daily_trunc, method = "parametric_si", 
+                           si_data = si_data,
+                           config = config)
+# mire las estimaciones de Rt más recientes:
+tail(Rt$R[, c("t_start", "t_end", "Median(R)", 
+             "Quantile.0.025(R)", "Quantile.0.975(R)")])
+```
+
+## Estimacion del número reproductivo instantáneo (Rt)
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+plot(Rt, legend = FALSE)
+```
+
+<center>**¿Cómo interpretaría este resultado?**</center>
+
+# Hemos llegado a la meta...
+
+## ¡Gracias!
