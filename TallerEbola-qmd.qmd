@@ -27,7 +27,7 @@ editor: visual
 
 ## Brotes del virusdel ébola
 
-![doi: 10.1038/s41572-020-0147-3.](TallerEbola-ppt_files/img/ebola_outbreaks.jpg)
+![doi: 10.1038/s41572-020-0147-3.](TallerEbola-qmd_files/img/ebola_outbreaks.jpg)
 
 # Instrucciones del taller en cada grupo (5min)
 
@@ -85,7 +85,7 @@ El Ministerio de Salud se encarga de coordinar la respuesta al brote, y lo ha co
 
 ::: columns
 ::: {.column width="70%"}
-![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/inicio_del_brote.png)
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/inicio_del_brote.png)
 :::
 
 ::: {.column width="30%"}
@@ -113,7 +113,7 @@ Análisis rápido de la situación para orientar la toma de decisiones
 
 ::: columns
 ::: {.column width="70%"}
-![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/inicio_del_brote.png)
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/inicio_del_brote.png)
 :::
 
 ::: {.column width="30%"}
@@ -208,7 +208,7 @@ str(linelist_clean)
 
 ## Probabilidad de muerte en los casos (CFR)
 
-![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/CFR_pie.png)
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/CFR_pie.png)
 
 ## Instrucciones
 
@@ -369,7 +369,7 @@ plot(i_weekly, border = "black")
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
-![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/curv_epi_loglineal.png)
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/curv_epi_loglineal.png)
 
 <font size="5.5">
 
@@ -399,7 +399,7 @@ $$
 
 </font>
 
-![](TallerEbola-ppt_files/img/curv_epi_exp.png)
+![](TallerEbola-qmd_files/img/curv_epi_exp.png)
 :::
 
 ::: {.column width="70%"}
@@ -513,7 +513,7 @@ daily_growth_rate_CI
 
 ::: columns
 ::: {.column width="60%"}
-<font size="5"> [![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-ppt_files/img/doubling_time_scheme.png)](https://www.reconlearn.org/post/outbreakstatsprimer.html)
+<font size="5"> [![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/doubling_time_scheme.png)](https://www.reconlearn.org/post/outbreakstatsprimer.html)
 
 $$
 \left.
@@ -624,21 +624,21 @@ $$
 
 ## Modelo de proceso de ramificación
 
--   Teniendo en cuenta  que $R$es el número de reproducción y $w$ la distribución del intervalo serial discreta, la **fuerza de infección** se define como:
+-   Teniendo en cuenta  que $R_t$ es el número de reproducción y $w$ la distribución del intervalo serial discreta, la **fuerza de infección** se define como:
 
 $$
-\lambda_t = R \sum_{s=1}^{t} I_s w(t-s)
+\lambda_t = R_t \sum_{s=1}^{t} I_s w_{t-s}
 $$
 
 ## Verosimilitud (Likelihood)
 
 Una medida relativa de ajuste entre los datos y el modelo. Se define como una función de R:
 
-![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#19](TallerEbola-ppt_files/img/likelihood_reminder.png)
+![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#19](TallerEbola-qmd_files/img/likelihood_reminder.png)
 
 ## Estimación del intervalo serial
 
-![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16](TallerEbola-ppt_files/img/serial_interval_toon.png)
+![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16](TallerEbola-qmd_files/img/serial_interval_toon.png)
 
 ## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
 
@@ -781,6 +781,4 @@ plot(Rt, legend = FALSE)
 
 <center>**¿Cómo interpretaría este resultado?**</center>
 
-# Hemos llegado a la meta...
-
-## ¡Gracias!
+# Hemos llegado a la meta... <br> ¡Gracias!
