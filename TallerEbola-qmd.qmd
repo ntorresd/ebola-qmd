@@ -137,23 +137,19 @@ La práctica está divida en 6 secciones. En cada una de ellas vamos a tener:
 
 # Pasemos a R 👩‍💻👨‍💻
 
-## Instrucciones
-
-```{r}
-countdown::countdown(minutes = 1, seconds = 00, top = 0)
-```
-
--   Cree una carpeta nueva y un proyecto de R en ella
--   Descargue los datos y guárdelos en una nueva carpeta `data/`:
-    -   `data/directorio_casos.rds`
-    -   `data/contactos_20140701.xlsx`
--   Cree un archivo `.RMD` en la raiz del proyecto para escribir y guardar su código
-
-**A continuación vamos a cargar las librerías y los datos a utilizar durante el taller**
-
 ## Instrucciones:
 
--   Cargue las librerías necesarias:
+<br>
+
+### Desarrolle la sección *1. Preparación*
+
+```{r}
+countdown::countdown(minutes = 5, seconds = 00, left=0, right=0)
+```
+
+## Cargue las librerías necesarias:  {visibility="hidden"}
+
+<br>
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
 library(tidyverse) # contiene ggplot2, dplyr, tidyr, readr, purrr, tibble
@@ -166,41 +162,40 @@ library(epitrix) # para ajustar distribuciones
 library(EpiEstim) # para estimar R(t)
 ```
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 1, seconds = 00)
 ```
 
-## Instrucciones:
+## Cargue las bases de datos:  {visibility="hidden"}
 
--   Cargue las bases de datos:
+<br>
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
 directorio_casos <- read_rds("data/directorio_casos.rds")
 contactos <- read_excel("data/contactos_20140701.xlsx", na = c("", "NA"))
 ```
 
--   Tómese su tiempo para mirar los datos y su estructura
-
-```{r echo=TRUE, message=FALSE, results=FALSE, warning=FALSE,comment=""}
-glimpse(contactos)
-glimpse(directorio_casos)
-```
-
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 00)
 ```
 
 ## Estructura de los datos:
 
-::: {height="80%"}
-```{r}
+<font size="6">
+
+<div>
+
+```{r, echo=TRUE}
 glimpse(contactos)
 ```
 
-```{r}
+```{r, echo=TRUE}
 glimpse(directorio_casos)
 ```
-:::
+
+</div>
+
+</font>
 
 <font size="5">
 
@@ -210,7 +205,7 @@ glimpse(directorio_casos)
 
 </font>
 
-```{r}
+```{r, eval=FALSE}
 countdown::countdown(minutes = 2, seconds = 00, top = 0)
 ```
 
@@ -230,25 +225,19 @@ countdown::countdown(minutes = 2, seconds = 00, top = 0)
 
     $\rightarrow$ <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font>
 
-## Tasa de fatalidad de casos (CFR)
-
-### Instrucciones
+## Instrucciones 
 
 <br>
 
-### - Lea la sección 2. CFR
+### Lea y desarrolle la sección *2. CFR*
 
 <br>
 
-### - Ejecute el código correspondiente
-
-```{r}
-countdown::countdown(minutes = 4, seconds = 00)
+```{r, echo=FALSE}
+countdown::countdown(minutes = 5, seconds = 00, left=0, right=0)
 ```
 
 ## Tasa de fatalidad de casos (CFR)
-
-### Instrucciones
 
 <font size="5">
 
@@ -268,13 +257,11 @@ Piense en qué hacer con los casos cuyo resultado es \`NA\`
 
 </font>
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 countdown::countdown(minutes = 1, seconds = 00)
 ```
 
 ## Tasa de fatalidad de casos (CFR)
-
-### Instrucciones
 
 <font size="5">
 
@@ -323,7 +310,7 @@ tasa_letalidad_con_CI
 
 </font>
 
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 countdown::countdown(minutes = 2, seconds = 00)
 ```
 
@@ -339,7 +326,7 @@ countdown::countdown(minutes = 2, seconds = 00)
 
 </font>
 
-![https://pubmed.ncbi.nlm.nih.gov/37566642/](TallerEbola-qmd_files/img/nowcast-germany.jpg)
+![https://www.repidemicsconsortium.org/incidence/](TallerEbola-qmd_files/img/ebola-incidence-pkg.png)
 
 ## Incidencia
 
@@ -351,147 +338,15 @@ countdown::countdown(minutes = 2, seconds = 00)
 
 </font>
 
-### **Miremos las curvas de incidencia**
+### **Para ello, ¡miraremos las curvas de incidencia!** 
 
-**Instrucciones:** Lea la sección 3.1. y complete el código para obtener la curva de incidencia diaria de casos
-
-```{r}
+```{r, echo=FALSE, eval=FALSE}
 countdown::countdown(minutes = 3, seconds = 00)
 ```
 
-## <font size="9">Incidencia diaria según fecha de inicio de síntomas</font>
-
-```{r, eval=FALSE, echo=TRUE}
-incidencia_diaria <- incidence(directorio_casos$fecha_inicio_sintomas)
-incidencia_diaria
-```
-
-::: columns
-::: {.column width="30%"}
-```{r}
-incidencia_diaria <- incidence(directorio_casos$fecha_inicio_sintomas)
-incidencia_diaria
-```
-:::
-
-::: {.column width="70%"}
-```{r, echo=FALSE}
-plot(incidencia_diaria, border = "black")
-```
-
-```{r, echo=TRUE, eval=FALSE}
-plot(incidencia_diaria, border = "black")
-```
-:::
-:::
-
-<center>**¿Qué observa?**</center>
-
-```{r}
-countdown::countdown(minutes = 2, seconds = 00, left = 0)
-```
-
-## Pregunta
-
-### ¿Cuál es la mejor clasificación de la epidemia a partir de la información de la curva epidémica?
-
-A. Fuente común puntual
-
-B. Fuente común continua
-
-C. Fuente común intermitente
-
-D. Propagada (persona a persona)
-
-```{r}
-countdown::countdown(minutes = 1, seconds = 0)
-```
-
-## Pregunta
-
-### Su jefe le pregunta, ¿en qué fecha inició síntomas el primer caso (caso iíndice)?
-
-Usted diría que fue...
-
-```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
-plot(incidencia_diaria, border = "black")
-```
-
-```{r}
-countdown::countdown(minutes = 1, seconds = 00, right = 0)
-```
-
-## Incidencia de casos semanal
-
-### Instrucciones
-
--   Otro problema es que **puede ser difícil interpretar las tendencias al observar la incidencia diaria**
-
--   Calcule y grafique la incidencia semanal **i_weekly**
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment="", eval=FALSE}
-incidencia_semanal <- incidence(PRIMER ARGUMENTO,  #COMPLETE
-                                SEGUNDO ARGUMENTO, #COMPLETE 
-                                TERCER ARGUMENTO)  #COMPLETE
-```
-
-```{r}
-countdown::countdown(minutes = 6, seconds = 00)
-```
-
-## Incidencia de casos semanal
-
-<font size="6">
-
-```{r, eval=FALSE, echo=TRUE}
-incidencia_semanal <- incidence(directorio_casos$fecha_inicio_sintomas, 
-                                interval = 7, 
-                                last_date = max(directorio_casos$fecha_de_hospitalizacion,
-                                                na.rm = TRUE))
-incidencia_semanal
-```
-
-```{r}
-countdown::countdown(minutes = 3, seconds = 00, left=0)
-```
-
-</font>
-
-::: columns
-::: {.column width="40%"}
-```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
-incidencia_semanal <- incidence(directorio_casos$fecha_inicio_sintomas, 
-                                interval = 7, 
-                                last_date = max(directorio_casos$fecha_de_hospitalizacion,
-                                                na.rm = TRUE))
-incidencia_semanal
-```
-:::
-
-::: {.column width="60%"}
-```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
-plot(incidencia_semanal, border = "black")
-```
-
-```{r, eval=FALSE, echo=TRUE}
-plot(incidencia_semanal, border = "black")
-```
-
-**¿Qué opina de esta nueva gráfica?**
-:::
-:::
-
-## Estimación de la tasa de crecimiento mediante un modelo  log-lineal
-
--   El modelo *log-lineal* es uno de los **modelos de incidencia más simple**
-
--   Es un **modelo de regresión lineal implementado sobre incidencias transformadas logarítmicamente**
-
--   Trabajaremos con **incidencia semanal**, para evitar tener problemas con valores de incidencia cero.
-
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
-![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/curv_epi_loglineal.png)
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/curv_epi_loglineal.png){alt="https://www.reconlearn.org/post/outbreakstatsprimer.html"}
 
 <font size="5.5">
 
@@ -527,21 +382,123 @@ $$  \hat{y}_2 = 2\hat{y}_1 \\ 2 = \frac{\hat{y}_2}{\hat{y}_1} = \frac{\exp^{rt_2
 :::
 :::
 
-## <font size=14>Curva epidémica con modelo log lineal</font>
+## Instrucciones
 
-### Instrucciones
+### <br>
+
+### Lea y desarrolle las secciones:
+
+### *3. Incidencia*
+
+### *4. Tasa de crecimiento*
 
 <br>
-
-#### - Lea la sección 4.1. Modelo log-lineal
-
-<br>
-
-#### - Ejecute el código correspondiente
 
 ```{r}
-countdown::countdown(minutes = 5, seconds = 0)
+countdown::countdown(minutes = 25, seconds = 00)
 ```
+
+## <font size="9">Incidencia diaria según fecha de inicio de síntomas</font>
+
+```{r, eval=FALSE, echo=TRUE}
+incidencia_diaria <- incidence(directorio_casos$fecha_inicio_sintomas)
+incidencia_diaria
+```
+
+::: columns
+::: {.column width="30%"}
+```{r}
+incidencia_diaria <- incidence(directorio_casos$fecha_inicio_sintomas)
+incidencia_diaria
+```
+:::
+
+::: {.column width="70%"}
+```{r, echo=FALSE}
+plot(incidencia_diaria, border = "black")
+```
+
+```{r, echo=TRUE, eval=FALSE}
+plot(incidencia_diaria, border = "black")
+```
+:::
+:::
+
+<center>**¿Qué observa?**</center>
+
+```{r, eval=FALSE, echo=FALSE}
+countdown::countdown(minutes = 2, seconds = 00, left = 0)
+```
+
+## Pregunta
+
+### ¿Cuál es la mejor clasificación de la epidemia a partir de la información de la curva epidémica?
+
+A. Fuente común puntual
+
+B. Fuente común continua
+
+C. Fuente común intermitente
+
+D. Propagada (persona a persona)
+
+```{r, eval=FALSE, echo=FALSE}
+countdown::countdown(minutes = 1, seconds = 0)
+```
+
+## Pregunta
+
+### Su jefe le pregunta, ¿en qué fecha inició síntomas el primer caso (caso índice)?
+
+Usted diría que fue...
+
+```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
+plot(incidencia_diaria, border = "black")
+```
+
+```{r, eval=FALSE, echo=FALSE}
+countdown::countdown(minutes = 1, seconds = 00, right = 0)
+```
+
+## Incidencia de casos semanal
+
+<font size="6">
+
+-   Otro problema es que **puede ser difícil interpretar las tendencias al observar la incidencia diaria**
+
+-   Calcule la incidencia semanal:
+
+```{r, eval=TRUE, echo=TRUE}
+incidencia_semanal <- incidence(directorio_casos$fecha_inicio_sintomas, 
+                                interval = 7, 
+                                last_date = max(directorio_casos$fecha_de_hospitalizacion,
+                                                na.rm = TRUE))
+incidencia_semanal
+```
+
+```{r, eval=FALSE, echo=FALSE}
+countdown::countdown(minutes = 3, seconds = 00, left=0)
+```
+
+</font>
+
+## Incidencia de casos semanal
+
+-   Grafique la incidencia semanal:
+
+```{r, eval=TRUE, echo=TRUE}
+plot(incidencia_semanal, border = "black")
+```
+
+<center>**¿Qué opina de esta nueva gráfica?**</center>
+
+## Estimación de la tasa de crecimiento mediante un modelo  log-lineal
+
+-   El modelo *log-lineal* es uno de los **modelos de incidencia más simple**
+
+-   Es un **modelo de regresión lineal implementado sobre incidencias transformadas logarítmicamente**
+
+-   Trabajaremos con **incidencia semanal**, para evitar tener problemas con valores de incidencia cero.
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -550,9 +507,6 @@ countdown::countdown(minutes = 5, seconds = 0)
 <font size="5">
 
 -   Grafique la incidencia transformada logarítmicamente
-
-<!-- -->
-
 -   ¿Qué le dice esta gráfica sobre la epidemia?
 
 </font>
@@ -574,7 +528,7 @@ incidencia_semanal_df <- as.data.frame(incidencia_semanal)
 :::
 :::
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0, left = 0)
 ```
 
@@ -589,7 +543,7 @@ ajuste_modelo
 
 <center>**¿Qué le dicen estos datos?**</center>
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0)
 ```
 
@@ -601,30 +555,8 @@ plot(incidencia_semanal, fit = ajuste_modelo)
 
 <center><font size="6">Mirando la gráfica y el ajuste, **¿cree que este es un ajuste razonable?**</font></center>
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0, top=0, right=0)
-```
-
-## <font size=14>Curva epidémica con modelo log lineal</font>
-
-### Instrucciones:
-
-<font size="6">
-
--   Siga las instrucciones de la sección 4.2. y 4.3.
-
-    1.  Escoja cuantas semanas descartar para corregir el rezago (puede editar el código)
-
-        -   PISTA: ¿cuánto tiempo después de la aparición de los síntomas los casos son hospitalizados?
-
-    2.  Vuelva a ajustar el modelo logarítmico lineal a sus datos truncados
-
-    3.  Observe los nuevos valores de $r$ y $T$ y compárelos con los obtenidos anteriormente
-
-</font>
-
-```{r}
-countdown::countdown(minutes = 10, seconds = 0)
 ```
 
 ## <font size=12>Curva epidémica con modelo log lineal</font>
@@ -649,7 +581,7 @@ countdown::countdown(minutes = 10, seconds = 0)
                             to = fecha_maxima) # eliminamos las últimas dos semanas de datos
     ```
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 1, seconds = 0, left=0)
 ```
 
@@ -657,9 +589,7 @@ countdown::countdown(minutes = 1, seconds = 0, left=0)
 
 <font size="6">
 
-<br>
-
-Vuelva a ajustar y a graficar el modelo logarítmico lineal, pero utilizando los datos truncados **i_weekly_trunc**.
+Vuelva a ajustar y a graficar el modelo logarítmico lineal, pero utilizando los datos truncados.
 
 ```{r, echo=TRUE, eval=FALSE}
 ajuste_modelo_semanal <- incidence::fit(incidencia_semanal_truncada)
@@ -685,11 +615,11 @@ plot(incidencia_semanal_truncada, fit = ajuste_modelo_semanal)
 :::
 :::
 
-<center>**¿cree que este es un ajuste más razonable comparado con el anterior?**</center>
+<center>**¿Cree que este es un ajuste más razonable comparado con el anterior?**</center>
 
 </font>
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0, top = 0, right = 0)
 ```
 
@@ -703,7 +633,7 @@ summary(ajuste_modelo_semanal$model)
 
 **¿El modelo se ajusta bien a los datos?**
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0)
 ```
 
@@ -724,7 +654,7 @@ tasa_crecimiento_IC <- ajuste_modelo_semanal$info$r.conf
 cat("Intervalo de confianza de la tasa de crecimiento diaria (95%):", tasa_crecimiento_IC, "\n")
 ```
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0, left = 0)
 ```
 
@@ -743,7 +673,7 @@ tiempo_duplicacion_IC <- ajuste_modelo_semanal$info$doubling.conf
 cat("Intervalo de confianza del tiempo de duplicación (95%):", tiempo_duplicacion_IC, "\n")
 ```
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 2, seconds = 0, left = 0)
 ```
 
@@ -767,20 +697,16 @@ countdown::countdown(minutes = 2, seconds = 0, left = 0)
 
 </font>
 
-## <font size=14>Generar red de contactos con `epicontacts` </font>
-
-### Instrucciones:
+## Instrucciones 
 
 <br>
 
-1.  **Lea la sección 5. Rastreo de contactos**
+### **Lea y desarrolle la sección *5. Rastreo de contactos***
 
 <br>
-
-2.  **Ejecute el código correspondiente**
 
 ```{r}
-countdown::countdown(minutes = 4, seconds = 0)
+countdown::countdown(minutes = 5, seconds = 0, left=0, right=0)
 ```
 
 ## <font size=14>Generar red de contactos con `epicontacts`</font>
@@ -794,7 +720,7 @@ red_rastreo_contactos <- make_epicontacts(directorio_casos,
 red_rastreo_contactos
 ```
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 1, seconds = 0)
 ```
 
@@ -815,7 +741,7 @@ Usted puede graficar estos contactos de manera personalizada, por ejemplo, escog
 
 </font>
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 1, seconds = 0)
 ```
 
@@ -826,21 +752,21 @@ p <- plot(red_rastreo_contactos, node_shape = "genero", shapes = c(m = "male", f
 p
 ```
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 1, seconds = 0, left = 0)
 ```
 
-## Instrucciones
+## <font size=14>verifique que los contactos visualizados sean realmente casos</font>
 
 -   Usando la función `match` ( ver `?match` ) verifique que los contactos visualizados sean realmente casos.
 
-```{r check_contact_cases}
+```{r, echo=TRUE, eval=TRUE}
 match(contactos$id_caso, directorio_casos$id_caso)
 ```
 
 -   Una vez se asegure de que todos estos son casos, mire la red: ¿Parece que hay superpropagación (transmisión heterogénea)?
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 countdown::countdown(minutes = 1, seconds = 0)
 ```
 
@@ -860,6 +786,12 @@ countdown::countdown(minutes = 1, seconds = 0)
 
 <!--# EpiEstim Vignette • EpiEstim (mrc-ide.github.io) -->
 
+## Intervalo serial:
+
+El ***intervalo serial*** es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios
+
+![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16](TallerEbola-qmd_files/img/serial_interval_toon.png){alt="https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16"}
+
 ## Modelo de proceso de ramificación
 
 -   El paquete **EpiEstim** implementa una **estimación bayesiana del número reproductivo**, utilizando las fechas de inicio de los síntomas y la distribución del intervalo serial
@@ -872,27 +804,35 @@ $$
 
 ## Modelo de proceso de ramificación
 
--   Teniendo en cuenta  que $R_t$ es el número de reproducción y $w$ la distribución del intervalo serial discreta, la **fuerza de infección** se define como:
+-   La **incidencia en el tiempo** $t$ se puede calcular por medio de la **ecuación de renovación**:
 
 $$
 I_t = R_t \sum_{s=0}^{t} I_s w_{t-s}
 $$
 
-## Verosimilitud (Likelihood)
+En donde $R_t$ representa el número de reproducción efectiyo y $w$ la distribución del intervalo serial discreta.
+
+## Verosimilitud (Likelihood)  {visibility="hidden"}
 
 Una medida relativa de ajuste entre los datos y el modelo. Se define como una función de R:
 
 ![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#19](TallerEbola-qmd_files/img/likelihood_reminder.png)
 
-## Estimación del intervalo serial
+## Instrucciones
 
-![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16](TallerEbola-qmd_files/img/serial_interval_toon.png)
+<br>
+
+### Lea y desarrolle las sección *6. Intervalo serial y Rt*
+
+```{r}
+countdown::countdown(minutes =10, seconds=0, left=0, right=0)
+```
 
 ## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
 
 -   **Función y argumentos:**
 
-    -   **get_pairwise(), argumentos relevantes "x" y "attribute" los cuales corresponden a la base y a la variable que contenga las fechas para el cálculo de intervalos.**
+    -   `get_pairwise()`**, argumentos relevantes "x" y "attribute" los cuales corresponden a la base y a la variable que contenga las fechas para el cálculo de intervalos.**
 
 <!-- -->
 
@@ -906,11 +846,11 @@ Una medida relativa de ajuste entre los datos y el modelo. Se define como una fu
 
 -   **Si ese no fuera el caso, que hubiera hecho para obtener esta estimación?**
 
--   Utilice la función **get_pairwise** para extraer el intervalo serial
+-   Utilice la función `get_pairwise` para extraer el intervalo serial
 
 ## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
 
--   Utilice la función **get_pairwise** para extraer el intervalo serial
+-   Utilice la función `get_pairwise` para extraer el intervalo serial
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
 intervalo_serial_observado <- get_pairwise(red_rastreo_contactos, "fecha_inicio_sintomas")
@@ -1010,18 +950,6 @@ config <- make_config(list(mean_si = ajuste_distribucion_gamma$mu, std_si = ajus
 </font>
 
 ## Estimacion del número reproductivo instantáneo (Rt)
-
-Rt \<- estimate_R(incidencia_diaria_truncada, method = "parametric_si",
-
-si_data = si_data,
-
-config = config)
-
-\# mire las estimaciones de Rt más recientes:
-
-tail(Rt\$R\[, c("t_start", "t_end", "Median(R)",
-
-"Quantile.0.025(R)", "Quantile.0.975(R)")\])
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
 # use estimate_R using method = "parametric_si"

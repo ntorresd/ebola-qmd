@@ -532,79 +532,26 @@
 
 </section>
 <section id="instrucciones" class="slide level2">
-<h2>Instrucciones</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_b94ba5e1" data-update-every="1" tabindex="0" style="top:0;right:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-<ul>
-<li>Cree una carpeta nueva y un proyecto de R en ella</li>
-<li>Descargue los datos y guárdelos en una nueva carpeta <code>data/</code>:
-<ul>
-<li><code>data/directorio_casos.rds</code></li>
-<li><code>data/contactos_20140701.xlsx</code></li>
-</ul></li>
-<li>Cree un archivo <code>.RMD</code> en la raiz del proyecto para escribir y guardar su código</li>
-</ul>
-<p><strong>A continuación vamos a cargar las librerías y los datos a utilizar durante el taller</strong></p>
-</section>
-<section id="instrucciones-1" class="slide level2">
 <h2>Instrucciones:</h2>
-<ul>
-<li>Cargue las librerías necesarias:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># contiene ggplot2, dplyr, tidyr, readr, purrr, tibble</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(readxl) <span class="co"># para leer archivos Excel</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(binom) <span class="co"># para intervalos de confianza binomiales</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(knitr) <span class="co"># para crear tablas bonitas con kable()</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(incidence) <span class="co"># para calcular incidencia y ajustar modelos</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(epicontacts) <span class="co"># para análisis de contactos epidemiológicos</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(epitrix) <span class="co"># para ajustar distribuciones</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(EpiEstim) <span class="co"># para estimar R(t)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p><br></p>
+<h3 id="desarrolle-la-sección-1.-preparación">Desarrolle la sección <em>1. Preparación</em></h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_6b9248e7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_c6d96d02" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="instrucciones-2" class="slide level2">
-<h2>Instrucciones:</h2>
-<ul>
-<li>Cargue las bases de datos:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>directorio_casos <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"data/directorio_casos.rds"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>contactos <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/contactos_20140701.xlsx"</span>, <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Tómese su tiempo para mirar los datos y su estructura</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">glimpse</span>(contactos)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">glimpse</span>(directorio_casos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_b999bb66" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
+
+
 <section id="estructura-de-los-datos" class="slide level2">
 <h2>Estructura de los datos:</h2>
-<div height="80%">
+<p><font size="6"></font></p><font size="6">
+<div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">glimpse</span>(contactos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 60
 Columns: 3
@@ -614,6 +561,7 @@ $ fuente     &lt;chr&gt; "otro", "otro", "otro", "otro", "funeral", "otro", "fun
 </div>
 </div>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">glimpse</span>(directorio_casos)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 166
 Columns: 11
@@ -631,20 +579,13 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </div>
 </div>
 </div>
+</font><p><font size="6"></font></p>
 <p><font size="5"></font></p><font size="5">
 <ul>
 <li><p>¿Son los datos y el formato similares a bases de datos de casos que ha visto en el pasado?</p></li>
 <li><p>¿Qué otra información le gustaría recopilar?</p></li>
 </ul>
 </font><p><font size="5"></font></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_1a2adfd3" data-update-every="1" tabindex="0" style="top:0;right:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
 <section id="tasa-de-fatalidad-de-casos-cfr" class="slide level2">
 <h2>Tasa de fatalidad de casos (CFR)</h2>
@@ -662,30 +603,27 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <p><span class="math inline">\(\rightarrow\)</span> <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font></p></li>
 </ul>
 </section>
-<section id="tasa-de-fatalidad-de-casos-cfr-1" class="slide level2">
-<h2>Tasa de fatalidad de casos (CFR)</h2>
-<h3 id="instrucciones-3">Instrucciones</h3>
+<section id="instrucciones-1" class="slide level2">
+<h2>Instrucciones</h2>
 <p><br></p>
-<h3 id="lea-la-sección-2.-cfr">- Lea la sección 2. CFR</h3>
+<h3 id="lea-y-desarrolle-la-sección-2.-cfr">Lea y desarrolle la sección <em>2. CFR</em></h3>
 <p><br></p>
-<h3 id="ejecute-el-código-correspondiente">- Ejecute el código correspondiente</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_d4dc4c39" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_4655819c" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="tasa-de-fatalidad-de-casos-cfr-2" class="slide level2">
+<section id="tasa-de-fatalidad-de-casos-cfr-1" class="slide level2">
 <h2>Tasa de fatalidad de casos (CFR)</h2>
-<h3 id="instrucciones-4">Instrucciones</h3>
 <p><font size="5"></font></p><font size="5">
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">table</span>(directorio_casos<span class="sc">$</span>desenlace, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">table</span>(directorio_casos<span class="sc">$</span>desenlace, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
       Muerte Recuperacion         &lt;NA&gt; 
@@ -698,23 +636,14 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </div>
 </div>
 </font><p><font size="5"></font></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_195996f0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="tasa-de-fatalidad-de-casos-cfr-3" class="slide level2">
+<section id="tasa-de-fatalidad-de-casos-cfr-2" class="slide level2">
 <h2>Tasa de fatalidad de casos (CFR)</h2>
-<h3 id="instrucciones-5">Instrucciones</h3>
 <p><font size="5"></font></p><font size="5">
 <div class="columns">
 <div class="column" style="width:55%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">table</span>(directorio_casos<span class="sc">$</span>desenlace, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">table</span>(directorio_casos<span class="sc">$</span>desenlace, <span class="at">useNA =</span> <span class="st">"ifany"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
       Muerte Recuperacion         &lt;NA&gt; 
@@ -729,10 +658,10 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <div class="columns">
 <div class="column" style="width:65%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>numero_muertes <span class="ot">&lt;-</span> <span class="fu">sum</span>(directorio_casos<span class="sc">$</span>desenlace <span class="sc">%in%</span> <span class="st">"Muerte"</span>) </span>
-<span id="cb10-2"><a href="#cb10-2"></a>numero_con_resultado_conocido <span class="ot">&lt;-</span> <span class="fu">sum</span>(directorio_casos<span class="sc">$</span>desenlace <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Muerte"</span>, <span class="st">"Recuperacion"</span>))  </span>
-<span id="cb10-3"><a href="#cb10-3"></a>tasa_letalidad <span class="ot">&lt;-</span> numero_muertes <span class="sc">/</span> numero_con_resultado_conocido</span>
-<span id="cb10-4"><a href="#cb10-4"></a>tasa_letalidad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>numero_muertes <span class="ot">&lt;-</span> <span class="fu">sum</span>(directorio_casos<span class="sc">$</span>desenlace <span class="sc">%in%</span> <span class="st">"Muerte"</span>) </span>
+<span id="cb11-2"><a href="#cb11-2"></a>numero_con_resultado_conocido <span class="ot">&lt;-</span> <span class="fu">sum</span>(directorio_casos<span class="sc">$</span>desenlace <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Muerte"</span>, <span class="st">"Recuperacion"</span>))  </span>
+<span id="cb11-3"><a href="#cb11-3"></a>tasa_letalidad <span class="ot">&lt;-</span> numero_muertes <span class="sc">/</span> numero_con_resultado_conocido</span>
+<span id="cb11-4"><a href="#cb11-4"></a>tasa_letalidad</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:35%;">
 <p>Cálculo de CFR</p>
@@ -772,14 +701,6 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </div>
 </div>
 </font><p><font size="5"></font></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_461fc4cf" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
 <section id="incidencia" class="slide level2">
 <h2>Incidencia</h2>
@@ -791,7 +712,7 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </ul>
 </font><p><font size="6"></font></p>
 
-<img data-src="TallerEbola-qmd_files/img/nowcast-germany.jpg" class="r-stretch quarto-figure-center"><p class="caption">https://pubmed.ncbi.nlm.nih.gov/37566642/</p></section>
+<img data-src="TallerEbola-qmd_files/img/ebola-incidence-pkg.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.repidemicsconsortium.org/incidence/</p></section>
 <section id="incidencia-1" class="slide level2">
 <h2>Incidencia</h2>
 <p><font size="6"></font></p><font size="6">
@@ -800,167 +721,7 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <li><p>La primera pregunta que queremos responder es:&nbsp; <strong>¿qué tan grave es la situación?</strong></p></li>
 </ul>
 </font><p><font size="6"></font></p>
-<h3 id="miremos-las-curvas-de-incidencia"><strong>Miremos las curvas de incidencia</strong></h3>
-<p><strong>Instrucciones:</strong> Lea la sección 3.1. y complete el código para obtener la curva de incidencia diaria de casos</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_dbe11d07" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="incidencia-diaria-según-fecha-de-inicio-de-síntomas" class="slide level2">
-<h2><font size="9">Incidencia diaria según fecha de inicio de síntomas</font></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>incidencia_diaria <span class="ot">&lt;-</span> <span class="fu">incidence</span>(directorio_casos<span class="sc">$</span>fecha_inicio_sintomas)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>incidencia_diaria</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="columns">
-<div class="column" style="width:30%;">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;incidence object&gt;
-[166 cases from days 2014-04-07 to 2014-06-29]
-
-$counts: matrix with 84 rows and 1 columns
-$n: 166 cases in total
-$dates: 84 dates marking the left-side of bins
-$interval: 1 day
-$timespan: 84 days
-$cumulative: FALSE</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:70%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">plot</span>(incidencia_diaria, <span class="at">border =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<center>
-<strong>¿Qué observa?</strong>
-</center>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_26745c59" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="pregunta" class="slide level2">
-<h2>Pregunta</h2>
-<h3 id="cuál-es-la-mejor-clasificación-de-la-epidemia-a-partir-de-la-información-de-la-curva-epidémica">¿Cuál es la mejor clasificación de la epidemia a partir de la información de la curva epidémica?</h3>
-<p>A. Fuente común puntual</p>
-<p>B. Fuente común continua</p>
-<p>C. Fuente común intermitente</p>
-<p>D. Propagada (persona a persona)</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_8ed689ab" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="pregunta-1" class="slide level2">
-<h2>Pregunta</h2>
-<h3 id="su-jefe-le-pregunta-en-qué-fecha-inició-síntomas-el-primer-caso-caso-iíndice">Su jefe le pregunta, ¿en qué fecha inició síntomas el primer caso (caso iíndice)?</h3>
-<p>Usted diría que fue…</p>
-
-<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"><div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_4914ea06" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="incidencia-de-casos-semanal" class="slide level2">
-<h2>Incidencia de casos semanal</h2>
-<h3 id="instrucciones-6">Instrucciones</h3>
-<ul>
-<li><p>Otro problema es que <strong>puede ser difícil interpretar las tendencias al observar la incidencia diaria</strong></p></li>
-<li><p>Calcule y grafique la incidencia semanal <strong>i_weekly</strong></p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>incidencia_semanal <span class="ot">&lt;-</span> <span class="fu">incidence</span>(PRIMER ARGUMENTO,  <span class="co">#COMPLETE</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>                                SEGUNDO ARGUMENTO, <span class="co">#COMPLETE </span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>                                TERCER ARGUMENTO)  <span class="co">#COMPLETE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_3e0c7b47" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="incidencia-de-casos-semanal-1" class="slide level2">
-<h2>Incidencia de casos semanal</h2>
-<p><font size="6"></font></p><font size="6">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>incidencia_semanal <span class="ot">&lt;-</span> <span class="fu">incidence</span>(directorio_casos<span class="sc">$</span>fecha_inicio_sintomas, </span>
-<span id="cb15-2"><a href="#cb15-2"></a>                                <span class="at">interval =</span> <span class="dv">7</span>, </span>
-<span id="cb15-3"><a href="#cb15-3"></a>                                <span class="at">last_date =</span> <span class="fu">max</span>(directorio_casos<span class="sc">$</span>fecha_de_hospitalizacion,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>                                                <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb15-5"><a href="#cb15-5"></a>incidencia_semanal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_069b1838" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</font><p><font size="6"></font></p>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;incidence object&gt;
-[166 cases from days 2014-04-07 to 2014-06-30]
-[166 cases from ISO weeks 2014-W15 to 2014-W27]
-
-$counts: matrix with 13 rows and 1 columns
-$n: 166 cases in total
-$dates: 13 dates marking the left-side of bins
-$interval: 7 days
-$timespan: 85 days
-$cumulative: FALSE</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">plot</span>(incidencia_semanal, <span class="at">border =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>¿Qué opina de esta nueva gráfica?</strong></p>
-</div>
-</div>
-</section>
-<section id="estimación-de-la-tasa-de-crecimiento-mediante-un-modelo-log-lineal" class="slide level2">
-<h2>Estimación de la tasa de crecimiento mediante un modelo&nbsp; log-lineal</h2>
-<ul>
-<li><p>El modelo <em>log-lineal</em> es uno de los <strong>modelos de incidencia más simple</strong></p></li>
-<li><p>Es un <strong>modelo de regresión lineal implementado sobre incidencias transformadas logarítmicamente</strong></p></li>
-<li><p>Trabajaremos con <strong>incidencia semanal</strong>, para evitar tener problemas con valores de incidencia cero.</p></li>
-</ul>
+<h3 id="para-ello-miraremos-las-curvas-de-incidencia"><strong>Para ello, ¡miraremos las curvas de incidencia!</strong></h3>
 </section>
 <section id="curva-epidémica-con-modelo-log-lineal" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
@@ -987,32 +748,128 @@ $cumulative: FALSE</code></pre>
 </div>
 </div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-1" class="slide level2">
-<h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
-<h3 id="instrucciones-7">Instrucciones</h3>
+<section id="instrucciones-2" class="slide level2">
+<h2>Instrucciones</h2>
+<h3 id="section"><br></h3>
+<h3 id="lea-y-desarrolle-las-secciones">Lea y desarrolle las secciones:</h3>
+<h3 id="incidencia-2"><em>3. Incidencia</em></h3>
+<h3 id="tasa-de-crecimiento"><em>4. Tasa de crecimiento</em></h3>
 <p><br></p>
-<h4 id="lea-la-sección-4.1.-modelo-log-lineal">- Lea la sección 4.1. Modelo log-lineal</h4>
-<p><br></p>
-<h4 id="ejecute-el-código-correspondiente-1">- Ejecute el código correspondiente</h4>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7892eccd" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_8407eff5" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-2" class="slide level2">
+<section id="incidencia-diaria-según-fecha-de-inicio-de-síntomas" class="slide level2">
+<h2><font size="9">Incidencia diaria según fecha de inicio de síntomas</font></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>incidencia_diaria <span class="ot">&lt;-</span> <span class="fu">incidence</span>(directorio_casos<span class="sc">$</span>fecha_inicio_sintomas)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>incidencia_diaria</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;incidence object&gt;
+[166 cases from days 2014-04-07 to 2014-06-29]
+
+$counts: matrix with 84 rows and 1 columns
+$n: 166 cases in total
+$dates: 84 dates marking the left-side of bins
+$interval: 1 day
+$timespan: 84 days
+$cumulative: FALSE</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">plot</span>(incidencia_diaria, <span class="at">border =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<center>
+<strong>¿Qué observa?</strong>
+</center>
+</section>
+<section id="pregunta" class="slide level2">
+<h2>Pregunta</h2>
+<h3 id="cuál-es-la-mejor-clasificación-de-la-epidemia-a-partir-de-la-información-de-la-curva-epidémica">¿Cuál es la mejor clasificación de la epidemia a partir de la información de la curva epidémica?</h3>
+<p>A. Fuente común puntual</p>
+<p>B. Fuente común continua</p>
+<p>C. Fuente común intermitente</p>
+<p>D. Propagada (persona a persona)</p>
+</section>
+<section id="pregunta-1" class="slide level2">
+<h2>Pregunta</h2>
+<h3 id="su-jefe-le-pregunta-en-qué-fecha-inició-síntomas-el-primer-caso-caso-índice">Su jefe le pregunta, ¿en qué fecha inició síntomas el primer caso (caso índice)?</h3>
+<p>Usted diría que fue…</p>
+
+<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
+<section id="incidencia-de-casos-semanal" class="slide level2">
+<h2>Incidencia de casos semanal</h2>
+<p><font size="6"></font></p><font size="6">
+<ul>
+<li><p>Otro problema es que <strong>puede ser difícil interpretar las tendencias al observar la incidencia diaria</strong></p></li>
+<li><p>Calcule la incidencia semanal:</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>incidencia_semanal <span class="ot">&lt;-</span> <span class="fu">incidence</span>(directorio_casos<span class="sc">$</span>fecha_inicio_sintomas, </span>
+<span id="cb15-2"><a href="#cb15-2"></a>                                <span class="at">interval =</span> <span class="dv">7</span>, </span>
+<span id="cb15-3"><a href="#cb15-3"></a>                                <span class="at">last_date =</span> <span class="fu">max</span>(directorio_casos<span class="sc">$</span>fecha_de_hospitalizacion,</span>
+<span id="cb15-4"><a href="#cb15-4"></a>                                                <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-5"><a href="#cb15-5"></a>incidencia_semanal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;incidence object&gt;
+[166 cases from days 2014-04-07 to 2014-06-30]
+[166 cases from ISO weeks 2014-W15 to 2014-W27]
+
+$counts: matrix with 13 rows and 1 columns
+$n: 166 cases in total
+$dates: 13 dates marking the left-side of bins
+$interval: 7 days
+$timespan: 85 days
+$cumulative: FALSE</code></pre>
+</div>
+</div>
+</font><p><font size="6"></font></p>
+</section>
+<section id="incidencia-de-casos-semanal-1" class="slide level2">
+<h2>Incidencia de casos semanal</h2>
+<ul>
+<li>Grafique la incidencia semanal:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">plot</span>(incidencia_semanal, <span class="at">border =</span> <span class="st">"black"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-28-1.png" width="960" class="r-stretch"><center>
+<strong>¿Qué opina de esta nueva gráfica?</strong>
+</center>
+</section>
+<section id="estimación-de-la-tasa-de-crecimiento-mediante-un-modelo-log-lineal" class="slide level2">
+<h2>Estimación de la tasa de crecimiento mediante un modelo&nbsp; log-lineal</h2>
+<ul>
+<li><p>El modelo <em>log-lineal</em> es uno de los <strong>modelos de incidencia más simple</strong></p></li>
+<li><p>Es un <strong>modelo de regresión lineal implementado sobre incidencias transformadas logarítmicamente</strong></p></li>
+<li><p>Trabajaremos con <strong>incidencia semanal</strong>, para evitar tener problemas con valores de incidencia cero.</p></li>
+</ul>
+</section>
+<section id="curva-epidémica-con-modelo-log-lineal-1" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p><font size="5"></font></p><font size="5">
 <ul>
 <li>Grafique la incidencia transformada logarítmicamente</li>
-</ul>
-<!-- -->
-<ul>
 <li>¿Qué le dice esta gráfica sobre la epidemia?</li>
 </ul>
 </font><p><font size="5"></font></p>
@@ -1028,21 +885,13 @@ $cumulative: FALSE</code></pre>
 <span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">ylab</span>(<span class="st">"Incidencia semanal logarítmica"</span>) <span class="sc">+</span> </span>
 <span id="cb18-8"><a href="#cb18-8"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
 </div>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_fc93ea8a" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-3" class="slide level2">
+<section id="curva-epidémica-con-modelo-log-lineal-2" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
 <h4 id="ajuste-un-modelo-log-lineal-a-los-datos-de-incidencia">Ajuste un modelo log-lineal a los datos de incidencia</h4>
 <div class="cell">
@@ -1074,59 +923,18 @@ $info: list containing the following items:
 <center>
 <strong>¿Qué le dicen estos datos?</strong>
 </center>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_6660ba6b" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-4" class="slide level2">
+<section id="curva-epidémica-con-modelo-log-lineal-3" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">plot</span>(incidencia_semanal, <span class="at">fit =</span> ajuste_modelo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-38-1.png" width="960" class="r-stretch"><center>
+<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-33-1.png" width="960" class="r-stretch"><center>
 <font size="6">Mirando la gráfica y el ajuste, <strong>¿cree que este es un ajuste razonable?</strong></font>
 </center>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_d7394d7e" data-update-every="1" tabindex="0" style="top:0;right:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-5" class="slide level2">
-<h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
-<h3 id="instrucciones-8">Instrucciones:</h3>
-<p><font size="6"></font></p><font size="6">
-<ul>
-<li><p>Siga las instrucciones de la sección 4.2. y 4.3.</p>
-<ol type="1">
-<li><p>Escoja cuantas semanas descartar para corregir el rezago (puede editar el código)</p>
-<ul>
-<li>PISTA: ¿cuánto tiempo después de la aparición de los síntomas los casos son hospitalizados?</li>
-</ul></li>
-<li><p>Vuelva a ajustar el modelo logarítmico lineal a sus datos truncados</p></li>
-<li><p>Observe los nuevos valores de <span class="math inline">\(r\)</span> y <span class="math inline">\(T\)</span> y compárelos con los obtenidos anteriormente</p></li>
-</ol></li>
-</ul>
-</font><p><font size="6"></font></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_0ada0d92" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section id="curva-epidémica-con-modelo-log-lineal-6" class="slide level2">
+<section id="curva-epidémica-con-modelo-log-lineal-4" class="slide level2">
 <h2><font size="12">Curva epidémica con modelo log lineal</font></h2>
 <h4 id="cuántas-semanas-debe-descartar-al-final-de-la-epicurva">¿Cuántas semanas debe descartar al final de la epicurva?</h4>
 <ul>
@@ -1147,20 +955,11 @@ $info: list containing the following items:
 <span id="cb22-13"><a href="#cb22-13"></a>                        <span class="at">to =</span> fecha_maxima) <span class="co"># eliminamos las últimas dos semanas de datos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_13909924" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-7" class="slide level2">
+<section id="curva-epidémica-con-modelo-log-lineal-5" class="slide level2">
 <h2><font size="12">Curva epidémica con modelo log lineal</font></h2>
 <p><font size="6"></font></p><font size="6">
-<p><br></p>
-<p>Vuelva a ajustar y a graficar el modelo logarítmico lineal, pero utilizando los datos truncados <strong>i_weekly_trunc</strong>.</p>
+<p>Vuelva a ajustar y a graficar el modelo logarítmico lineal, pero utilizando los datos truncados.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>ajuste_modelo_semanal <span class="ot">&lt;-</span> incidence<span class="sc">::</span><span class="fu">fit</span>(incidencia_semanal_truncada)</span>
 <span id="cb23-2"><a href="#cb23-2"></a>ajuste_modelo_semanal</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1194,7 +993,7 @@ $info: list containing the following items:
 </div><div class="column" style="width:65%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-45-1.png" width="960"></p>
+<p><img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-39-1.png" width="960"></p>
 </div>
 </div>
 <div class="cell">
@@ -1203,19 +1002,11 @@ $info: list containing the following items:
 </div>
 </div>
 <center>
-<strong>¿cree que este es un ajuste más razonable comparado con el anterior?</strong>
+<strong>¿Cree que este es un ajuste más razonable comparado con el anterior?</strong>
 </center>
 </font><p><font size="6"></font></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_c61f2370" data-update-every="1" tabindex="0" style="top:0;right:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-8" class="slide level2">
+<section id="curva-epidémica-con-modelo-log-lineal-6" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
 <h4 id="observe-las-estadísticas-resumidas-de-su-ajuste">Observe las estadísticas resumidas de su ajuste:</h4>
 <div class="cell">
@@ -1242,16 +1033,8 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 </div>
 </div>
 <p><strong>¿El modelo se ajusta bien a los datos?</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_34b49552" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="curva-epidémica-con-modelo-log-lineal-9" class="slide level2">
+<section id="curva-epidémica-con-modelo-log-lineal-7" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
 <h4 id="estimacion-de-la-tasa-de-crecimiento">Estimacion de la tasa de crecimiento</h4>
 <p>¿Cuál es la tasa de crecimiento estimada de la epidemia?, ¿Cómo lo interpreta?</p>
@@ -1268,14 +1051,6 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 <span id="cb30-4"><a href="#cb30-4"></a><span class="fu">cat</span>(<span class="st">"Intervalo de confianza de la tasa de crecimiento diaria (95%):"</span>, tasa_crecimiento_IC, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Intervalo de confianza de la tasa de crecimiento diaria (95%): 0.03323024 0.0712507 </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_de8ae02e" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
 </div>
 </div>
 </section>
@@ -1296,14 +1071,6 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 <pre><code>Intervalo de confianza del tiempo de duplicación (95%): 9.728286 20.85893 </code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_983c27d5" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
 <section id="generar-red-de-contactos-con-epicontacts" class="slide level2">
 <h2><font size="14">Generar red de contactos con <code>epicontacts</code></font></h2>
@@ -1321,27 +1088,21 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 </ul>
 </font><p><font size="6.5"></font></p>
 </section>
-<section id="generar-red-de-contactos-con-epicontacts-1" class="slide level2">
-<h2><font size="14">Generar red de contactos con <code>epicontacts</code> </font></h2>
-<h3 id="instrucciones-9">Instrucciones:</h3>
+<section id="instrucciones-3" class="slide level2">
+<h2>Instrucciones</h2>
 <p><br></p>
-<ol type="1">
-<li><strong>Lea la sección 5. Rastreo de contactos</strong></li>
-</ol>
+<h3 id="lea-y-desarrolle-la-sección-5.-rastreo-de-contactos"><strong>Lea y desarrolle la sección <em>5. Rastreo de contactos</em></strong></h3>
 <p><br></p>
-<ol start="2" type="1">
-<li><strong>Ejecute el código correspondiente</strong></li>
-</ol>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_09ac61e7" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_779b9e30" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section>
-<section id="generar-red-de-contactos-con-epicontacts-2" class="slide level2">
+<section id="generar-red-de-contactos-con-epicontacts-1" class="slide level2">
 <h2><font size="14">Generar red de contactos con <code>epicontacts</code></font></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>red_rastreo_contactos <span class="ot">&lt;-</span> <span class="fu">make_epicontacts</span>(directorio_casos, </span>
@@ -1395,16 +1156,8 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 # ℹ 50 more rows</code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_40ab275f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="generar-red-de-contactos-con-epicontacts-3" class="slide level2">
+<section id="generar-red-de-contactos-con-epicontacts-2" class="slide level2">
 <h2><font size="14">Generar red de contactos con <code>epicontacts</code></font></h2>
 <p>Observe la fuente de infección reportada de los contactos.</p>
 <div class="cell">
@@ -1420,41 +1173,26 @@ funeral    otro
 <li>Ver <code>?vis_epicontacts</code></li>
 </ul>
 </font><p><font size="6"></font></p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_490adafc" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section id="generar-red-de-contactos-con-epicontacts-4" class="slide level2">
+<section id="generar-red-de-contactos-con-epicontacts-3" class="slide level2">
 <h2><font size="14">Generar red de contactos con <code>epicontacts</code></font></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plot</span>(red_rastreo_contactos, <span class="at">node_shape =</span> <span class="st">"genero"</span>, <span class="at">shapes =</span> <span class="fu">c</span>(<span class="at">m =</span> <span class="st">"male"</span>, <span class="at">f =</span> <span class="st">"female"</span>), <span class="at">node_color =</span> <span class="st">"genero"</span>, <span class="at">edge_color =</span> <span class="st">"fuente"</span>, <span class="at">selector =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb39-2"><a href="#cb39-2"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<div id="htmlwidget-eccb95f95fbde2c03176" style="width:90%;height:700px;" class="visNetwork html-widget "></div>
-<script type="application/json" data-for="htmlwidget-eccb95f95fbde2c03176">{"x":{"nodes":{"id":["0082bf","02d8fd","057e7a","07e3e8","09e386","0f58c4","102363","11f8ea","133ee7","1511c5","20b688","275cc7","2ae019","2b8773","2eaa9a","30c98c","369449","37a6f6","3ef3d9","3f1aaf","40ae5f","49d786","4b38b7","528572","53371b","5387a2","57a565","5837cf","5fe599","6285c9","6fa4bf","72b905","76b97a","79ad06","7e95d1","80663c","821030","865581","881bd4","88f67f","893f25","894000000","8e104d","8f227d","900021","920c1b","968888","96e309","974bc1","9e74c4","9f5d3b","9f6884","a3c8b8","a6c614","acbbf6","acf422","ae96ac","b8f2fd","bc9ace","bd8c0e","be6c4b","c29eb5","c36eb4","c4e706","cd2dd3","d0523a","d1fafd","d58402","d8a13d","daddbc","dae8c7","db4b96","db5a62","dbebea","dce5cc","ddddee","df4951","e02f66","e4bee8","e61cb9","e85785","f1f60f","f547d6","f5c3d8","f9149b","f96aa5","fc05c1","fc15ef"],"generacion":[8,9,7,4,5,2,3,2,3,5,3,5,3,5,5,3,4,5,5,null,4,3,6,7,1,4,4,4,4,4,5,4,2,4,4,4,6,4,3,3,3,6,5,3,3,5,6,5,4,10,5,4,4,5,10,6,10,5,4,3,4,4,8,5,8,7,0,2,4,4,3,3,7,7,4,6,8,4,6,8,5,4,3,1,3,3,4,6],"fecha_de_infeccion":["2014-06-12","2014-06-14","2014-06-04","2014-05-22","2014-05-09","2014-04-22",null,null,"2014-05-23","2014-05-15",null,"2014-05-24",null,"2014-05-31","2014-06-07",null,"2014-05-28",null,"2014-06-06",null,"2014-05-04",null,"2014-05-17","2014-05-31","2014-04-09","2014-05-26","2014-05-28","2014-05-05","2014-05-08","2014-05-04","2014-06-05","2014-05-06","2014-05-11","2014-05-03","2014-05-25","2014-05-19",null,"2014-05-07","2014-04-26","2014-05-17","2014-05-18","2014-06-10",null,"2014-05-16","2014-05-09","2014-05-28","2014-05-23","2014-05-22","2014-05-05","2014-06-20","2014-06-03","2014-06-02","2014-05-07","2014-06-05","2014-06-20","2014-05-25","2014-06-20","2014-05-07","2014-05-07",null,"2014-05-23","2014-05-08","2014-06-15",null,"2014-06-12","2014-05-20",null,"2014-04-23","2014-05-06","2014-06-06","2014-05-23","2014-05-16","2014-06-17",null,"2014-05-03","2014-06-18","2014-06-02","2014-05-18","2014-06-17",null,"2014-05-27",null,"2014-05-02","2014-04-18",null,"2014-05-17","2014-05-15","2014-06-14"],"fecha_inicio_sintomas":["2014-06-18","2014-06-20","2014-06-14","2014-05-27","2014-05-11","2014-04-26","2014-05-14","2014-05-16","2014-05-27","2014-05-23","2014-05-05","2014-05-27","2014-05-06","2014-06-06","2014-06-17","2014-06-06","2014-06-02","2014-06-10","2014-06-16",null,"2014-05-07","2014-05-20","2014-05-19","2014-06-09","2014-04-15","2014-05-31","2014-06-13","2014-06-02","2014-05-13","2014-05-14","2014-06-10","2014-05-12","2014-05-16","2014-05-06","2014-06-05","2014-05-26","2014-06-16","2014-05-12","2014-05-01","2014-06-02","2014-05-21","2014-06-25","2014-06-12","2014-06-07","2014-05-14","2014-06-26","2014-05-27","2014-05-29","2014-05-09","2014-06-22","2014-06-05","2014-06-07","2014-05-08","2014-06-16","2014-06-24","2014-05-27","2014-06-25","2014-05-12","2014-05-18","2014-05-17","2014-05-27","2014-05-09","2014-06-20","2014-05-23","2014-06-21","2014-05-24","2014-04-07","2014-05-01","2014-05-08","2014-06-23","2014-05-25","2014-05-31","2014-06-19","2014-06-02","2014-05-17","2014-06-26","2014-06-24","2014-05-24","2014-06-22","2014-06-09","2014-06-03","2014-05-04","2014-05-07","2014-04-21","2014-05-03","2014-05-19","2014-06-08","2014-06-16"],"fecha_de_hospitalizacion":["2014-06-26","2014-06-20","2014-06-15","2014-05-29","2014-05-14","2014-04-29","2014-05-18","2014-05-18","2014-05-29","2014-06-02","2014-05-06","2014-05-28","2014-05-11","2014-06-07","2014-06-17","2014-06-06","2014-06-03","2014-06-15","2014-06-19",null,"2014-05-08","2014-05-24","2014-05-20","2014-06-18","2014-04-20","2014-05-31","2014-06-15","2014-06-07","2014-05-15","2014-05-14","2014-06-11","2014-05-13","2014-05-25","2014-05-16","2014-06-07","2014-06-02","2014-06-24","2014-05-15","2014-05-05","2014-06-10","2014-05-22","2014-06-29","2014-06-19","2014-06-10","2014-05-17","2014-06-27","2014-06-03","2014-06-01","2014-05-13","2014-06-24","2014-06-14","2014-06-07","2014-05-10","2014-06-18","2014-06-30","2014-05-28","2014-06-25","2014-05-13","2014-05-24","2014-05-26","2014-06-06","2014-05-24","2014-06-21","2014-05-24","2014-06-27","2014-05-26","2014-04-17","2014-05-10","2014-05-10","2014-06-26","2014-05-27","2014-06-01","2014-06-22","2014-06-03","2014-05-18","2014-06-28","2014-06-27","2014-05-25","2014-06-25","2014-06-14","2014-06-08","2014-05-09","2014-05-08","2014-04-25","2014-05-04","2014-05-20","2014-06-09","2014-06-17"],"fecha_desenlace":["2014-06-28","2014-07-01",null,"2014-06-01","2014-05-14","2014-05-17","2014-05-23","2014-05-30","2014-05-29","2014-06-13","2014-05-14","2014-06-07","2014-04-30","2014-06-16",null,"2014-06-09","2014-06-07","2014-06-01",null,null,null,"2014-05-11","2014-05-31",null,null,"2014-06-17",null,null,null,"2014-05-17",null,null,"2014-06-17","2014-05-23","2014-06-11",null,null,null,null,"2014-06-11","2014-05-29",null,"2014-06-20","2014-06-11","2014-05-20",null,"2014-06-04",null,"2014-05-16",null,null,"2014-07-01","2014-05-14","2014-06-26",null,"2014-06-27","2014-06-27","2014-05-18","2014-06-09","2014-05-09","2014-06-08","2014-06-11","2014-06-24","2014-06-02",null,"2014-06-05","2014-04-19","2014-05-11",null,null,"2014-05-30",null,"2014-06-25","2014-06-05","2014-05-22",null,null,"2014-05-31",null,"2014-06-15","2014-06-02","2014-05-26","2014-05-15","2014-04-30",null,"2014-05-23","2014-05-31",null],"desenlace":["Recuperacion","Muerte","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Muerte","Recuperacion","Muerte","Muerte",null,null,"Recuperacion","Recuperacion","Muerte","Recuperacion","Muerte",null,null,"Muerte","Muerte",null,null,"Muerte","Muerte","Recuperacion",null,"Muerte","Muerte","Recuperacion","Recuperacion",null,"Muerte",null,null,"Muerte","Muerte",null,"Recuperacion","Muerte","Muerte","Muerte",null,null,null,"Muerte","Muerte",null,null,null,"Recuperacion","Recuperacion",null,"Recuperacion","Muerte",null,"Recuperacion","Muerte","Recuperacion",null,"Muerte",null,null,null,null,"Recuperacion",null,null,"Muerte","Muerte","Muerte",null,"Muerte",null,null,null,null,null,"Muerte","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Recuperacion",null,null],"genero":["f","m","f","f","f","f","m","m","f","f","m","f","m","f","f","m","f","m","f",null,"f","m","f","m","m","m","m","f","m","f","m","m","m","f","f","f","f","m","f","f","m","m","m","f","f","f","f","m","f","m","f","m","m","f","f","m","m","f","m","m","f","f","m","m","m","f","f","f","f","m","f","m","f","m","f","f","f","f","f","f","m","f","f","f","f","m","f","m"],"hospital":[null,"Connaught Hospital",null,null,"Military Hospital","other","Connaught Hospital","Princess Christian Maternity Hospital (PCMH)",null,null,"Rokupa Hospital","Rokupa Hospital","other",null,null,"Rokupa Hospital",null,null,"Rokupa Hospital",null,"Connaught Hospital","other","Military Hospital","Connaught Hospital","Connaught Hospital","Connaught Hospital","Military Hospital",null,"other",null,"Military Hospital","other","other","Mitylira Hospital","other","Military Hospital",null,"Military Hospital","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Military Hospital","Military Hospital",null,null,null,"other","other","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Princess Christian Maternity Hospital (PCMH)",null,"Connaught Hospital","Connaught Hospital","other",null,"Rokupa Hospital","Connaught Hospital","Rokupa Hospital",null,"Military Hospital","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Connaught Hospital",null,"other",null,"Military Hospital","Rokupa Hospital","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Connaught Hospital",null,"Princess Christian Maternity Hospital (PCMH)","Connaught Hospital","other","other","Connaught Hospital","Connaught Hospital","other","other",null,null,"Connaught Hospital","other","Connaught Hospital","Princess Christian Maternity Hospital (PCMH)","Rokupa Hospital",null],"longitud":[-13.2114604420238,-13.2124311244169,-13.2180326141688,-13.2331547837254,-13.2175807732598,-13.2101641430217,-13.2207535385608,-13.212910703914,-13.2230208115547,-13.2288326440567,-13.2330769474001,-13.2369393782451,-13.2680940795671,-13.2149474159902,-13.209391925612,-13.2393862117589,-13.2320975453153,-13.239768124315,-13.246797325633,null,-13.2620683308737,-13.2139373682154,-13.2227955183357,-13.2262837664769,-13.2149052395664,-13.2628435102304,-13.253989309478,-13.2166941768351,-13.2157351064963,-13.2205862656383,-13.2381754136412,-13.2122631729853,-13.21067093582,-13.2243136144697,-13.2130676460927,-13.2505702703486,-13.2189360704491,-13.2485268641431,-13.2169433423126,-13.2492596266226,-13.2228638912441,-13.2184962475637,-13.2159288644661,-13.2180963529452,-13.2133023080993,-13.2143944706215,-13.2196619126088,-13.2321342767225,-13.2612994440366,-13.2116372005782,-13.2576952815319,-13.2242058657802,-13.2231931914572,-13.2190654487695,-13.2125483775873,-13.2688968279886,-13.2131457458534,-13.2403686796131,-13.2280926526392,-13.2597286822488,-13.2160715885846,-13.2166275087023,-13.2619688324425,-13.2143394209926,-13.2395544609828,-13.2565628977111,-13.217990646098,-13.2263332366586,-13.2354719577436,-13.2248844074011,-13.2197320896877,-13.248633850792,-13.237128159707,-13.2164705932244,-13.2208460857832,-13.2535640411465,-13.2384499801949,-13.2599196027204,-13.2299234894085,-13.2387287299605,-13.2343655285518,-13.2189142321497,-13.2193318178555,-13.2280410276091,-13.2481588312543,-13.2523649449559,-13.2133487439158,-13.2385127873491],"latitud":[8.466449852543681,8.45344099552146,8.471555356080181,8.462729314626459,8.4786299722343,8.45214268335056,8.462910867048571,8.46481700596819,8.461427818160409,8.47003087379739,8.46002984141364,8.46916113869591,8.4525060806121,8.45192988292173,8.47570184950483,8.48677227640615,8.461443675342711,8.45537454926694,8.484724340817319,null,8.486169044104599,8.48839078503288,8.46272144047102,8.48655780262327,8.46492652251777,8.45524160975253,8.458371253408441,8.48743147807583,8.46897295100924,8.45056919644254,8.46964062310321,8.468384418957481,8.481300282075059,8.47068622864392,8.47784554078808,8.487205666224421,8.48497366928361,8.48560968764529,8.485358425215029,8.486093977777211,8.46082377490923,8.479102828304971,8.48440163843973,8.487533546759961,8.47650774743772,8.45379171630313,8.47757752986495,8.478196335849541,8.48710963411424,8.470845197531929,8.45344122900589,8.48663467687094,8.473251282696969,8.477376409756589,8.468735921078411,8.478459736485529,8.46397733703235,8.45437728056147,8.478952657686939,8.45169617204413,8.48927901814328,8.4886213986049,8.48475855218221,8.48932072596067,8.47601368595849,8.483792480163469,8.473514005515989,8.472739269121391,8.462768272948701,8.48560655485865,8.448521925485339,8.477874641314401,8.47419907653147,8.48666377289188,8.483678862999581,8.45957352078114,8.47665596749586,8.45436259178895,8.478470940175161,8.470469104321291,8.47939496892986,8.482058789771219,8.4762810528991,8.483355509083269,8.46468165143675,8.460107149307101,8.466490543391069,8.477617055125091],"label":["0082bf","02d8fd","057e7a","07e3e8","09e386","0f58c4","102363","11f8ea","133ee7","1511c5","20b688","275cc7","2ae019","2b8773","2eaa9a","30c98c","369449","37a6f6","3ef3d9","3f1aaf","40ae5f","49d786","4b38b7","528572","53371b","5387a2","57a565","5837cf","5fe599","6285c9","6fa4bf","72b905","76b97a","79ad06","7e95d1","80663c","821030","865581","881bd4","88f67f","893f25","894000000","8e104d","8f227d","900021","920c1b","968888","96e309","974bc1","9e74c4","9f5d3b","9f6884","a3c8b8","a6c614","acbbf6","acf422","ae96ac","b8f2fd","bc9ace","bd8c0e","be6c4b","c29eb5","c36eb4","c4e706","cd2dd3","d0523a","d1fafd","d58402","d8a13d","daddbc","dae8c7","db4b96","db5a62","dbebea","dce5cc","ddddee","df4951","e02f66","e4bee8","e61cb9","e85785","f1f60f","f547d6","f5c3d8","f9149b","f96aa5","fc05c1","fc15ef"],"title":["<p> id: 0082bf<br>generacion: 8<br>fecha_de_infeccion: 2014-06-12<br>fecha_inicio_sintomas: 2014-06-18<br>fecha_de_hospitalizacion: 2014-06-26<br>fecha_desenlace: 2014-06-28<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2114604420238<br>latitud: 8.46644985254368 <\/p>","<p> id: 02d8fd<br>generacion: 9<br>fecha_de_infeccion: 2014-06-14<br>fecha_inicio_sintomas: 2014-06-20<br>fecha_de_hospitalizacion: 2014-06-20<br>fecha_desenlace: 2014-07-01<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2124311244169<br>latitud: 8.45344099552146 <\/p>","<p> id: 057e7a<br>generacion: 7<br>fecha_de_infeccion: 2014-06-04<br>fecha_inicio_sintomas: 2014-06-14<br>fecha_de_hospitalizacion: 2014-06-15<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2180326141688<br>latitud: 8.47155535608018 <\/p>","<p> id: 07e3e8<br>generacion: 4<br>fecha_de_infeccion: 2014-05-22<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-29<br>fecha_desenlace: 2014-06-01<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2331547837254<br>latitud: 8.46272931462646 <\/p>","<p> id: 09e386<br>generacion: 5<br>fecha_de_infeccion: 2014-05-09<br>fecha_inicio_sintomas: 2014-05-11<br>fecha_de_hospitalizacion: 2014-05-14<br>fecha_desenlace: 2014-05-14<br>desenlace: Recuperacion<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2175807732598<br>latitud: 8.4786299722343 <\/p>","<p> id: 0f58c4<br>generacion: 2<br>fecha_de_infeccion: 2014-04-22<br>fecha_inicio_sintomas: 2014-04-26<br>fecha_de_hospitalizacion: 2014-04-29<br>fecha_desenlace: 2014-05-17<br>desenlace: Recuperacion<br>genero: f<br>hospital: other<br>longitud: -13.2101641430217<br>latitud: 8.45214268335056 <\/p>","<p> id: 102363<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-14<br>fecha_de_hospitalizacion: 2014-05-18<br>fecha_desenlace: 2014-05-23<br>desenlace: Recuperacion<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2207535385608<br>latitud: 8.46291086704857 <\/p>","<p> id: 11f8ea<br>generacion: 2<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-16<br>fecha_de_hospitalizacion: 2014-05-18<br>fecha_desenlace: 2014-05-30<br>desenlace: Recuperacion<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.212910703914<br>latitud: 8.46481700596819 <\/p>","<p> id: 133ee7<br>generacion: 3<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-29<br>fecha_desenlace: 2014-05-29<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2230208115547<br>latitud: 8.46142781816041 <\/p>","<p> id: 1511c5<br>generacion: 5<br>fecha_de_infeccion: 2014-05-15<br>fecha_inicio_sintomas: 2014-05-23<br>fecha_de_hospitalizacion: 2014-06-02<br>fecha_desenlace: 2014-06-13<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2288326440567<br>latitud: 8.47003087379739 <\/p>","<p> id: 20b688<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-05<br>fecha_de_hospitalizacion: 2014-05-06<br>fecha_desenlace: 2014-05-14<br>desenlace: Muerte<br>genero: m<br>hospital: Rokupa Hospital<br>longitud: -13.2330769474001<br>latitud: 8.46002984141364 <\/p>","<p> id: 275cc7<br>generacion: 5<br>fecha_de_infeccion: 2014-05-24<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-28<br>fecha_desenlace: 2014-06-07<br>desenlace: Muerte<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2369393782451<br>latitud: 8.46916113869591 <\/p>","<p> id: 2ae019<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-06<br>fecha_de_hospitalizacion: 2014-05-11<br>fecha_desenlace: 2014-04-30<br>desenlace: NA<br>genero: m<br>hospital: other<br>longitud: -13.2680940795671<br>latitud: 8.4525060806121 <\/p>","<p> id: 2b8773<br>generacion: 5<br>fecha_de_infeccion: 2014-05-31<br>fecha_inicio_sintomas: 2014-06-06<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: 2014-06-16<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2149474159902<br>latitud: 8.45192988292173 <\/p>","<p> id: 2eaa9a<br>generacion: 5<br>fecha_de_infeccion: 2014-06-07<br>fecha_inicio_sintomas: 2014-06-17<br>fecha_de_hospitalizacion: 2014-06-17<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.209391925612<br>latitud: 8.47570184950483 <\/p>","<p> id: 30c98c<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-06<br>fecha_de_hospitalizacion: 2014-06-06<br>fecha_desenlace: 2014-06-09<br>desenlace: Recuperacion<br>genero: m<br>hospital: Rokupa Hospital<br>longitud: -13.2393862117589<br>latitud: 8.48677227640615 <\/p>","<p> id: 369449<br>generacion: 4<br>fecha_de_infeccion: 2014-05-28<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-03<br>fecha_desenlace: 2014-06-07<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2320975453153<br>latitud: 8.46144367534271 <\/p>","<p> id: 37a6f6<br>generacion: 5<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-10<br>fecha_de_hospitalizacion: 2014-06-15<br>fecha_desenlace: 2014-06-01<br>desenlace: Recuperacion<br>genero: m<br>hospital: NA<br>longitud: -13.239768124315<br>latitud: 8.45537454926694 <\/p>","<p> id: 3ef3d9<br>generacion: 5<br>fecha_de_infeccion: 2014-06-06<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-19<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.246797325633<br>latitud: 8.48472434081732 <\/p>","<p> id: 3f1aaf<br>generacion: NA<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: NA<br>fecha_de_hospitalizacion: NA<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: NA<br>hospital: NA<br>longitud: NA<br>latitud: NA <\/p>","<p> id: 40ae5f<br>generacion: 4<br>fecha_de_infeccion: 2014-05-04<br>fecha_inicio_sintomas: 2014-05-07<br>fecha_de_hospitalizacion: 2014-05-08<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2620683308737<br>latitud: 8.4861690441046 <\/p>","<p> id: 49d786<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-20<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-05-11<br>desenlace: Muerte<br>genero: m<br>hospital: other<br>longitud: -13.2139373682154<br>latitud: 8.48839078503288 <\/p>","<p> id: 4b38b7<br>generacion: 6<br>fecha_de_infeccion: 2014-05-17<br>fecha_inicio_sintomas: 2014-05-19<br>fecha_de_hospitalizacion: 2014-05-20<br>fecha_desenlace: 2014-05-31<br>desenlace: Muerte<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2227955183357<br>latitud: 8.46272144047102 <\/p>","<p> id: 528572<br>generacion: 7<br>fecha_de_infeccion: 2014-05-31<br>fecha_inicio_sintomas: 2014-06-09<br>fecha_de_hospitalizacion: 2014-06-18<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2262837664769<br>latitud: 8.48655780262327 <\/p>","<p> id: 53371b<br>generacion: 1<br>fecha_de_infeccion: 2014-04-09<br>fecha_inicio_sintomas: 2014-04-15<br>fecha_de_hospitalizacion: 2014-04-20<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2149052395664<br>latitud: 8.46492652251777 <\/p>","<p> id: 5387a2<br>generacion: 4<br>fecha_de_infeccion: 2014-05-26<br>fecha_inicio_sintomas: 2014-05-31<br>fecha_de_hospitalizacion: 2014-05-31<br>fecha_desenlace: 2014-06-17<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2628435102304<br>latitud: 8.45524160975253 <\/p>","<p> id: 57a565<br>generacion: 4<br>fecha_de_infeccion: 2014-05-28<br>fecha_inicio_sintomas: 2014-06-13<br>fecha_de_hospitalizacion: 2014-06-15<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.253989309478<br>latitud: 8.45837125340844 <\/p>","<p> id: 5837cf<br>generacion: 4<br>fecha_de_infeccion: 2014-05-05<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2166941768351<br>latitud: 8.48743147807583 <\/p>","<p> id: 5fe599<br>generacion: 4<br>fecha_de_infeccion: 2014-05-08<br>fecha_inicio_sintomas: 2014-05-13<br>fecha_de_hospitalizacion: 2014-05-15<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: other<br>longitud: -13.2157351064963<br>latitud: 8.46897295100924 <\/p>","<p> id: 6285c9<br>generacion: 4<br>fecha_de_infeccion: 2014-05-04<br>fecha_inicio_sintomas: 2014-05-14<br>fecha_de_hospitalizacion: 2014-05-14<br>fecha_desenlace: 2014-05-17<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2205862656383<br>latitud: 8.45056919644254 <\/p>","<p> id: 6fa4bf<br>generacion: 5<br>fecha_de_infeccion: 2014-06-05<br>fecha_inicio_sintomas: 2014-06-10<br>fecha_de_hospitalizacion: 2014-06-11<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2381754136412<br>latitud: 8.46964062310321 <\/p>","<p> id: 72b905<br>generacion: 4<br>fecha_de_infeccion: 2014-05-06<br>fecha_inicio_sintomas: 2014-05-12<br>fecha_de_hospitalizacion: 2014-05-13<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: m<br>hospital: other<br>longitud: -13.2122631729853<br>latitud: 8.46838441895748 <\/p>","<p> id: 76b97a<br>generacion: 2<br>fecha_de_infeccion: 2014-05-11<br>fecha_inicio_sintomas: 2014-05-16<br>fecha_de_hospitalizacion: 2014-05-25<br>fecha_desenlace: 2014-06-17<br>desenlace: Recuperacion<br>genero: m<br>hospital: other<br>longitud: -13.21067093582<br>latitud: 8.48130028207506 <\/p>","<p> id: 79ad06<br>generacion: 4<br>fecha_de_infeccion: 2014-05-03<br>fecha_inicio_sintomas: 2014-05-06<br>fecha_de_hospitalizacion: 2014-05-16<br>fecha_desenlace: 2014-05-23<br>desenlace: NA<br>genero: f<br>hospital: Mitylira Hospital<br>longitud: -13.2243136144697<br>latitud: 8.47068622864392 <\/p>","<p> id: 7e95d1<br>generacion: 4<br>fecha_de_infeccion: 2014-05-25<br>fecha_inicio_sintomas: 2014-06-05<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: 2014-06-11<br>desenlace: Muerte<br>genero: f<br>hospital: other<br>longitud: -13.2130676460927<br>latitud: 8.47784554078808 <\/p>","<p> id: 80663c<br>generacion: 4<br>fecha_de_infeccion: 2014-05-19<br>fecha_inicio_sintomas: 2014-05-26<br>fecha_de_hospitalizacion: 2014-06-02<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2505702703486<br>latitud: 8.48720566622442 <\/p>","<p> id: 821030<br>generacion: 6<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-24<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2189360704491<br>latitud: 8.48497366928361 <\/p>","<p> id: 865581<br>generacion: 4<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-12<br>fecha_de_hospitalizacion: 2014-05-15<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2485268641431<br>latitud: 8.48560968764529 <\/p>","<p> id: 881bd4<br>generacion: 3<br>fecha_de_infeccion: 2014-04-26<br>fecha_inicio_sintomas: 2014-05-01<br>fecha_de_hospitalizacion: 2014-05-05<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2169433423126<br>latitud: 8.48535842521503 <\/p>","<p> id: 88f67f<br>generacion: 3<br>fecha_de_infeccion: 2014-05-17<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-10<br>fecha_desenlace: 2014-06-11<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2492596266226<br>latitud: 8.48609397777721 <\/p>","<p> id: 893f25<br>generacion: 3<br>fecha_de_infeccion: 2014-05-18<br>fecha_inicio_sintomas: 2014-05-21<br>fecha_de_hospitalizacion: 2014-05-22<br>fecha_desenlace: 2014-05-29<br>desenlace: Recuperacion<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2228638912441<br>latitud: 8.46082377490923 <\/p>","<p> id: 894000000<br>generacion: 6<br>fecha_de_infeccion: 2014-06-10<br>fecha_inicio_sintomas: 2014-06-25<br>fecha_de_hospitalizacion: 2014-06-29<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2184962475637<br>latitud: 8.47910282830497 <\/p>","<p> id: 8e104d<br>generacion: 5<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-12<br>fecha_de_hospitalizacion: 2014-06-19<br>fecha_desenlace: 2014-06-20<br>desenlace: Muerte<br>genero: m<br>hospital: NA<br>longitud: -13.2159288644661<br>latitud: 8.48440163843973 <\/p>","<p> id: 8f227d<br>generacion: 3<br>fecha_de_infeccion: 2014-05-16<br>fecha_inicio_sintomas: 2014-06-07<br>fecha_de_hospitalizacion: 2014-06-10<br>fecha_desenlace: 2014-06-11<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2180963529452<br>latitud: 8.48753354675996 <\/p>","<p> id: 900021<br>generacion: 3<br>fecha_de_infeccion: 2014-05-09<br>fecha_inicio_sintomas: 2014-05-14<br>fecha_de_hospitalizacion: 2014-05-17<br>fecha_desenlace: 2014-05-20<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2133023080993<br>latitud: 8.47650774743772 <\/p>","<p> id: 920c1b<br>generacion: 5<br>fecha_de_infeccion: 2014-05-28<br>fecha_inicio_sintomas: 2014-06-26<br>fecha_de_hospitalizacion: 2014-06-27<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2143944706215<br>latitud: 8.45379171630313 <\/p>","<p> id: 968888<br>generacion: 6<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-06-03<br>fecha_desenlace: 2014-06-04<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2196619126088<br>latitud: 8.47757752986495 <\/p>","<p> id: 96e309<br>generacion: 5<br>fecha_de_infeccion: 2014-05-22<br>fecha_inicio_sintomas: 2014-05-29<br>fecha_de_hospitalizacion: 2014-06-01<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2321342767225<br>latitud: 8.47819633584954 <\/p>","<p> id: 974bc1<br>generacion: 4<br>fecha_de_infeccion: 2014-05-05<br>fecha_inicio_sintomas: 2014-05-09<br>fecha_de_hospitalizacion: 2014-05-13<br>fecha_desenlace: 2014-05-16<br>desenlace: Muerte<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2612994440366<br>latitud: 8.48710963411424 <\/p>","<p> id: 9e74c4<br>generacion: 10<br>fecha_de_infeccion: 2014-06-20<br>fecha_inicio_sintomas: 2014-06-22<br>fecha_de_hospitalizacion: 2014-06-24<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2116372005782<br>latitud: 8.47084519753193 <\/p>","<p> id: 9f5d3b<br>generacion: 5<br>fecha_de_infeccion: 2014-06-03<br>fecha_inicio_sintomas: 2014-06-05<br>fecha_de_hospitalizacion: 2014-06-14<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2576952815319<br>latitud: 8.45344122900589 <\/p>","<p> id: 9f6884<br>generacion: 4<br>fecha_de_infeccion: 2014-06-02<br>fecha_inicio_sintomas: 2014-06-07<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: 2014-07-01<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2242058657802<br>latitud: 8.48663467687094 <\/p>","<p> id: a3c8b8<br>generacion: 4<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-08<br>fecha_de_hospitalizacion: 2014-05-10<br>fecha_desenlace: 2014-05-14<br>desenlace: Recuperacion<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2231931914572<br>latitud: 8.47325128269697 <\/p>","<p> id: a6c614<br>generacion: 5<br>fecha_de_infeccion: 2014-06-05<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-18<br>fecha_desenlace: 2014-06-26<br>desenlace: Recuperacion<br>genero: f<br>hospital: other<br>longitud: -13.2190654487695<br>latitud: 8.47737640975659 <\/p>","<p> id: acbbf6<br>generacion: 10<br>fecha_de_infeccion: 2014-06-20<br>fecha_inicio_sintomas: 2014-06-24<br>fecha_de_hospitalizacion: 2014-06-30<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2125483775873<br>latitud: 8.46873592107841 <\/p>","<p> id: acf422<br>generacion: 6<br>fecha_de_infeccion: 2014-05-25<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-28<br>fecha_desenlace: 2014-06-27<br>desenlace: Recuperacion<br>genero: m<br>hospital: Rokupa Hospital<br>longitud: -13.2688968279886<br>latitud: 8.47845973648553 <\/p>","<p> id: ae96ac<br>generacion: 10<br>fecha_de_infeccion: 2014-06-20<br>fecha_inicio_sintomas: 2014-06-25<br>fecha_de_hospitalizacion: 2014-06-25<br>fecha_desenlace: 2014-06-27<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2131457458534<br>latitud: 8.46397733703235 <\/p>","<p> id: b8f2fd<br>generacion: 5<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-12<br>fecha_de_hospitalizacion: 2014-05-13<br>fecha_desenlace: 2014-05-18<br>desenlace: NA<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2403686796131<br>latitud: 8.45437728056147 <\/p>","<p> id: bc9ace<br>generacion: 4<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-18<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-06-09<br>desenlace: Recuperacion<br>genero: m<br>hospital: NA<br>longitud: -13.2280926526392<br>latitud: 8.47895265768694 <\/p>","<p> id: bd8c0e<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-17<br>fecha_de_hospitalizacion: 2014-05-26<br>fecha_desenlace: 2014-05-09<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2597286822488<br>latitud: 8.45169617204413 <\/p>","<p> id: be6c4b<br>generacion: 4<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-06-06<br>fecha_desenlace: 2014-06-08<br>desenlace: Recuperacion<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2160715885846<br>latitud: 8.48927901814328 <\/p>","<p> id: c29eb5<br>generacion: 4<br>fecha_de_infeccion: 2014-05-08<br>fecha_inicio_sintomas: 2014-05-09<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-06-11<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2166275087023<br>latitud: 8.4886213986049 <\/p>","<p> id: c36eb4<br>generacion: 8<br>fecha_de_infeccion: 2014-06-15<br>fecha_inicio_sintomas: 2014-06-20<br>fecha_de_hospitalizacion: 2014-06-21<br>fecha_desenlace: 2014-06-24<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2619688324425<br>latitud: 8.48475855218221 <\/p>","<p> id: c4e706<br>generacion: 5<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-23<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-06-02<br>desenlace: NA<br>genero: m<br>hospital: NA<br>longitud: -13.2143394209926<br>latitud: 8.48932072596067 <\/p>","<p> id: cd2dd3<br>generacion: 8<br>fecha_de_infeccion: 2014-06-12<br>fecha_inicio_sintomas: 2014-06-21<br>fecha_de_hospitalizacion: 2014-06-27<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: other<br>longitud: -13.2395544609828<br>latitud: 8.47601368595849 <\/p>","<p> id: d0523a<br>generacion: 7<br>fecha_de_infeccion: 2014-05-20<br>fecha_inicio_sintomas: 2014-05-24<br>fecha_de_hospitalizacion: 2014-05-26<br>fecha_desenlace: 2014-06-05<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2565628977111<br>latitud: 8.48379248016347 <\/p>","<p> id: d1fafd<br>generacion: 0<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-04-07<br>fecha_de_hospitalizacion: 2014-04-17<br>fecha_desenlace: 2014-04-19<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.217990646098<br>latitud: 8.47351400551599 <\/p>","<p> id: d58402<br>generacion: 2<br>fecha_de_infeccion: 2014-04-23<br>fecha_inicio_sintomas: 2014-05-01<br>fecha_de_hospitalizacion: 2014-05-10<br>fecha_desenlace: 2014-05-11<br>desenlace: Recuperacion<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2263332366586<br>latitud: 8.47273926912139 <\/p>","<p> id: d8a13d<br>generacion: 4<br>fecha_de_infeccion: 2014-05-06<br>fecha_inicio_sintomas: 2014-05-08<br>fecha_de_hospitalizacion: 2014-05-10<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2354719577436<br>latitud: 8.4627682729487 <\/p>","<p> id: daddbc<br>generacion: 4<br>fecha_de_infeccion: 2014-06-06<br>fecha_inicio_sintomas: 2014-06-23<br>fecha_de_hospitalizacion: 2014-06-26<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2248844074011<br>latitud: 8.48560655485865 <\/p>","<p> id: dae8c7<br>generacion: 3<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-25<br>fecha_de_hospitalizacion: 2014-05-27<br>fecha_desenlace: 2014-05-30<br>desenlace: Muerte<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2197320896877<br>latitud: 8.44852192548534 <\/p>","<p> id: db4b96<br>generacion: 3<br>fecha_de_infeccion: 2014-05-16<br>fecha_inicio_sintomas: 2014-05-31<br>fecha_de_hospitalizacion: 2014-06-01<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: NA<br>longitud: -13.248633850792<br>latitud: 8.4778746413144 <\/p>","<p> id: db5a62<br>generacion: 7<br>fecha_de_infeccion: 2014-06-17<br>fecha_inicio_sintomas: 2014-06-19<br>fecha_de_hospitalizacion: 2014-06-22<br>fecha_desenlace: 2014-06-25<br>desenlace: Muerte<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.237128159707<br>latitud: 8.47419907653147 <\/p>","<p> id: dbebea<br>generacion: 7<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-03<br>fecha_desenlace: 2014-06-05<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2164705932244<br>latitud: 8.48666377289188 <\/p>","<p> id: dce5cc<br>generacion: 4<br>fecha_de_infeccion: 2014-05-03<br>fecha_inicio_sintomas: 2014-05-17<br>fecha_de_hospitalizacion: 2014-05-18<br>fecha_desenlace: 2014-05-22<br>desenlace: Muerte<br>genero: f<br>hospital: other<br>longitud: -13.2208460857832<br>latitud: 8.48367886299958 <\/p>","<p> id: ddddee<br>generacion: 6<br>fecha_de_infeccion: 2014-06-18<br>fecha_inicio_sintomas: 2014-06-26<br>fecha_de_hospitalizacion: 2014-06-28<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2535640411465<br>latitud: 8.45957352078114 <\/p>","<p> id: df4951<br>generacion: 8<br>fecha_de_infeccion: 2014-06-02<br>fecha_inicio_sintomas: 2014-06-24<br>fecha_de_hospitalizacion: 2014-06-27<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2384499801949<br>latitud: 8.47665596749586 <\/p>","<p> id: e02f66<br>generacion: 4<br>fecha_de_infeccion: 2014-05-18<br>fecha_inicio_sintomas: 2014-05-24<br>fecha_de_hospitalizacion: 2014-05-25<br>fecha_desenlace: 2014-05-31<br>desenlace: NA<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2599196027204<br>latitud: 8.45436259178895 <\/p>","<p> id: e4bee8<br>generacion: 6<br>fecha_de_infeccion: 2014-06-17<br>fecha_inicio_sintomas: 2014-06-22<br>fecha_de_hospitalizacion: 2014-06-25<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2299234894085<br>latitud: 8.47847094017516 <\/p>","<p> id: e61cb9<br>generacion: 8<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-09<br>fecha_de_hospitalizacion: 2014-06-14<br>fecha_desenlace: 2014-06-15<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2387287299605<br>latitud: 8.47046910432129 <\/p>","<p> id: e85785<br>generacion: 5<br>fecha_de_infeccion: 2014-05-27<br>fecha_inicio_sintomas: 2014-06-03<br>fecha_de_hospitalizacion: 2014-06-08<br>fecha_desenlace: 2014-06-02<br>desenlace: Muerte<br>genero: m<br>hospital: NA<br>longitud: -13.2343655285518<br>latitud: 8.47939496892986 <\/p>","<p> id: f1f60f<br>generacion: 4<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-04<br>fecha_de_hospitalizacion: 2014-05-09<br>fecha_desenlace: 2014-05-26<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2189142321497<br>latitud: 8.48205878977122 <\/p>","<p> id: f547d6<br>generacion: 3<br>fecha_de_infeccion: 2014-05-02<br>fecha_inicio_sintomas: 2014-05-07<br>fecha_de_hospitalizacion: 2014-05-08<br>fecha_desenlace: 2014-05-15<br>desenlace: Recuperacion<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2193318178555<br>latitud: 8.4762810528991 <\/p>","<p> id: f5c3d8<br>generacion: 1<br>fecha_de_infeccion: 2014-04-18<br>fecha_inicio_sintomas: 2014-04-21<br>fecha_de_hospitalizacion: 2014-04-25<br>fecha_desenlace: 2014-04-30<br>desenlace: Recuperacion<br>genero: f<br>hospital: other<br>longitud: -13.2280410276091<br>latitud: 8.48335550908327 <\/p>","<p> id: f9149b<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-03<br>fecha_de_hospitalizacion: 2014-05-04<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2481588312543<br>latitud: 8.46468165143675 <\/p>","<p> id: f96aa5<br>generacion: 3<br>fecha_de_infeccion: 2014-05-17<br>fecha_inicio_sintomas: 2014-05-19<br>fecha_de_hospitalizacion: 2014-05-20<br>fecha_desenlace: 2014-05-23<br>desenlace: Recuperacion<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2523649449559<br>latitud: 8.4601071493071 <\/p>","<p> id: fc05c1<br>generacion: 4<br>fecha_de_infeccion: 2014-05-15<br>fecha_inicio_sintomas: 2014-06-08<br>fecha_de_hospitalizacion: 2014-06-09<br>fecha_desenlace: 2014-05-31<br>desenlace: NA<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2133487439158<br>latitud: 8.46649054339107 <\/p>","<p> id: fc15ef<br>generacion: 6<br>fecha_de_infeccion: 2014-06-14<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-17<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: NA<br>longitud: -13.2385127873491<br>latitud: 8.47761705512509 <\/p>"],"color":["#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","lightgrey","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6"],"shape":["icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon"],"icon.code":["f182","f183","f182","f182","f182","f182","f183","f183","f182","f182","f183","f182","f183","f182","f182","f183","f182","f183","f182","f059","f182","f183","f182","f183","f183","f183","f183","f182","f183","f182","f183","f183","f183","f182","f182","f182","f182","f183","f182","f182","f183","f183","f183","f182","f182","f182","f182","f183","f182","f183","f182","f183","f183","f182","f182","f183","f183","f182","f183","f183","f182","f182","f183","f183","f183","f182","f182","f182","f182","f183","f182","f183","f182","f183","f182","f182","f182","f182","f182","f182","f183","f182","f182","f182","f182","f183","f182","f183"],"icon.color":["#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","lightgrey","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6"]},"edges":{"from":["d1fafd","f5c3d8","0f58c4","f5c3d8","20b688","2ae019","20b688","2ae019","40ae5f","f1f60f","f9149b","f547d6","f547d6","f9149b","d58402","f9149b","11f8ea","11f8ea","f547d6","bd8c0e","bd8c0e","4b38b7","1511c5","e02f66","893f25","76b97a","bc9ace","11f8ea","c29eb5","bd8c0e","c4e706","133ee7","49d786","20b688","dae8c7","5387a2","07e3e8","102363","11f8ea","11f8ea","7e95d1","369449","133ee7","37a6f6","9f6884","5837cf","e61cb9","057e7a","821030","02d8fd","a6c614","02d8fd","528572","30c98c","528572","dbebea","07e3e8","8e104d","37a6f6","02d8fd"],"to":["53371b","0f58c4","881bd4","d58402","d8a13d","a3c8b8","974bc1","72b905","b8f2fd","09e386","6285c9","865581","5fe599","79ad06","900021","dce5cc","f96aa5","893f25","c29eb5","3f1aaf","e02f66","d0523a","acf422","275cc7","07e3e8","133ee7","96e309","db4b96","1511c5","80663c","968888","369449","be6c4b","5837cf","7e95d1","2b8773","e85785","fc05c1","88f67f","8f227d","6fa4bf","9f5d3b","57a565","fc15ef","2eaa9a","3ef3d9","02d8fd","c36eb4","db5a62","9e74c4","e4bee8","ae96ac","0082bf","daddbc","cd2dd3","df4951","920c1b","ddddee","894000000","acbbf6"],"fuente":["otro","otro","otro","otro","funeral","otro","funeral","funeral","funeral","otro","otro","otro","otro","otro","otro","otro","otro","otro","otro","funeral","funeral","funeral","otro","funeral","otro","otro","otro","otro","funeral","funeral","otro","funeral","funeral","funeral","funeral","otro","otro","otro","otro","otro","funeral","otro","funeral","otro","otro","otro","otro","otro","funeral","otro","otro","funeral","otro","otro","funeral","funeral","otro","otro","otro","otro"],"width":[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],"color":["#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#CC6666B3","#CC6666B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#CC6666B3","#CC6666B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#CC6666B3","#666699B3","#CC6666B3","#CC6666B3","#CC6666B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#CC6666B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"physics":{"stabilization":false}},"groups":null,"width":"90%","height":"700px","idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"edges":{"label":["funeral","otro"],"color":["#CC6666B3","#666699B3"],"font.size":[15,15]},"edgesToDataframe":true,"nodes":{"label":["f","m"],"color":["#ccddff","#79d2a6"],"shape":["box","box"],"shadow":[true,true],"font.size":[20,20]},"nodesToDataframe":true},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"opts_manipulation":{"datacss":"table.legend_table {\n  font-size: 11px;\n  border-width:1px;\n  border-color:#d3d3d3;\n  border-style:solid;\n}\ntable.legend_table td {\n  border-width:1px;\n  border-color:#d3d3d3;\n  border-style:solid;\n  padding: 2px;\n}\ndiv.table_content {\n  width:80px;\n  text-align:center;\n}\ndiv.table_description {\n  width:100px;\n}\n\n.operation {\n  font-size:20px;\n}\n\n.network-popUp {\n  display:none;\n  z-index:299;\n  width:250px;\n  /*height:150px;*/\n  background-color: #f9f9f9;\n  border-style:solid;\n  border-width:1px;\n  border-color: #0d0d0d;\n  padding:10px;\n  text-align: center;\n  position:fixed;\n  top:50%;  \n  left:50%;  \n  margin:-100px 0 0 -100px;  \n\n}","addNodeCols":["id","label"],"editNodeCols":["id","label"],"tab_add_node":"<span id=\"addnode-operation\" class = \"operation\">node<\/span> <br><table style=\"margin:auto;\"><tr><td>id<\/td><td><input id=\"addnode-id\"  type= \"text\" value=\"new value\"><\/td><\/tr><tr><td>label<\/td><td><input id=\"addnode-label\"  type= \"text\" value=\"new value\"><\/td><\/tr><\/table><input type=\"button\" value=\"save\" id=\"addnode-saveButton\"><\/button><input type=\"button\" value=\"cancel\" id=\"addnode-cancelButton\"><\/button>","tab_edit_node":"<span id=\"editnode-operation\" class = \"operation\">node<\/span> <br><table style=\"margin:auto;\"><tr><td>id<\/td><td><input id=\"editnode-id\"  type= \"text\" value=\"new value\"><\/td><\/tr><tr><td>label<\/td><td><input id=\"editnode-label\"  type= \"text\" value=\"new value\"><\/td><\/tr><\/table><input type=\"button\" value=\"save\" id=\"editnode-saveButton\"><\/button><input type=\"button\" value=\"cancel\" id=\"editnode-cancelButton\"><\/button>"},"iconsRedraw":true},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_39a13ba9" data-update-every="1" tabindex="0" style="bottom:0;left:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
+<div id="htmlwidget-99b03aef1b5f4887c092" style="width:90%;height:700px;" class="visNetwork html-widget "></div>
+<script type="application/json" data-for="htmlwidget-99b03aef1b5f4887c092">{"x":{"nodes":{"id":["0082bf","02d8fd","057e7a","07e3e8","09e386","0f58c4","102363","11f8ea","133ee7","1511c5","20b688","275cc7","2ae019","2b8773","2eaa9a","30c98c","369449","37a6f6","3ef3d9","3f1aaf","40ae5f","49d786","4b38b7","528572","53371b","5387a2","57a565","5837cf","5fe599","6285c9","6fa4bf","72b905","76b97a","79ad06","7e95d1","80663c","821030","865581","881bd4","88f67f","893f25","894000000","8e104d","8f227d","900021","920c1b","968888","96e309","974bc1","9e74c4","9f5d3b","9f6884","a3c8b8","a6c614","acbbf6","acf422","ae96ac","b8f2fd","bc9ace","bd8c0e","be6c4b","c29eb5","c36eb4","c4e706","cd2dd3","d0523a","d1fafd","d58402","d8a13d","daddbc","dae8c7","db4b96","db5a62","dbebea","dce5cc","ddddee","df4951","e02f66","e4bee8","e61cb9","e85785","f1f60f","f547d6","f5c3d8","f9149b","f96aa5","fc05c1","fc15ef"],"generacion":[8,9,7,4,5,2,3,2,3,5,3,5,3,5,5,3,4,5,5,null,4,3,6,7,1,4,4,4,4,4,5,4,2,4,4,4,6,4,3,3,3,6,5,3,3,5,6,5,4,10,5,4,4,5,10,6,10,5,4,3,4,4,8,5,8,7,0,2,4,4,3,3,7,7,4,6,8,4,6,8,5,4,3,1,3,3,4,6],"fecha_de_infeccion":["2014-06-12","2014-06-14","2014-06-04","2014-05-22","2014-05-09","2014-04-22",null,null,"2014-05-23","2014-05-15",null,"2014-05-24",null,"2014-05-31","2014-06-07",null,"2014-05-28",null,"2014-06-06",null,"2014-05-04",null,"2014-05-17","2014-05-31","2014-04-09","2014-05-26","2014-05-28","2014-05-05","2014-05-08","2014-05-04","2014-06-05","2014-05-06","2014-05-11","2014-05-03","2014-05-25","2014-05-19",null,"2014-05-07","2014-04-26","2014-05-17","2014-05-18","2014-06-10",null,"2014-05-16","2014-05-09","2014-05-28","2014-05-23","2014-05-22","2014-05-05","2014-06-20","2014-06-03","2014-06-02","2014-05-07","2014-06-05","2014-06-20","2014-05-25","2014-06-20","2014-05-07","2014-05-07",null,"2014-05-23","2014-05-08","2014-06-15",null,"2014-06-12","2014-05-20",null,"2014-04-23","2014-05-06","2014-06-06","2014-05-23","2014-05-16","2014-06-17",null,"2014-05-03","2014-06-18","2014-06-02","2014-05-18","2014-06-17",null,"2014-05-27",null,"2014-05-02","2014-04-18",null,"2014-05-17","2014-05-15","2014-06-14"],"fecha_inicio_sintomas":["2014-06-18","2014-06-20","2014-06-14","2014-05-27","2014-05-11","2014-04-26","2014-05-14","2014-05-16","2014-05-27","2014-05-23","2014-05-05","2014-05-27","2014-05-06","2014-06-06","2014-06-17","2014-06-06","2014-06-02","2014-06-10","2014-06-16",null,"2014-05-07","2014-05-20","2014-05-19","2014-06-09","2014-04-15","2014-05-31","2014-06-13","2014-06-02","2014-05-13","2014-05-14","2014-06-10","2014-05-12","2014-05-16","2014-05-06","2014-06-05","2014-05-26","2014-06-16","2014-05-12","2014-05-01","2014-06-02","2014-05-21","2014-06-25","2014-06-12","2014-06-07","2014-05-14","2014-06-26","2014-05-27","2014-05-29","2014-05-09","2014-06-22","2014-06-05","2014-06-07","2014-05-08","2014-06-16","2014-06-24","2014-05-27","2014-06-25","2014-05-12","2014-05-18","2014-05-17","2014-05-27","2014-05-09","2014-06-20","2014-05-23","2014-06-21","2014-05-24","2014-04-07","2014-05-01","2014-05-08","2014-06-23","2014-05-25","2014-05-31","2014-06-19","2014-06-02","2014-05-17","2014-06-26","2014-06-24","2014-05-24","2014-06-22","2014-06-09","2014-06-03","2014-05-04","2014-05-07","2014-04-21","2014-05-03","2014-05-19","2014-06-08","2014-06-16"],"fecha_de_hospitalizacion":["2014-06-26","2014-06-20","2014-06-15","2014-05-29","2014-05-14","2014-04-29","2014-05-18","2014-05-18","2014-05-29","2014-06-02","2014-05-06","2014-05-28","2014-05-11","2014-06-07","2014-06-17","2014-06-06","2014-06-03","2014-06-15","2014-06-19",null,"2014-05-08","2014-05-24","2014-05-20","2014-06-18","2014-04-20","2014-05-31","2014-06-15","2014-06-07","2014-05-15","2014-05-14","2014-06-11","2014-05-13","2014-05-25","2014-05-16","2014-06-07","2014-06-02","2014-06-24","2014-05-15","2014-05-05","2014-06-10","2014-05-22","2014-06-29","2014-06-19","2014-06-10","2014-05-17","2014-06-27","2014-06-03","2014-06-01","2014-05-13","2014-06-24","2014-06-14","2014-06-07","2014-05-10","2014-06-18","2014-06-30","2014-05-28","2014-06-25","2014-05-13","2014-05-24","2014-05-26","2014-06-06","2014-05-24","2014-06-21","2014-05-24","2014-06-27","2014-05-26","2014-04-17","2014-05-10","2014-05-10","2014-06-26","2014-05-27","2014-06-01","2014-06-22","2014-06-03","2014-05-18","2014-06-28","2014-06-27","2014-05-25","2014-06-25","2014-06-14","2014-06-08","2014-05-09","2014-05-08","2014-04-25","2014-05-04","2014-05-20","2014-06-09","2014-06-17"],"fecha_desenlace":["2014-06-28","2014-07-01",null,"2014-06-01","2014-05-14","2014-05-17","2014-05-23","2014-05-30","2014-05-29","2014-06-13","2014-05-14","2014-06-07","2014-04-30","2014-06-16",null,"2014-06-09","2014-06-07","2014-06-01",null,null,null,"2014-05-11","2014-05-31",null,null,"2014-06-17",null,null,null,"2014-05-17",null,null,"2014-06-17","2014-05-23","2014-06-11",null,null,null,null,"2014-06-11","2014-05-29",null,"2014-06-20","2014-06-11","2014-05-20",null,"2014-06-04",null,"2014-05-16",null,null,"2014-07-01","2014-05-14","2014-06-26",null,"2014-06-27","2014-06-27","2014-05-18","2014-06-09","2014-05-09","2014-06-08","2014-06-11","2014-06-24","2014-06-02",null,"2014-06-05","2014-04-19","2014-05-11",null,null,"2014-05-30",null,"2014-06-25","2014-06-05","2014-05-22",null,null,"2014-05-31",null,"2014-06-15","2014-06-02","2014-05-26","2014-05-15","2014-04-30",null,"2014-05-23","2014-05-31",null],"desenlace":["Recuperacion","Muerte","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Muerte","Recuperacion","Muerte","Muerte",null,null,"Recuperacion","Recuperacion","Muerte","Recuperacion","Muerte",null,null,"Muerte","Muerte",null,null,"Muerte","Muerte","Recuperacion",null,"Muerte","Muerte","Recuperacion","Recuperacion",null,"Muerte",null,null,"Muerte","Muerte",null,"Recuperacion","Muerte","Muerte","Muerte",null,null,null,"Muerte","Muerte",null,null,null,"Recuperacion","Recuperacion",null,"Recuperacion","Muerte",null,"Recuperacion","Muerte","Recuperacion",null,"Muerte",null,null,null,null,"Recuperacion",null,null,"Muerte","Muerte","Muerte",null,"Muerte",null,null,null,null,null,"Muerte","Recuperacion","Recuperacion","Recuperacion","Recuperacion","Recuperacion",null,null],"genero":["f","m","f","f","f","f","m","m","f","f","m","f","m","f","f","m","f","m","f",null,"f","m","f","m","m","m","m","f","m","f","m","m","m","f","f","f","f","m","f","f","m","m","m","f","f","f","f","m","f","m","f","m","m","f","f","m","m","f","m","m","f","f","m","m","m","f","f","f","f","m","f","m","f","m","f","f","f","f","f","f","m","f","f","f","f","m","f","m"],"hospital":[null,"Connaught Hospital",null,null,"Military Hospital","other","Connaught Hospital","Princess Christian Maternity Hospital (PCMH)",null,null,"Rokupa Hospital","Rokupa Hospital","other",null,null,"Rokupa Hospital",null,null,"Rokupa Hospital",null,"Connaught Hospital","other","Military Hospital","Connaught Hospital","Connaught Hospital","Connaught Hospital","Military Hospital",null,"other",null,"Military Hospital","other","other","Mitylira Hospital","other","Military Hospital",null,"Military Hospital","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Military Hospital","Military Hospital",null,null,null,"other","other","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Princess Christian Maternity Hospital (PCMH)",null,"Connaught Hospital","Connaught Hospital","other",null,"Rokupa Hospital","Connaught Hospital","Rokupa Hospital",null,"Military Hospital","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Connaught Hospital",null,"other",null,"Military Hospital","Rokupa Hospital","Princess Christian Maternity Hospital (PCMH)","Military Hospital","Connaught Hospital",null,"Princess Christian Maternity Hospital (PCMH)","Connaught Hospital","other","other","Connaught Hospital","Connaught Hospital","other","other",null,null,"Connaught Hospital","other","Connaught Hospital","Princess Christian Maternity Hospital (PCMH)","Rokupa Hospital",null],"longitud":[-13.2114604420238,-13.2124311244169,-13.2180326141688,-13.2331547837254,-13.2175807732598,-13.2101641430217,-13.2207535385608,-13.212910703914,-13.2230208115547,-13.2288326440567,-13.2330769474001,-13.2369393782451,-13.2680940795671,-13.2149474159902,-13.209391925612,-13.2393862117589,-13.2320975453153,-13.239768124315,-13.246797325633,null,-13.2620683308737,-13.2139373682154,-13.2227955183357,-13.2262837664769,-13.2149052395664,-13.2628435102304,-13.253989309478,-13.2166941768351,-13.2157351064963,-13.2205862656383,-13.2381754136412,-13.2122631729853,-13.21067093582,-13.2243136144697,-13.2130676460927,-13.2505702703486,-13.2189360704491,-13.2485268641431,-13.2169433423126,-13.2492596266226,-13.2228638912441,-13.2184962475637,-13.2159288644661,-13.2180963529452,-13.2133023080993,-13.2143944706215,-13.2196619126088,-13.2321342767225,-13.2612994440366,-13.2116372005782,-13.2576952815319,-13.2242058657802,-13.2231931914572,-13.2190654487695,-13.2125483775873,-13.2688968279886,-13.2131457458534,-13.2403686796131,-13.2280926526392,-13.2597286822488,-13.2160715885846,-13.2166275087023,-13.2619688324425,-13.2143394209926,-13.2395544609828,-13.2565628977111,-13.217990646098,-13.2263332366586,-13.2354719577436,-13.2248844074011,-13.2197320896877,-13.248633850792,-13.237128159707,-13.2164705932244,-13.2208460857832,-13.2535640411465,-13.2384499801949,-13.2599196027204,-13.2299234894085,-13.2387287299605,-13.2343655285518,-13.2189142321497,-13.2193318178555,-13.2280410276091,-13.2481588312543,-13.2523649449559,-13.2133487439158,-13.2385127873491],"latitud":[8.466449852543681,8.45344099552146,8.471555356080181,8.462729314626459,8.4786299722343,8.45214268335056,8.462910867048571,8.46481700596819,8.461427818160409,8.47003087379739,8.46002984141364,8.46916113869591,8.4525060806121,8.45192988292173,8.47570184950483,8.48677227640615,8.461443675342711,8.45537454926694,8.484724340817319,null,8.486169044104599,8.48839078503288,8.46272144047102,8.48655780262327,8.46492652251777,8.45524160975253,8.458371253408441,8.48743147807583,8.46897295100924,8.45056919644254,8.46964062310321,8.468384418957481,8.481300282075059,8.47068622864392,8.47784554078808,8.487205666224421,8.48497366928361,8.48560968764529,8.485358425215029,8.486093977777211,8.46082377490923,8.479102828304971,8.48440163843973,8.487533546759961,8.47650774743772,8.45379171630313,8.47757752986495,8.478196335849541,8.48710963411424,8.470845197531929,8.45344122900589,8.48663467687094,8.473251282696969,8.477376409756589,8.468735921078411,8.478459736485529,8.46397733703235,8.45437728056147,8.478952657686939,8.45169617204413,8.48927901814328,8.4886213986049,8.48475855218221,8.48932072596067,8.47601368595849,8.483792480163469,8.473514005515989,8.472739269121391,8.462768272948701,8.48560655485865,8.448521925485339,8.477874641314401,8.47419907653147,8.48666377289188,8.483678862999581,8.45957352078114,8.47665596749586,8.45436259178895,8.478470940175161,8.470469104321291,8.47939496892986,8.482058789771219,8.4762810528991,8.483355509083269,8.46468165143675,8.460107149307101,8.466490543391069,8.477617055125091],"label":["0082bf","02d8fd","057e7a","07e3e8","09e386","0f58c4","102363","11f8ea","133ee7","1511c5","20b688","275cc7","2ae019","2b8773","2eaa9a","30c98c","369449","37a6f6","3ef3d9","3f1aaf","40ae5f","49d786","4b38b7","528572","53371b","5387a2","57a565","5837cf","5fe599","6285c9","6fa4bf","72b905","76b97a","79ad06","7e95d1","80663c","821030","865581","881bd4","88f67f","893f25","894000000","8e104d","8f227d","900021","920c1b","968888","96e309","974bc1","9e74c4","9f5d3b","9f6884","a3c8b8","a6c614","acbbf6","acf422","ae96ac","b8f2fd","bc9ace","bd8c0e","be6c4b","c29eb5","c36eb4","c4e706","cd2dd3","d0523a","d1fafd","d58402","d8a13d","daddbc","dae8c7","db4b96","db5a62","dbebea","dce5cc","ddddee","df4951","e02f66","e4bee8","e61cb9","e85785","f1f60f","f547d6","f5c3d8","f9149b","f96aa5","fc05c1","fc15ef"],"title":["<p> id: 0082bf<br>generacion: 8<br>fecha_de_infeccion: 2014-06-12<br>fecha_inicio_sintomas: 2014-06-18<br>fecha_de_hospitalizacion: 2014-06-26<br>fecha_desenlace: 2014-06-28<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2114604420238<br>latitud: 8.46644985254368 <\/p>","<p> id: 02d8fd<br>generacion: 9<br>fecha_de_infeccion: 2014-06-14<br>fecha_inicio_sintomas: 2014-06-20<br>fecha_de_hospitalizacion: 2014-06-20<br>fecha_desenlace: 2014-07-01<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2124311244169<br>latitud: 8.45344099552146 <\/p>","<p> id: 057e7a<br>generacion: 7<br>fecha_de_infeccion: 2014-06-04<br>fecha_inicio_sintomas: 2014-06-14<br>fecha_de_hospitalizacion: 2014-06-15<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2180326141688<br>latitud: 8.47155535608018 <\/p>","<p> id: 07e3e8<br>generacion: 4<br>fecha_de_infeccion: 2014-05-22<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-29<br>fecha_desenlace: 2014-06-01<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2331547837254<br>latitud: 8.46272931462646 <\/p>","<p> id: 09e386<br>generacion: 5<br>fecha_de_infeccion: 2014-05-09<br>fecha_inicio_sintomas: 2014-05-11<br>fecha_de_hospitalizacion: 2014-05-14<br>fecha_desenlace: 2014-05-14<br>desenlace: Recuperacion<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2175807732598<br>latitud: 8.4786299722343 <\/p>","<p> id: 0f58c4<br>generacion: 2<br>fecha_de_infeccion: 2014-04-22<br>fecha_inicio_sintomas: 2014-04-26<br>fecha_de_hospitalizacion: 2014-04-29<br>fecha_desenlace: 2014-05-17<br>desenlace: Recuperacion<br>genero: f<br>hospital: other<br>longitud: -13.2101641430217<br>latitud: 8.45214268335056 <\/p>","<p> id: 102363<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-14<br>fecha_de_hospitalizacion: 2014-05-18<br>fecha_desenlace: 2014-05-23<br>desenlace: Recuperacion<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2207535385608<br>latitud: 8.46291086704857 <\/p>","<p> id: 11f8ea<br>generacion: 2<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-16<br>fecha_de_hospitalizacion: 2014-05-18<br>fecha_desenlace: 2014-05-30<br>desenlace: Recuperacion<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.212910703914<br>latitud: 8.46481700596819 <\/p>","<p> id: 133ee7<br>generacion: 3<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-29<br>fecha_desenlace: 2014-05-29<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2230208115547<br>latitud: 8.46142781816041 <\/p>","<p> id: 1511c5<br>generacion: 5<br>fecha_de_infeccion: 2014-05-15<br>fecha_inicio_sintomas: 2014-05-23<br>fecha_de_hospitalizacion: 2014-06-02<br>fecha_desenlace: 2014-06-13<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2288326440567<br>latitud: 8.47003087379739 <\/p>","<p> id: 20b688<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-05<br>fecha_de_hospitalizacion: 2014-05-06<br>fecha_desenlace: 2014-05-14<br>desenlace: Muerte<br>genero: m<br>hospital: Rokupa Hospital<br>longitud: -13.2330769474001<br>latitud: 8.46002984141364 <\/p>","<p> id: 275cc7<br>generacion: 5<br>fecha_de_infeccion: 2014-05-24<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-28<br>fecha_desenlace: 2014-06-07<br>desenlace: Muerte<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2369393782451<br>latitud: 8.46916113869591 <\/p>","<p> id: 2ae019<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-06<br>fecha_de_hospitalizacion: 2014-05-11<br>fecha_desenlace: 2014-04-30<br>desenlace: NA<br>genero: m<br>hospital: other<br>longitud: -13.2680940795671<br>latitud: 8.4525060806121 <\/p>","<p> id: 2b8773<br>generacion: 5<br>fecha_de_infeccion: 2014-05-31<br>fecha_inicio_sintomas: 2014-06-06<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: 2014-06-16<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2149474159902<br>latitud: 8.45192988292173 <\/p>","<p> id: 2eaa9a<br>generacion: 5<br>fecha_de_infeccion: 2014-06-07<br>fecha_inicio_sintomas: 2014-06-17<br>fecha_de_hospitalizacion: 2014-06-17<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.209391925612<br>latitud: 8.47570184950483 <\/p>","<p> id: 30c98c<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-06<br>fecha_de_hospitalizacion: 2014-06-06<br>fecha_desenlace: 2014-06-09<br>desenlace: Recuperacion<br>genero: m<br>hospital: Rokupa Hospital<br>longitud: -13.2393862117589<br>latitud: 8.48677227640615 <\/p>","<p> id: 369449<br>generacion: 4<br>fecha_de_infeccion: 2014-05-28<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-03<br>fecha_desenlace: 2014-06-07<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2320975453153<br>latitud: 8.46144367534271 <\/p>","<p> id: 37a6f6<br>generacion: 5<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-10<br>fecha_de_hospitalizacion: 2014-06-15<br>fecha_desenlace: 2014-06-01<br>desenlace: Recuperacion<br>genero: m<br>hospital: NA<br>longitud: -13.239768124315<br>latitud: 8.45537454926694 <\/p>","<p> id: 3ef3d9<br>generacion: 5<br>fecha_de_infeccion: 2014-06-06<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-19<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.246797325633<br>latitud: 8.48472434081732 <\/p>","<p> id: 3f1aaf<br>generacion: NA<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: NA<br>fecha_de_hospitalizacion: NA<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: NA<br>hospital: NA<br>longitud: NA<br>latitud: NA <\/p>","<p> id: 40ae5f<br>generacion: 4<br>fecha_de_infeccion: 2014-05-04<br>fecha_inicio_sintomas: 2014-05-07<br>fecha_de_hospitalizacion: 2014-05-08<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2620683308737<br>latitud: 8.4861690441046 <\/p>","<p> id: 49d786<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-20<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-05-11<br>desenlace: Muerte<br>genero: m<br>hospital: other<br>longitud: -13.2139373682154<br>latitud: 8.48839078503288 <\/p>","<p> id: 4b38b7<br>generacion: 6<br>fecha_de_infeccion: 2014-05-17<br>fecha_inicio_sintomas: 2014-05-19<br>fecha_de_hospitalizacion: 2014-05-20<br>fecha_desenlace: 2014-05-31<br>desenlace: Muerte<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2227955183357<br>latitud: 8.46272144047102 <\/p>","<p> id: 528572<br>generacion: 7<br>fecha_de_infeccion: 2014-05-31<br>fecha_inicio_sintomas: 2014-06-09<br>fecha_de_hospitalizacion: 2014-06-18<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2262837664769<br>latitud: 8.48655780262327 <\/p>","<p> id: 53371b<br>generacion: 1<br>fecha_de_infeccion: 2014-04-09<br>fecha_inicio_sintomas: 2014-04-15<br>fecha_de_hospitalizacion: 2014-04-20<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2149052395664<br>latitud: 8.46492652251777 <\/p>","<p> id: 5387a2<br>generacion: 4<br>fecha_de_infeccion: 2014-05-26<br>fecha_inicio_sintomas: 2014-05-31<br>fecha_de_hospitalizacion: 2014-05-31<br>fecha_desenlace: 2014-06-17<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2628435102304<br>latitud: 8.45524160975253 <\/p>","<p> id: 57a565<br>generacion: 4<br>fecha_de_infeccion: 2014-05-28<br>fecha_inicio_sintomas: 2014-06-13<br>fecha_de_hospitalizacion: 2014-06-15<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.253989309478<br>latitud: 8.45837125340844 <\/p>","<p> id: 5837cf<br>generacion: 4<br>fecha_de_infeccion: 2014-05-05<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2166941768351<br>latitud: 8.48743147807583 <\/p>","<p> id: 5fe599<br>generacion: 4<br>fecha_de_infeccion: 2014-05-08<br>fecha_inicio_sintomas: 2014-05-13<br>fecha_de_hospitalizacion: 2014-05-15<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: other<br>longitud: -13.2157351064963<br>latitud: 8.46897295100924 <\/p>","<p> id: 6285c9<br>generacion: 4<br>fecha_de_infeccion: 2014-05-04<br>fecha_inicio_sintomas: 2014-05-14<br>fecha_de_hospitalizacion: 2014-05-14<br>fecha_desenlace: 2014-05-17<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2205862656383<br>latitud: 8.45056919644254 <\/p>","<p> id: 6fa4bf<br>generacion: 5<br>fecha_de_infeccion: 2014-06-05<br>fecha_inicio_sintomas: 2014-06-10<br>fecha_de_hospitalizacion: 2014-06-11<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2381754136412<br>latitud: 8.46964062310321 <\/p>","<p> id: 72b905<br>generacion: 4<br>fecha_de_infeccion: 2014-05-06<br>fecha_inicio_sintomas: 2014-05-12<br>fecha_de_hospitalizacion: 2014-05-13<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: m<br>hospital: other<br>longitud: -13.2122631729853<br>latitud: 8.46838441895748 <\/p>","<p> id: 76b97a<br>generacion: 2<br>fecha_de_infeccion: 2014-05-11<br>fecha_inicio_sintomas: 2014-05-16<br>fecha_de_hospitalizacion: 2014-05-25<br>fecha_desenlace: 2014-06-17<br>desenlace: Recuperacion<br>genero: m<br>hospital: other<br>longitud: -13.21067093582<br>latitud: 8.48130028207506 <\/p>","<p> id: 79ad06<br>generacion: 4<br>fecha_de_infeccion: 2014-05-03<br>fecha_inicio_sintomas: 2014-05-06<br>fecha_de_hospitalizacion: 2014-05-16<br>fecha_desenlace: 2014-05-23<br>desenlace: NA<br>genero: f<br>hospital: Mitylira Hospital<br>longitud: -13.2243136144697<br>latitud: 8.47068622864392 <\/p>","<p> id: 7e95d1<br>generacion: 4<br>fecha_de_infeccion: 2014-05-25<br>fecha_inicio_sintomas: 2014-06-05<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: 2014-06-11<br>desenlace: Muerte<br>genero: f<br>hospital: other<br>longitud: -13.2130676460927<br>latitud: 8.47784554078808 <\/p>","<p> id: 80663c<br>generacion: 4<br>fecha_de_infeccion: 2014-05-19<br>fecha_inicio_sintomas: 2014-05-26<br>fecha_de_hospitalizacion: 2014-06-02<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2505702703486<br>latitud: 8.48720566622442 <\/p>","<p> id: 821030<br>generacion: 6<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-24<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2189360704491<br>latitud: 8.48497366928361 <\/p>","<p> id: 865581<br>generacion: 4<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-12<br>fecha_de_hospitalizacion: 2014-05-15<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2485268641431<br>latitud: 8.48560968764529 <\/p>","<p> id: 881bd4<br>generacion: 3<br>fecha_de_infeccion: 2014-04-26<br>fecha_inicio_sintomas: 2014-05-01<br>fecha_de_hospitalizacion: 2014-05-05<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2169433423126<br>latitud: 8.48535842521503 <\/p>","<p> id: 88f67f<br>generacion: 3<br>fecha_de_infeccion: 2014-05-17<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-10<br>fecha_desenlace: 2014-06-11<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2492596266226<br>latitud: 8.48609397777721 <\/p>","<p> id: 893f25<br>generacion: 3<br>fecha_de_infeccion: 2014-05-18<br>fecha_inicio_sintomas: 2014-05-21<br>fecha_de_hospitalizacion: 2014-05-22<br>fecha_desenlace: 2014-05-29<br>desenlace: Recuperacion<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2228638912441<br>latitud: 8.46082377490923 <\/p>","<p> id: 894000000<br>generacion: 6<br>fecha_de_infeccion: 2014-06-10<br>fecha_inicio_sintomas: 2014-06-25<br>fecha_de_hospitalizacion: 2014-06-29<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2184962475637<br>latitud: 8.47910282830497 <\/p>","<p> id: 8e104d<br>generacion: 5<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-12<br>fecha_de_hospitalizacion: 2014-06-19<br>fecha_desenlace: 2014-06-20<br>desenlace: Muerte<br>genero: m<br>hospital: NA<br>longitud: -13.2159288644661<br>latitud: 8.48440163843973 <\/p>","<p> id: 8f227d<br>generacion: 3<br>fecha_de_infeccion: 2014-05-16<br>fecha_inicio_sintomas: 2014-06-07<br>fecha_de_hospitalizacion: 2014-06-10<br>fecha_desenlace: 2014-06-11<br>desenlace: Muerte<br>genero: f<br>hospital: NA<br>longitud: -13.2180963529452<br>latitud: 8.48753354675996 <\/p>","<p> id: 900021<br>generacion: 3<br>fecha_de_infeccion: 2014-05-09<br>fecha_inicio_sintomas: 2014-05-14<br>fecha_de_hospitalizacion: 2014-05-17<br>fecha_desenlace: 2014-05-20<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2133023080993<br>latitud: 8.47650774743772 <\/p>","<p> id: 920c1b<br>generacion: 5<br>fecha_de_infeccion: 2014-05-28<br>fecha_inicio_sintomas: 2014-06-26<br>fecha_de_hospitalizacion: 2014-06-27<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2143944706215<br>latitud: 8.45379171630313 <\/p>","<p> id: 968888<br>generacion: 6<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-06-03<br>fecha_desenlace: 2014-06-04<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2196619126088<br>latitud: 8.47757752986495 <\/p>","<p> id: 96e309<br>generacion: 5<br>fecha_de_infeccion: 2014-05-22<br>fecha_inicio_sintomas: 2014-05-29<br>fecha_de_hospitalizacion: 2014-06-01<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2321342767225<br>latitud: 8.47819633584954 <\/p>","<p> id: 974bc1<br>generacion: 4<br>fecha_de_infeccion: 2014-05-05<br>fecha_inicio_sintomas: 2014-05-09<br>fecha_de_hospitalizacion: 2014-05-13<br>fecha_desenlace: 2014-05-16<br>desenlace: Muerte<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2612994440366<br>latitud: 8.48710963411424 <\/p>","<p> id: 9e74c4<br>generacion: 10<br>fecha_de_infeccion: 2014-06-20<br>fecha_inicio_sintomas: 2014-06-22<br>fecha_de_hospitalizacion: 2014-06-24<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2116372005782<br>latitud: 8.47084519753193 <\/p>","<p> id: 9f5d3b<br>generacion: 5<br>fecha_de_infeccion: 2014-06-03<br>fecha_inicio_sintomas: 2014-06-05<br>fecha_de_hospitalizacion: 2014-06-14<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2576952815319<br>latitud: 8.45344122900589 <\/p>","<p> id: 9f6884<br>generacion: 4<br>fecha_de_infeccion: 2014-06-02<br>fecha_inicio_sintomas: 2014-06-07<br>fecha_de_hospitalizacion: 2014-06-07<br>fecha_desenlace: 2014-07-01<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2242058657802<br>latitud: 8.48663467687094 <\/p>","<p> id: a3c8b8<br>generacion: 4<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-08<br>fecha_de_hospitalizacion: 2014-05-10<br>fecha_desenlace: 2014-05-14<br>desenlace: Recuperacion<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2231931914572<br>latitud: 8.47325128269697 <\/p>","<p> id: a6c614<br>generacion: 5<br>fecha_de_infeccion: 2014-06-05<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-18<br>fecha_desenlace: 2014-06-26<br>desenlace: Recuperacion<br>genero: f<br>hospital: other<br>longitud: -13.2190654487695<br>latitud: 8.47737640975659 <\/p>","<p> id: acbbf6<br>generacion: 10<br>fecha_de_infeccion: 2014-06-20<br>fecha_inicio_sintomas: 2014-06-24<br>fecha_de_hospitalizacion: 2014-06-30<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2125483775873<br>latitud: 8.46873592107841 <\/p>","<p> id: acf422<br>generacion: 6<br>fecha_de_infeccion: 2014-05-25<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-05-28<br>fecha_desenlace: 2014-06-27<br>desenlace: Recuperacion<br>genero: m<br>hospital: Rokupa Hospital<br>longitud: -13.2688968279886<br>latitud: 8.47845973648553 <\/p>","<p> id: ae96ac<br>generacion: 10<br>fecha_de_infeccion: 2014-06-20<br>fecha_inicio_sintomas: 2014-06-25<br>fecha_de_hospitalizacion: 2014-06-25<br>fecha_desenlace: 2014-06-27<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2131457458534<br>latitud: 8.46397733703235 <\/p>","<p> id: b8f2fd<br>generacion: 5<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-12<br>fecha_de_hospitalizacion: 2014-05-13<br>fecha_desenlace: 2014-05-18<br>desenlace: NA<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2403686796131<br>latitud: 8.45437728056147 <\/p>","<p> id: bc9ace<br>generacion: 4<br>fecha_de_infeccion: 2014-05-07<br>fecha_inicio_sintomas: 2014-05-18<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-06-09<br>desenlace: Recuperacion<br>genero: m<br>hospital: NA<br>longitud: -13.2280926526392<br>latitud: 8.47895265768694 <\/p>","<p> id: bd8c0e<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-17<br>fecha_de_hospitalizacion: 2014-05-26<br>fecha_desenlace: 2014-05-09<br>desenlace: Muerte<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2597286822488<br>latitud: 8.45169617204413 <\/p>","<p> id: be6c4b<br>generacion: 4<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-27<br>fecha_de_hospitalizacion: 2014-06-06<br>fecha_desenlace: 2014-06-08<br>desenlace: Recuperacion<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2160715885846<br>latitud: 8.48927901814328 <\/p>","<p> id: c29eb5<br>generacion: 4<br>fecha_de_infeccion: 2014-05-08<br>fecha_inicio_sintomas: 2014-05-09<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-06-11<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.2166275087023<br>latitud: 8.4886213986049 <\/p>","<p> id: c36eb4<br>generacion: 8<br>fecha_de_infeccion: 2014-06-15<br>fecha_inicio_sintomas: 2014-06-20<br>fecha_de_hospitalizacion: 2014-06-21<br>fecha_desenlace: 2014-06-24<br>desenlace: Muerte<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2619688324425<br>latitud: 8.48475855218221 <\/p>","<p> id: c4e706<br>generacion: 5<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-23<br>fecha_de_hospitalizacion: 2014-05-24<br>fecha_desenlace: 2014-06-02<br>desenlace: NA<br>genero: m<br>hospital: NA<br>longitud: -13.2143394209926<br>latitud: 8.48932072596067 <\/p>","<p> id: cd2dd3<br>generacion: 8<br>fecha_de_infeccion: 2014-06-12<br>fecha_inicio_sintomas: 2014-06-21<br>fecha_de_hospitalizacion: 2014-06-27<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: other<br>longitud: -13.2395544609828<br>latitud: 8.47601368595849 <\/p>","<p> id: d0523a<br>generacion: 7<br>fecha_de_infeccion: 2014-05-20<br>fecha_inicio_sintomas: 2014-05-24<br>fecha_de_hospitalizacion: 2014-05-26<br>fecha_desenlace: 2014-06-05<br>desenlace: NA<br>genero: f<br>hospital: NA<br>longitud: -13.2565628977111<br>latitud: 8.48379248016347 <\/p>","<p> id: d1fafd<br>generacion: 0<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-04-07<br>fecha_de_hospitalizacion: 2014-04-17<br>fecha_desenlace: 2014-04-19<br>desenlace: NA<br>genero: f<br>hospital: Military Hospital<br>longitud: -13.217990646098<br>latitud: 8.47351400551599 <\/p>","<p> id: d58402<br>generacion: 2<br>fecha_de_infeccion: 2014-04-23<br>fecha_inicio_sintomas: 2014-05-01<br>fecha_de_hospitalizacion: 2014-05-10<br>fecha_desenlace: 2014-05-11<br>desenlace: Recuperacion<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2263332366586<br>latitud: 8.47273926912139 <\/p>","<p> id: d8a13d<br>generacion: 4<br>fecha_de_infeccion: 2014-05-06<br>fecha_inicio_sintomas: 2014-05-08<br>fecha_de_hospitalizacion: 2014-05-10<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2354719577436<br>latitud: 8.4627682729487 <\/p>","<p> id: daddbc<br>generacion: 4<br>fecha_de_infeccion: 2014-06-06<br>fecha_inicio_sintomas: 2014-06-23<br>fecha_de_hospitalizacion: 2014-06-26<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: Military Hospital<br>longitud: -13.2248844074011<br>latitud: 8.48560655485865 <\/p>","<p> id: dae8c7<br>generacion: 3<br>fecha_de_infeccion: 2014-05-23<br>fecha_inicio_sintomas: 2014-05-25<br>fecha_de_hospitalizacion: 2014-05-27<br>fecha_desenlace: 2014-05-30<br>desenlace: Muerte<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2197320896877<br>latitud: 8.44852192548534 <\/p>","<p> id: db4b96<br>generacion: 3<br>fecha_de_infeccion: 2014-05-16<br>fecha_inicio_sintomas: 2014-05-31<br>fecha_de_hospitalizacion: 2014-06-01<br>fecha_desenlace: NA<br>desenlace: Muerte<br>genero: m<br>hospital: NA<br>longitud: -13.248633850792<br>latitud: 8.4778746413144 <\/p>","<p> id: db5a62<br>generacion: 7<br>fecha_de_infeccion: 2014-06-17<br>fecha_inicio_sintomas: 2014-06-19<br>fecha_de_hospitalizacion: 2014-06-22<br>fecha_desenlace: 2014-06-25<br>desenlace: Muerte<br>genero: f<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.237128159707<br>latitud: 8.47419907653147 <\/p>","<p> id: dbebea<br>generacion: 7<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-02<br>fecha_de_hospitalizacion: 2014-06-03<br>fecha_desenlace: 2014-06-05<br>desenlace: NA<br>genero: m<br>hospital: Connaught Hospital<br>longitud: -13.2164705932244<br>latitud: 8.48666377289188 <\/p>","<p> id: dce5cc<br>generacion: 4<br>fecha_de_infeccion: 2014-05-03<br>fecha_inicio_sintomas: 2014-05-17<br>fecha_de_hospitalizacion: 2014-05-18<br>fecha_desenlace: 2014-05-22<br>desenlace: Muerte<br>genero: f<br>hospital: other<br>longitud: -13.2208460857832<br>latitud: 8.48367886299958 <\/p>","<p> id: ddddee<br>generacion: 6<br>fecha_de_infeccion: 2014-06-18<br>fecha_inicio_sintomas: 2014-06-26<br>fecha_de_hospitalizacion: 2014-06-28<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2535640411465<br>latitud: 8.45957352078114 <\/p>","<p> id: df4951<br>generacion: 8<br>fecha_de_infeccion: 2014-06-02<br>fecha_inicio_sintomas: 2014-06-24<br>fecha_de_hospitalizacion: 2014-06-27<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2384499801949<br>latitud: 8.47665596749586 <\/p>","<p> id: e02f66<br>generacion: 4<br>fecha_de_infeccion: 2014-05-18<br>fecha_inicio_sintomas: 2014-05-24<br>fecha_de_hospitalizacion: 2014-05-25<br>fecha_desenlace: 2014-05-31<br>desenlace: NA<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2599196027204<br>latitud: 8.45436259178895 <\/p>","<p> id: e4bee8<br>generacion: 6<br>fecha_de_infeccion: 2014-06-17<br>fecha_inicio_sintomas: 2014-06-22<br>fecha_de_hospitalizacion: 2014-06-25<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2299234894085<br>latitud: 8.47847094017516 <\/p>","<p> id: e61cb9<br>generacion: 8<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-06-09<br>fecha_de_hospitalizacion: 2014-06-14<br>fecha_desenlace: 2014-06-15<br>desenlace: NA<br>genero: f<br>hospital: other<br>longitud: -13.2387287299605<br>latitud: 8.47046910432129 <\/p>","<p> id: e85785<br>generacion: 5<br>fecha_de_infeccion: 2014-05-27<br>fecha_inicio_sintomas: 2014-06-03<br>fecha_de_hospitalizacion: 2014-06-08<br>fecha_desenlace: 2014-06-02<br>desenlace: Muerte<br>genero: m<br>hospital: NA<br>longitud: -13.2343655285518<br>latitud: 8.47939496892986 <\/p>","<p> id: f1f60f<br>generacion: 4<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-04<br>fecha_de_hospitalizacion: 2014-05-09<br>fecha_desenlace: 2014-05-26<br>desenlace: Recuperacion<br>genero: f<br>hospital: NA<br>longitud: -13.2189142321497<br>latitud: 8.48205878977122 <\/p>","<p> id: f547d6<br>generacion: 3<br>fecha_de_infeccion: 2014-05-02<br>fecha_inicio_sintomas: 2014-05-07<br>fecha_de_hospitalizacion: 2014-05-08<br>fecha_desenlace: 2014-05-15<br>desenlace: Recuperacion<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2193318178555<br>latitud: 8.4762810528991 <\/p>","<p> id: f5c3d8<br>generacion: 1<br>fecha_de_infeccion: 2014-04-18<br>fecha_inicio_sintomas: 2014-04-21<br>fecha_de_hospitalizacion: 2014-04-25<br>fecha_desenlace: 2014-04-30<br>desenlace: Recuperacion<br>genero: f<br>hospital: other<br>longitud: -13.2280410276091<br>latitud: 8.48335550908327 <\/p>","<p> id: f9149b<br>generacion: 3<br>fecha_de_infeccion: NA<br>fecha_inicio_sintomas: 2014-05-03<br>fecha_de_hospitalizacion: 2014-05-04<br>fecha_desenlace: NA<br>desenlace: Recuperacion<br>genero: f<br>hospital: Connaught Hospital<br>longitud: -13.2481588312543<br>latitud: 8.46468165143675 <\/p>","<p> id: f96aa5<br>generacion: 3<br>fecha_de_infeccion: 2014-05-17<br>fecha_inicio_sintomas: 2014-05-19<br>fecha_de_hospitalizacion: 2014-05-20<br>fecha_desenlace: 2014-05-23<br>desenlace: Recuperacion<br>genero: m<br>hospital: Princess Christian Maternity Hospital (PCMH)<br>longitud: -13.2523649449559<br>latitud: 8.4601071493071 <\/p>","<p> id: fc05c1<br>generacion: 4<br>fecha_de_infeccion: 2014-05-15<br>fecha_inicio_sintomas: 2014-06-08<br>fecha_de_hospitalizacion: 2014-06-09<br>fecha_desenlace: 2014-05-31<br>desenlace: NA<br>genero: f<br>hospital: Rokupa Hospital<br>longitud: -13.2133487439158<br>latitud: 8.46649054339107 <\/p>","<p> id: fc15ef<br>generacion: 6<br>fecha_de_infeccion: 2014-06-14<br>fecha_inicio_sintomas: 2014-06-16<br>fecha_de_hospitalizacion: 2014-06-17<br>fecha_desenlace: NA<br>desenlace: NA<br>genero: m<br>hospital: NA<br>longitud: -13.2385127873491<br>latitud: 8.47761705512509 <\/p>"],"color":["#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","lightgrey","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6"],"shape":["icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon","icon"],"icon.code":["f182","f183","f182","f182","f182","f182","f183","f183","f182","f182","f183","f182","f183","f182","f182","f183","f182","f183","f182","f059","f182","f183","f182","f183","f183","f183","f183","f182","f183","f182","f183","f183","f183","f182","f182","f182","f182","f183","f182","f182","f183","f183","f183","f182","f182","f182","f182","f183","f182","f183","f182","f183","f183","f182","f182","f183","f183","f182","f183","f183","f182","f182","f183","f183","f183","f182","f182","f182","f182","f183","f182","f183","f182","f183","f182","f182","f182","f182","f182","f182","f183","f182","f182","f182","f182","f183","f182","f183"],"icon.color":["#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","lightgrey","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#ccddff","#79d2a6","#79d2a6","#ccddff","#ccddff","#79d2a6","#79d2a6","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#ccddff","#ccddff","#ccddff","#79d2a6","#ccddff","#79d2a6"]},"edges":{"from":["d1fafd","f5c3d8","0f58c4","f5c3d8","20b688","2ae019","20b688","2ae019","40ae5f","f1f60f","f9149b","f547d6","f547d6","f9149b","d58402","f9149b","11f8ea","11f8ea","f547d6","bd8c0e","bd8c0e","4b38b7","1511c5","e02f66","893f25","76b97a","bc9ace","11f8ea","c29eb5","bd8c0e","c4e706","133ee7","49d786","20b688","dae8c7","5387a2","07e3e8","102363","11f8ea","11f8ea","7e95d1","369449","133ee7","37a6f6","9f6884","5837cf","e61cb9","057e7a","821030","02d8fd","a6c614","02d8fd","528572","30c98c","528572","dbebea","07e3e8","8e104d","37a6f6","02d8fd"],"to":["53371b","0f58c4","881bd4","d58402","d8a13d","a3c8b8","974bc1","72b905","b8f2fd","09e386","6285c9","865581","5fe599","79ad06","900021","dce5cc","f96aa5","893f25","c29eb5","3f1aaf","e02f66","d0523a","acf422","275cc7","07e3e8","133ee7","96e309","db4b96","1511c5","80663c","968888","369449","be6c4b","5837cf","7e95d1","2b8773","e85785","fc05c1","88f67f","8f227d","6fa4bf","9f5d3b","57a565","fc15ef","2eaa9a","3ef3d9","02d8fd","c36eb4","db5a62","9e74c4","e4bee8","ae96ac","0082bf","daddbc","cd2dd3","df4951","920c1b","ddddee","894000000","acbbf6"],"fuente":["otro","otro","otro","otro","funeral","otro","funeral","funeral","funeral","otro","otro","otro","otro","otro","otro","otro","otro","otro","otro","funeral","funeral","funeral","otro","funeral","otro","otro","otro","otro","funeral","funeral","otro","funeral","funeral","funeral","funeral","otro","otro","otro","otro","otro","funeral","otro","funeral","otro","otro","otro","otro","otro","funeral","otro","otro","funeral","otro","otro","funeral","funeral","otro","otro","otro","otro"],"width":[3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3],"color":["#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#CC6666B3","#CC6666B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#CC6666B3","#CC6666B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#CC6666B3","#666699B3","#CC6666B3","#CC6666B3","#CC6666B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#CC6666B3","#666699B3","#666699B3","#CC6666B3","#CC6666B3","#666699B3","#666699B3","#666699B3","#666699B3"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"physics":{"stabilization":false}},"groups":null,"width":"90%","height":"700px","idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","legend":{"width":0.2,"useGroups":false,"position":"left","ncol":1,"stepX":100,"stepY":100,"zoom":true,"edges":{"label":["funeral","otro"],"color":["#CC6666B3","#666699B3"],"font.size":[15,15]},"edgesToDataframe":true,"nodes":{"label":["f","m"],"color":["#ccddff","#79d2a6"],"shape":["box","box"],"shadow":[true,true],"font.size":[20,20]},"nodesToDataframe":true},"highlight":{"enabled":true,"hoverNearest":false,"degree":1,"algorithm":"all","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"opts_manipulation":{"datacss":"table.legend_table {\n  font-size: 11px;\n  border-width:1px;\n  border-color:#d3d3d3;\n  border-style:solid;\n}\ntable.legend_table td {\n  border-width:1px;\n  border-color:#d3d3d3;\n  border-style:solid;\n  padding: 2px;\n}\ndiv.table_content {\n  width:80px;\n  text-align:center;\n}\ndiv.table_description {\n  width:100px;\n}\n\n.operation {\n  font-size:20px;\n}\n\n.network-popUp {\n  display:none;\n  z-index:299;\n  width:250px;\n  /*height:150px;*/\n  background-color: #f9f9f9;\n  border-style:solid;\n  border-width:1px;\n  border-color: #0d0d0d;\n  padding:10px;\n  text-align: center;\n  position:fixed;\n  top:50%;  \n  left:50%;  \n  margin:-100px 0 0 -100px;  \n\n}","addNodeCols":["id","label"],"editNodeCols":["id","label"],"tab_add_node":"<span id=\"addnode-operation\" class = \"operation\">node<\/span> <br><table style=\"margin:auto;\"><tr><td>id<\/td><td><input id=\"addnode-id\"  type= \"text\" value=\"new value\"><\/td><\/tr><tr><td>label<\/td><td><input id=\"addnode-label\"  type= \"text\" value=\"new value\"><\/td><\/tr><\/table><input type=\"button\" value=\"save\" id=\"addnode-saveButton\"><\/button><input type=\"button\" value=\"cancel\" id=\"addnode-cancelButton\"><\/button>","tab_edit_node":"<span id=\"editnode-operation\" class = \"operation\">node<\/span> <br><table style=\"margin:auto;\"><tr><td>id<\/td><td><input id=\"editnode-id\"  type= \"text\" value=\"new value\"><\/td><\/tr><tr><td>label<\/td><td><input id=\"editnode-label\"  type= \"text\" value=\"new value\"><\/td><\/tr><\/table><input type=\"button\" value=\"save\" id=\"editnode-saveButton\"><\/button><input type=\"button\" value=\"cancel\" id=\"editnode-cancelButton\"><\/button>"},"iconsRedraw":true},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="instrucciones-10" class="slide level2">
-<h2>Instrucciones</h2>
+<section id="verifique-que-los-contactos-visualizados-sean-realmente-casos" class="slide level2">
+<h2><font size="14">verifique que los contactos visualizados sean realmente casos</font></h2>
 <ul>
 <li>Usando la función <code>match</code> ( ver <code>?match</code> ) verifique que los contactos visualizados sean realmente casos.</li>
 </ul>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">match</span>(contactos<span class="sc">$</span>id_caso, directorio_casos<span class="sc">$</span>id_caso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   2   5   8  14  15  16  18  20  21  22  24  25  26  27  30  33  37  38  40
 [20]  NA  47  50  57  58  61  62  66  67  68  69  71  73  77  82  84  86  88  92
@@ -1465,14 +1203,6 @@ funeral    otro
 <ul>
 <li>Una vez se asegure de que todos estos son casos, mire la red: ¿Parece que hay superpropagación (transmisión heterogénea)?</li>
 </ul>
-<div class="cell">
-<div class="cell-output-display">
-<div class="countdown" id="timer_278f69ad" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
 <section id="modelo-de-proceso-de-ramificación" class="slide level2">
 <h2>Modelo de proceso de ramificación</h2>
@@ -1486,6 +1216,11 @@ funeral    otro
 <!--# Full article: On the reproduction number in epidemics (tandfonline.com) -->
 <!--# EpiEstim Vignette • EpiEstim (mrc-ide.github.io) -->
 </section>
+<section id="intervalo-serial" class="slide level2">
+<h2>Intervalo serial:</h2>
+<p>El <strong><em>intervalo serial</em></strong> es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios</p>
+
+<img data-src="TallerEbola-qmd_files/img/serial_interval_toon.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16</p></section>
 <section id="modelo-de-proceso-de-ramificación-1" class="slide level2">
 <h2>Modelo de proceso de ramificación</h2>
 <ul>
@@ -1499,27 +1234,33 @@ I_t \sim Poisson\left(R_t \sum_{s=0}^{t} I_{t-s} w_{s}\right)
 <section id="modelo-de-proceso-de-ramificación-2" class="slide level2">
 <h2>Modelo de proceso de ramificación</h2>
 <ul>
-<li>Teniendo en cuenta&nbsp; que <span class="math inline">\(R_t\)</span> es el número de reproducción y <span class="math inline">\(w\)</span> la distribución del intervalo serial discreta, la <strong>fuerza de infección</strong> se define como:</li>
+<li>La <strong>incidencia en el tiempo</strong> <span class="math inline">\(t\)</span> se puede calcular por medio de la <strong>ecuación de renovación</strong>:</li>
 </ul>
 <p><span class="math display">\[
 I_t = R_t \sum_{s=0}^{t} I_s w_{t-s}
 \]</span></p>
+<p>En donde <span class="math inline">\(R_t\)</span> representa el número de reproducción efectiyo y <span class="math inline">\(w\)</span> la distribución del intervalo serial discreta.</p>
 </section>
-<section id="verosimilitud-likelihood" class="slide level2">
-<h2>Verosimilitud (Likelihood)</h2>
-<p>Una medida relativa de ajuste entre los datos y el modelo. Se define como una función de R:</p>
 
-<img data-src="TallerEbola-qmd_files/img/likelihood_reminder.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#19</p></section>
-<section id="estimación-del-intervalo-serial" class="slide level2">
-<h2>Estimación del intervalo serial</h2>
-
-<img data-src="TallerEbola-qmd_files/img/serial_interval_toon.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16</p></section>
+<section id="instrucciones-4" class="slide level2">
+<h2>Instrucciones</h2>
+<p><br></p>
+<h3 id="lea-y-desarrolle-las-sección-6.-intervalo-serial-y-rt">Lea y desarrolle las sección <em>6. Intervalo serial y Rt</em></h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_08ea18d7" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
 <section id="ajustar-una-distribución-discreta-al-intervalo-serial" class="slide level2">
 <h2><font size="10">Ajustar una distribución discreta al intervalo serial </font></h2>
 <ul>
 <li><p><strong>Función y argumentos:</strong></p>
 <ul>
-<li><strong>get_pairwise(), argumentos relevantes “x” y “attribute” los cuales corresponden a la base y a la variable que contenga las fechas para el cálculo de intervalos.</strong></li>
+<li><code>get_pairwise()</code><strong>, argumentos relevantes “x” y “attribute” los cuales corresponden a la base y a la variable que contenga las fechas para el cálculo de intervalos.</strong></li>
 </ul></li>
 </ul>
 <!-- -->
@@ -1535,17 +1276,17 @@ I_t = R_t \sum_{s=0}^{t} I_s w_{t-s}
 <!-- -->
 <ul>
 <li><p><strong>Si ese no fuera el caso, que hubiera hecho para obtener esta estimación?</strong></p></li>
-<li><p>Utilice la función <strong>get_pairwise</strong> para extraer el intervalo serial</p></li>
+<li><p>Utilice la función <code>get_pairwise</code> para extraer el intervalo serial</p></li>
 </ul>
 </section>
 <section id="ajustar-una-distribución-discreta-al-intervalo-serial-2" class="slide level2">
 <h2><font size="10">Ajustar una distribución discreta al intervalo serial </font></h2>
 <ul>
-<li>Utilice la función <strong>get_pairwise</strong> para extraer el intervalo serial</li>
+<li>Utilice la función <code>get_pairwise</code> para extraer el intervalo serial</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>intervalo_serial_observado <span class="ot">&lt;-</span> <span class="fu">get_pairwise</span>(red_rastreo_contactos, <span class="st">"fecha_inicio_sintomas"</span>)</span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">summary</span>(intervalo_serial_observado)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>intervalo_serial_observado <span class="ot">&lt;-</span> <span class="fu">get_pairwise</span>(red_rastreo_contactos, <span class="st">"fecha_inicio_sintomas"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">summary</span>(intervalo_serial_observado)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
   2.000   5.000   7.000   9.254  12.500  30.000       1 </code></pre>
@@ -1555,13 +1296,13 @@ I_t = R_t \sum_{s=0}^{t} I_s w_{t-s}
 <section id="ajustar-una-distribución-discreta-al-intervalo-serial-3" class="slide level2">
 <h2><font size="10">Ajustar una distribución discreta al intervalo serial </font></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">hist</span>(intervalo_serial_observado, <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">30</span>,</span>
-<span id="cb43-2"><a href="#cb43-2"></a>     <span class="at">xlab =</span> <span class="st">"Días después de la aparición de los síntomas"</span>, <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>,</span>
-<span id="cb43-3"><a href="#cb43-3"></a>     <span class="at">main =</span> <span class="st">"Intervalo Serial (Distribución Empírica)"</span>,</span>
-<span id="cb43-4"><a href="#cb43-4"></a>     <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">hist</span>(intervalo_serial_observado, <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">30</span>,</span>
+<span id="cb44-2"><a href="#cb44-2"></a>     <span class="at">xlab =</span> <span class="st">"Días después de la aparición de los síntomas"</span>, <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>,</span>
+<span id="cb44-3"><a href="#cb44-3"></a>     <span class="at">main =</span> <span class="st">"Intervalo Serial (Distribución Empírica)"</span>,</span>
+<span id="cb44-4"><a href="#cb44-4"></a>     <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">border =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-61-1.png" width="960" class="r-stretch"><center>
+<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-57-1.png" width="960" class="r-stretch"><center>
 <strong>¿Qué opina de esta distribución?</strong>
 </center>
 </section>
@@ -1587,8 +1328,8 @@ I_t = R_t \sum_{s=0}^{t} I_s w_{t-s}
 </div><div class="column" style="width:60%;">
 <p><font size="5"></font></p><font size="5">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>ajuste_distribucion_gamma <span class="ot">&lt;-</span> <span class="fu">fit_disc_gamma</span>(intervalo_serial_observado, <span class="at">w =</span> <span class="dv">1</span>)</span>
-<span id="cb44-2"><a href="#cb44-2"></a>ajuste_distribucion_gamma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>ajuste_distribucion_gamma <span class="ot">&lt;-</span> <span class="fu">fit_disc_gamma</span>(intervalo_serial_observado, <span class="at">w =</span> <span class="dv">1</span>)</span>
+<span id="cb45-2"><a href="#cb45-2"></a>ajuste_distribucion_gamma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$mu
 [1] 8.752409
@@ -1622,8 +1363,8 @@ A discrete distribution
 <p><strong>si_fit</strong> contiene información diversa sobre los retrasos ajustados, incluida la distribución estimada.&nbsp;</p>
 <p>Puede comparar esta distribución con los datos empíricos en la siguiente tabla:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>distribucion_gamma <span class="ot">&lt;-</span> ajuste_distribucion_gamma<span class="sc">$</span>distribution</span>
-<span id="cb46-2"><a href="#cb46-2"></a>distribucion_gamma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>distribucion_gamma <span class="ot">&lt;-</span> ajuste_distribucion_gamma<span class="sc">$</span>distribution</span>
+<span id="cb47-2"><a href="#cb47-2"></a>distribucion_gamma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>A discrete distribution
   name: gamma
@@ -1636,15 +1377,15 @@ A discrete distribution
 <section id="ajuste-a-distribucion-gamma-2" class="slide level2">
 <h2>Ajuste a distribucion gamma</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="do">## compare fitted distribution</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">hist</span>(intervalo_serial_observado, <span class="at">xlab =</span> <span class="st">"Días después de la aparición de los síntomas"</span>, </span>
-<span id="cb48-3"><a href="#cb48-3"></a>     <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>, <span class="at">main =</span> <span class="st">"Intervalo Serial: Ajuste a los Datos"</span>, </span>
-<span id="cb48-4"><a href="#cb48-4"></a>     <span class="at">col =</span> <span class="st">"salmon"</span>, <span class="at">border =</span> <span class="st">"white"</span>, <span class="dv">50</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">35</span>)</span>
-<span id="cb48-5"><a href="#cb48-5"></a><span class="fu">points</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>, distribucion_gamma<span class="sc">$</span><span class="fu">d</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>), <span class="at">col =</span> <span class="st">"#9933ff"</span>, <span class="at">pch =</span> <span class="dv">20</span>)</span>
-<span id="cb48-6"><a href="#cb48-6"></a><span class="fu">points</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>, distribucion_gamma<span class="sc">$</span><span class="fu">d</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>), <span class="at">col =</span> <span class="st">"#9933ff"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="do">## compare fitted distribution</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">hist</span>(intervalo_serial_observado, <span class="at">xlab =</span> <span class="st">"Días después de la aparición de los síntomas"</span>, </span>
+<span id="cb49-3"><a href="#cb49-3"></a>     <span class="at">ylab =</span> <span class="st">"Frecuencia"</span>, <span class="at">main =</span> <span class="st">"Intervalo Serial: Ajuste a los Datos"</span>, </span>
+<span id="cb49-4"><a href="#cb49-4"></a>     <span class="at">col =</span> <span class="st">"salmon"</span>, <span class="at">border =</span> <span class="st">"white"</span>, <span class="dv">50</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>), <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">35</span>)</span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="fu">points</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>, distribucion_gamma<span class="sc">$</span><span class="fu">d</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>), <span class="at">col =</span> <span class="st">"#9933ff"</span>, <span class="at">pch =</span> <span class="dv">20</span>)</span>
+<span id="cb49-6"><a href="#cb49-6"></a><span class="fu">points</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>, distribucion_gamma<span class="sc">$</span><span class="fu">d</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>), <span class="at">col =</span> <span class="st">"#9933ff"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-64-1.png" width="960" class="r-stretch"></section>
+<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-60-1.png" width="960" class="r-stretch"></section>
 <section id="estimación-del-número-reproductivo-instantáneo-rt" class="slide level2">
 <h2>Estimación del número reproductivo instantáneo (Rt)</h2>
 <ul>
@@ -1658,33 +1399,27 @@ A discrete distribution
 <p>A continuación, estimamos la transmisibilidad para ventanas de tiempo deslizantes de 1 semana (el valor predeterminado de <strong>estimate_R</strong>):</p>
 <p><font size="5"></font></p><font size="5">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>configuracion_rt <span class="ot">&lt;-</span> <span class="fu">make_config</span>(<span class="at">mean_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>mu, <span class="co"># Media de la distribución SI estimada anteriormente</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>                                <span class="at">std_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>sd,  <span class="co"># Desviación estándar de la distribución SI estimada anteriormente</span></span>
-<span id="cb49-3"><a href="#cb49-3"></a>                                <span class="at">t_start =</span> <span class="dv">2</span>,                            <span class="co"># Día de inicio de la ventana de tiempo</span></span>
-<span id="cb49-4"><a href="#cb49-4"></a>                                <span class="at">t_end =</span> <span class="fu">length</span>(incidencia_diaria_truncada<span class="sc">$</span>counts)) <span class="co"># Último día de la ventana de tiempo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>configuracion_rt <span class="ot">&lt;-</span> <span class="fu">make_config</span>(<span class="at">mean_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>mu, <span class="co"># Media de la distribución SI estimada anteriormente</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>                                <span class="at">std_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>sd,  <span class="co"># Desviación estándar de la distribución SI estimada anteriormente</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>                                <span class="at">t_start =</span> <span class="dv">2</span>,                            <span class="co"># Día de inicio de la ventana de tiempo</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a>                                <span class="at">t_end =</span> <span class="fu">length</span>(incidencia_diaria_truncada<span class="sc">$</span>counts)) <span class="co"># Último día de la ventana de tiempo</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>config <span class="ot">&lt;-</span> <span class="fu">make_config</span>(<span class="fu">list</span>(<span class="at">mean_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>mu, <span class="at">std_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>sd)) </span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="co"># t_start y t_end se configuran automáticamente para estimar R en ventanas deslizantes para 1 semana de forma predeterminada.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>config <span class="ot">&lt;-</span> <span class="fu">make_config</span>(<span class="fu">list</span>(<span class="at">mean_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>mu, <span class="at">std_si =</span> ajuste_distribucion_gamma<span class="sc">$</span>sd)) </span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="co"># t_start y t_end se configuran automáticamente para estimar R en ventanas deslizantes para 1 semana de forma predeterminada.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </font><p><font size="5"></font></p>
 </section>
 <section id="estimacion-del-número-reproductivo-instantáneo-rt" class="slide level2">
 <h2>Estimacion del número reproductivo instantáneo (Rt)</h2>
-<p>Rt &lt;- estimate_R(incidencia_diaria_truncada, method = “parametric_si”,</p>
-<p>si_data = si_data,</p>
-<p>config = config)</p>
-<p># mire las estimaciones de Rt más recientes:</p>
-<p>tail(Rt$R[, c(“t_start”, “t_end”, “Median(R)”,</p>
-<p>“Quantile.0.025(R)”, “Quantile.0.975(R)”)])</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># use estimate_R using method = "parametric_si"</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>estimacion_rt <span class="ot">&lt;-</span> <span class="fu">estimate_R</span>(incidencia_diaria_truncada, <span class="at">method =</span> <span class="st">"parametric_si"</span>, </span>
-<span id="cb51-3"><a href="#cb51-3"></a>                            <span class="at">si_data =</span> si_data,</span>
-<span id="cb51-4"><a href="#cb51-4"></a>                            <span class="at">config =</span> configuracion_rt)</span>
-<span id="cb51-5"><a href="#cb51-5"></a><span class="co"># Observamos las estimaciones más recientes de R(t)</span></span>
-<span id="cb51-6"><a href="#cb51-6"></a><span class="fu">tail</span>(estimacion_rt<span class="sc">$</span>R[, <span class="fu">c</span>(<span class="st">"t_start"</span>, <span class="st">"t_end"</span>, <span class="st">"Median(R)"</span>, </span>
-<span id="cb51-7"><a href="#cb51-7"></a>                         <span class="st">"Quantile.0.025(R)"</span>, <span class="st">"Quantile.0.975(R)"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># use estimate_R using method = "parametric_si"</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>estimacion_rt <span class="ot">&lt;-</span> <span class="fu">estimate_R</span>(incidencia_diaria_truncada, <span class="at">method =</span> <span class="st">"parametric_si"</span>, </span>
+<span id="cb52-3"><a href="#cb52-3"></a>                            <span class="at">si_data =</span> si_data,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>                            <span class="at">config =</span> configuracion_rt)</span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="co"># Observamos las estimaciones más recientes de R(t)</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a><span class="fu">tail</span>(estimacion_rt<span class="sc">$</span>R[, <span class="fu">c</span>(<span class="st">"t_start"</span>, <span class="st">"t_end"</span>, <span class="st">"Median(R)"</span>, </span>
+<span id="cb52-7"><a href="#cb52-7"></a>                         <span class="st">"Quantile.0.025(R)"</span>, <span class="st">"Quantile.0.975(R)"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  t_start t_end Median(R) Quantile.0.025(R) Quantile.0.975(R)
 1       2    70  1.265004          1.050042          1.507482</code></pre>
@@ -1694,10 +1429,10 @@ A discrete distribution
 <section id="estimacion-del-número-reproductivo-instantáneo-rt-1" class="slide level2">
 <h2>Estimacion del número reproductivo instantáneo (Rt)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">plot</span>(estimacion_rt, <span class="at">legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">plot</span>(estimacion_rt, <span class="at">legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-68-1.png" width="960" class="r-stretch"><center>
+<img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-64-1.png" width="960" class="r-stretch"><center>
 <strong>¿Cómo interpretaría este resultado?</strong>
 </center>
 </section></section>
