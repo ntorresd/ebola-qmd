@@ -37,7 +37,7 @@ editor: visual
 
 -   Conceptos básicos a desarrollar:
 
-    -   **Tasa de letalidad por caso** (CFR - *Case Fatality **Ratio***)
+    -   **Razon de letalidad por caso** (CFR - *Case Fatality **Ratio***)
 
     -   **Curvas epidemiológicas** (e.g. Incidencia de casos - $I_t$)
 
@@ -55,7 +55,7 @@ editor: visual
 
 <font size="6">
 
--   Estimar la **tasa de letalidad por caso (CFR)**
+-   Estimar la **razon de letalidad por caso (CFR)**
 
 -   Calcular, visualizar la **incidencia de casos** ($I_t$)
 
@@ -147,7 +147,7 @@ La práctica está divida en 6 secciones. En cada una de ellas vamos a tener:
 countdown::countdown(minutes = 5, seconds = 00, left=0, right=0)
 ```
 
-## Cargue las librerías necesarias:  {visibility="hidden"}
+## Cargue las librerías necesarias: {visibility="hidden"}
 
 <br>
 
@@ -166,7 +166,7 @@ library(EpiEstim) # para estimar R(t)
 countdown::countdown(minutes = 1, seconds = 00)
 ```
 
-## Cargue las bases de datos:  {visibility="hidden"}
+## Cargue las bases de datos: {visibility="hidden"}
 
 <br>
 
@@ -215,17 +215,19 @@ countdown::countdown(minutes = 2, seconds = 00, top = 0)
 
 ## **No confundir CFR con IFR**
 
--   **CFR:** Es la proporción de casos reportados que mueren a causa de la infección
+-   **CFR:** Es la **proporción** de casos reportados que mueren a causa de la infección
 
     $\rightarrow$ <font size="5"> CFR se puede calcular con los datos de vigilancia epidemiológica </font>
 
-<br>
+$$
+\text{CFR} = \frac{\text{# de muertes confirmadas}}{\text{# casos con desenlace conocido}}
+$$
 
--   **IFR:** Es la proporción de infecciones (detectadas y no detectadas) que mueren a causa de la infección
+-   **IFR:** Es la **proporción** de infecciones (detectadas y no detectadas) que mueren a causa de la infección
 
     $\rightarrow$ <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font>
 
-## Instrucciones 
+## Instrucciones
 
 <br>
 
@@ -284,8 +286,8 @@ Piense en qué hacer con los casos cuyo resultado es \`NA\`
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment="", results=FALSE}
 numero_muertes <- sum(directorio_casos$desenlace %in% "Muerte") 
 numero_con_resultado_conocido <- sum(directorio_casos$desenlace %in% c("Muerte", "Recuperacion"))  
-tasa_letalidad <- numero_muertes / numero_con_resultado_conocido
-tasa_letalidad
+razon_letalidad <- numero_muertes / numero_con_resultado_conocido
+razon_letalidad
 ```
 :::
 
@@ -297,9 +299,9 @@ Cálculo de CFR
 ::: columns
 ::: {.column width="65%"}
 ```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
-tasa_letalidad_con_CI <- binom.confint(numero_muertes, numero_con_resultado_conocido, method = "exact") %>%   
-  kable(caption = "**tasa de letalidad con intervalos de confianza**") 
-tasa_letalidad_con_CI
+razon_letalidad_con_CI <- binom.confint(numero_muertes, numero_con_resultado_conocido, method = "exact") %>%   
+  kable(caption = "**razon de letalidad con intervalos de confianza**") 
+razon_letalidad_con_CI
 ```
 :::
 
@@ -338,7 +340,7 @@ countdown::countdown(minutes = 2, seconds = 00)
 
 </font>
 
-### **Para ello, ¡miraremos las curvas de incidencia!** 
+### **Para ello, ¡miraremos las curvas de incidencia!**
 
 ```{r, echo=FALSE, eval=FALSE}
 countdown::countdown(minutes = 3, seconds = 00)
@@ -346,7 +348,7 @@ countdown::countdown(minutes = 3, seconds = 00)
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
-![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/curv_epi_loglineal.png){alt="https://www.reconlearn.org/post/outbreakstatsprimer.html"}
+![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/curv_epi_loglineal.png)
 
 <font size="5.5">
 
@@ -697,7 +699,7 @@ countdown::countdown(minutes = 2, seconds = 0, left = 0)
 
 </font>
 
-## Instrucciones 
+## Instrucciones
 
 <br>
 
@@ -790,29 +792,45 @@ countdown::countdown(minutes = 1, seconds = 0)
 
 El ***intervalo serial*** es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios
 
-![https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16](TallerEbola-qmd_files/img/serial_interval_toon.png){alt="https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16"}
+:::: {.columns}
 
-## Modelo de proceso de ramificación
+::: {.column width="50%"}
+
+![](TallerEbola-qmd_files/img/serial_interval_toon.png){alt="https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16"}
+
+:::
+
+::: {.column width="50%"}
+![](TallerEbola-qmd_files/img/serial_interval_dist.png)
+:::
+
+::::
+
+<font size="5">
+
+<https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16>
+
+</font>
+
+## Modelo de Poisson para la incidencia
+
+-   La **fuerza de infección** se puede calcular como
+
+$$ \lambda_t \approx R_t \sum_{s=1}^{t-1} I_{s} w_{t-s} $$
+
+En donde $R_t$ representa el número de reproducción efectiyo y $w$ la distribución del intervalo serial discreta.
+
+## Modelo de Poisson para la incidencia
 
 -   El paquete **EpiEstim** implementa una **estimación bayesiana del número reproductivo**, utilizando las fechas de inicio de los síntomas y la distribución del intervalo serial
 
 -   Descripción de **la incidencia en un día** dado como la distribución de Poisson, con una **media determinada por la fuerza total de infección en ese día**:
 
 $$
-I_t \sim Poisson\left(R_t \sum_{s=0}^{t} I_{t-s} w_{s}\right)
+I_t \sim Poisson\left(\lambda_{t}\right | R_{t}, I_1, ..., I_{t-1}) = Poisson\left(R_{t} \sum_{s=1}^{t-1} I_{s} w_{t-s} \right)
 $$
 
-## Modelo de proceso de ramificación
-
--   La **incidencia en el tiempo** $t$ se puede calcular por medio de la **ecuación de renovación**:
-
-$$
-I_t = R_t \sum_{s=0}^{t} I_s w_{t-s}
-$$
-
-En donde $R_t$ representa el número de reproducción efectiyo y $w$ la distribución del intervalo serial discreta.
-
-## Verosimilitud (Likelihood)  {visibility="hidden"}
+## Verosimilitud (Likelihood) {visibility="hidden"}
 
 Una medida relativa de ajuste entre los datos y el modelo. Se define como una función de R:
 
