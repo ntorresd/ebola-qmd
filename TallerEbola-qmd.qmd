@@ -7,7 +7,7 @@ editor: visual
 
 ## Agenda:
 
-1.  Introducción (5min)
+1.  Introducción (10min)
 
 2.  Taller (100min)
 
@@ -23,9 +23,75 @@ editor: visual
 
 -   El mayor brote hasta la fecha tuvo lugar en **África Occidental** entre **marzo de 2014 y junio de 2016**
 
+::: notes
+**Oubreaks of EBOV**
+
+-   The **disease caused by the Ebola virus (EVE)** appeared in **1976** in almost simultaneous outbreaks in the **Democratic Republic of the Congo (DRC)** and **South Sudan.**
+
+<!-- -->
+
+-   Between **1979** ndefinedand **1994**ndefined, no cases or outbreak
+
+-   Since 1994, **outbreaks have been recognized** with increasing frequency.
+
+-   The largest outbreak to date occurred in **West Africa** between **March 2014 and June 2016.**
+:::
+
+## Taxonomía y transmisión del virus del Ébola
+
+![doi: 10.1038/s41572-020-0147-3.](TallerEbola-qmd_files/img/taxonomia-ebola.png)
+
+::: notes
+**Filovirus taxonomy and Ebola virus transmission.**
+
+**a** Taxonomy of the genus *Ebolavirus.* Thus far, five ebolaviruses have been associated with human infections, and four of them have been identified as pathogens.
+
+**b.**
+
+-   The natural reservoir host(s) of Ebola virus (EBOV) has (have) yet to be identified. Multiple data indicate a direct or indirect role of bats in EBOV ecology, but to date, EBOV has not been isolated from, nor its near-complete genome been detected in any wild animal.
+
+<!-- -->
+
+-   **It is tempting to speculate that Ebola virus disease (EVD) spread is a zoonotic** because identified index cases of EVD outbreaks had been identified to be individuals that had been in contact with wild animals or had handled the carcass of a possible accidental EBOV host.
+:::
+
 ## Brotes del virus del ébola
 
 ![doi: 10.1038/s41572-020-0147-3.](TallerEbola-qmd_files/img/ebola_outbreaks.jpg)
+
+::: notes
+**Oubreaks of EBOV**
+
+-   **Between 1979 and 1994 no cases or outbreaks were detected**. However, since that time, outbreaks have been recognized with increasing frequency.
+
+<!-- -->
+
+-   The largest outbreak to date took place in **West AFrica between March 2014 and June 2016**, affecting primarily Guinea, Liberia and Sierra Leone. **Over 28000 cases were recorded.**
+:::
+
+## Curso clínico
+
+::: columns
+::: {.column width="70%"}
+![Nat Rev Dis Primers 2020 Feb 20;6(1):13.  doi: 10.1038/s41572-020-0147-3.](TallerEbola-qmd_files/img/curso-clinico-ebola.png)
+:::
+
+::: {.column width="30%"}
+![](TallerEbola-qmd_files/img/curso-clinico-ebola-legend.png) <font size="5">
+
+Alta letalidad:
+
+De 5986 casos a nivel mundial fuera del brote de África Occidental han muerto 3963 (CFR 66%)
+
+</font>
+:::
+:::
+
+::: notes
+**High lethatility:**
+
+From 5986 global cases besides the West Africa outbreak cases, 3963 died (CFR 66%)
+:::
 
 # Instrucciones del taller
 
@@ -62,8 +128,6 @@ editor: visual
 -   Identificar parámetros descriptivos de la transmisión de una **enfermedad infecciosa (humano-humano)**. 
 
 -   Estimar e interpretar la **tasa de crecimiento** y el **tiempo de duplicación** de la epidemia.
-
--   Estimar el **intervalo serial** a partir de los datos pareados de individuos infectantes e individuos infectados. 
 
 -   Estimar e interpretar el **número de reproducción instantáneo** de la epidemia ($R_t$)
 
@@ -147,7 +211,7 @@ La práctica está divida en 6 secciones. En cada una de ellas vamos a tener:
 countdown::countdown(minutes = 5, seconds = 00, left=0, right=0)
 ```
 
-## Cargue las librerías necesarias: {visibility="hidden"}
+## Cargue las librerías necesarias:
 
 <br>
 
@@ -157,26 +221,16 @@ library(readxl) # para leer archivos Excel
 library(binom) # para intervalos de confianza binomiales
 library(knitr) # para crear tablas bonitas con kable()
 library(incidence) # para calcular incidencia y ajustar modelos
-library(epicontacts) # para análisis de contactos epidemiológicos
-library(epitrix) # para ajustar distribuciones
 library(EpiEstim) # para estimar R(t)
 ```
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 00)
-```
-
-## Cargue las bases de datos: {visibility="hidden"}
+## Cargue las bases de datos:
 
 <br>
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
 directorio_casos <- read_rds("data/directorio_casos.rds")
 contactos <- read_excel("data/contactos_20140701.xlsx", na = c("", "NA"))
-```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 00)
 ```
 
 ## Estructura de los datos:
@@ -205,25 +259,23 @@ glimpse(directorio_casos)
 
 </font>
 
-```{r, eval=FALSE}
-countdown::countdown(minutes = 2, seconds = 00, top = 0)
-```
+## Probabilidad de muerte en los casos reportados (CFR)
 
-## Tasa de fatalidad de casos (CFR)
+**CFR: *Case Fatality Ratio***
 
 ![https://www.reconlearn.org/post/outbreakstatsprimer.html](TallerEbola-qmd_files/img/CFR_pie.png)
 
 ## **No confundir CFR con IFR**
 
--   **CFR:** Es la **proporción** de casos reportados que mueren a causa de la infección
+-   **CFR:** Es la **probabilidad de muerte** a causa de la infección para los **casos reportados**:
 
-    $\rightarrow$ <font size="5"> CFR se puede calcular con los datos de vigilancia epidemiológica </font>
+    $\rightarrow$ <font size="5"> El CFR se puede calcular con los datos de vigilancia epidemiológica </font>
 
 $$
 \text{CFR} = \frac{\text{# de muertes confirmadas}}{\text{# casos con desenlace conocido}}
 $$
 
--   **IFR:** Es la **proporción** de infecciones (detectadas y no detectadas) que mueren a causa de la infección
+-   **IFR:** Es la **probabilidad de muerte** a causa de la infección teniendo en cuenta **infecciones detectadas y no detectadas**
 
     $\rightarrow$ <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font>
 
@@ -259,10 +311,6 @@ Piense en qué hacer con los casos cuyo resultado es \`NA\`
 
 </font>
 
-```{r, echo=FALSE, eval=FALSE}
-countdown::countdown(minutes = 1, seconds = 00)
-```
-
 ## Tasa de fatalidad de casos (CFR)
 
 <font size="5">
@@ -284,10 +332,10 @@ Piense en qué hacer con los casos cuyo resultado es \`NA\`
 ::: columns
 ::: {.column width="65%"}
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment="", results=FALSE}
-numero_muertes <- sum(directorio_casos$desenlace %in% "Muerte") 
-numero_con_resultado_conocido <- sum(directorio_casos$desenlace %in% c("Muerte", "Recuperacion"))  
-razon_letalidad <- numero_muertes / numero_con_resultado_conocido
-razon_letalidad
+numero_muertes <- sum(directorio_casos$desenlace %in% "Muerte")
+numero_casos_resultado_conocido <- sum(directorio_casos$desenlace %in% c("Muerte", "Recuperacion"))   
+CFR <- numero_muertes / numero_casos_resultado_conocido
+CFR
 ```
 :::
 
@@ -299,9 +347,9 @@ Cálculo de CFR
 ::: columns
 ::: {.column width="65%"}
 ```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
-razon_letalidad_con_CI <- binom.confint(numero_muertes, numero_con_resultado_conocido, method = "exact") %>%   
-  kable(caption = "**razon de letalidad con intervalos de confianza**") 
-razon_letalidad_con_CI
+CFR_con_CI <- binom.confint(numero_muertes, numero_casos_resultado_conocido, method = "exact") %>%
+  kable(caption = "**CFR con intervalos de confianza**") 
+CFR_con_CI
 ```
 :::
 
@@ -311,10 +359,6 @@ razon_letalidad_con_CI
 :::
 
 </font>
-
-```{r, echo=FALSE, eval=FALSE}
-countdown::countdown(minutes = 2, seconds = 00)
-```
 
 ## Incidencia
 
@@ -341,10 +385,6 @@ countdown::countdown(minutes = 2, seconds = 00)
 </font>
 
 ### **Para ello, ¡miraremos las curvas de incidencia!**
-
-```{r, echo=FALSE, eval=FALSE}
-countdown::countdown(minutes = 3, seconds = 00)
-```
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -397,7 +437,7 @@ $$  \hat{y}_2 = 2\hat{y}_1 \\ 2 = \frac{\hat{y}_2}{\hat{y}_1} = \frac{\exp^{rt_2
 <br>
 
 ```{r}
-countdown::countdown(minutes = 25, seconds = 00)
+countdown::countdown(minutes = 15, seconds = 00)
 ```
 
 ## <font size="9">Incidencia diaria según fecha de inicio de síntomas</font>
@@ -428,11 +468,7 @@ plot(incidencia_diaria, border = "black")
 
 <center>**¿Qué observa?**</center>
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 00, left = 0)
-```
-
-## Pregunta
+## Pregunta {visibility="hidden"}
 
 ### ¿Cuál es la mejor clasificación de la epidemia a partir de la información de la curva epidémica?
 
@@ -444,11 +480,7 @@ C. Fuente común intermitente
 
 D. Propagada (persona a persona)
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 0)
-```
-
-## Pregunta
+## Pregunta {visibility="hidden"}
 
 ### Su jefe le pregunta, ¿en qué fecha inició síntomas el primer caso (caso índice)?
 
@@ -456,10 +488,6 @@ Usted diría que fue...
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE,comment=""}
 plot(incidencia_diaria, border = "black")
-```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 00, right = 0)
 ```
 
 ## Incidencia de casos semanal
@@ -476,10 +504,6 @@ incidencia_semanal <- incidence(directorio_casos$fecha_inicio_sintomas,
                                 last_date = max(directorio_casos$fecha_de_hospitalizacion,
                                                 na.rm = TRUE))
 incidencia_semanal
-```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 3, seconds = 00, left=0)
 ```
 
 </font>
@@ -530,9 +554,9 @@ incidencia_semanal_df <- as.data.frame(incidencia_semanal)
 :::
 :::
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0, left = 0)
-```
+::: notes
+**Respuesta:** Se observa un incremento exponencial de casos semanales hasta la semana 23 (mediados de junio)
+:::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -545,10 +569,6 @@ ajuste_modelo
 
 <center>**¿Qué le dicen estos datos?**</center>
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0)
-```
-
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
@@ -557,9 +577,9 @@ plot(incidencia_semanal, fit = ajuste_modelo)
 
 <center><font size="6">Mirando la gráfica y el ajuste, **¿cree que este es un ajuste razonable?**</font></center>
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0, top=0, right=0)
-```
+::: notes
+**Respuesta:** Lo observado se ajusta a un crecimiento exponencial, sin embargo, no es un ajuste razonable debido a que se continuan incuyendo las últimas semanas, las cuales presentan datos atípicos que pueden sesgar la gráfica (rezago)
+:::
 
 ## <font size=12>Curva epidémica con modelo log lineal</font>
 
@@ -576,16 +596,11 @@ countdown::countdown(minutes = 2, seconds = 0, top=0, right=0)
                              from = fecha_minima, 
                              to = fecha_maxima) # descarte las últimas semanas de datos
 
-    # Incidencia diaria truncada 
-    # No la usamos para la regresión lineal pero se puede usar más adelante
+    # Incidencia diaria truncada. No la usamos para la regresión lineal pero se puede usar más adelante
     incidencia_diaria_truncada <- subset(incidencia_diaria, 
                             from = fecha_minima, 
                             to = fecha_maxima) # eliminamos las últimas dos semanas de datos
     ```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 0, left=0)
-```
 
 ## <font size=12>Curva epidémica con modelo log lineal</font>
 
@@ -621,10 +636,6 @@ plot(incidencia_semanal_truncada, fit = ajuste_modelo_semanal)
 
 </font>
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0, top = 0, right = 0)
-```
-
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
 #### Observe las estadísticas resumidas de su ajuste:
@@ -635,10 +646,6 @@ summary(ajuste_modelo_semanal$model)
 
 **¿El modelo se ajusta bien a los datos?**
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0)
-```
-
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
 #### Estimacion de la tasa de crecimiento
@@ -646,8 +653,8 @@ countdown::countdown(minutes = 2, seconds = 0)
 ¿Cuál es la tasa de crecimiento estimada de la epidemia?, ¿Cómo lo interpreta?
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+# Estimación de la tasa de crecimiento diaria
 tasa_crecimiento_diaria <- ajuste_modelo_semanal$info$r
-
 cat("La tasa de crecimiento diaria es:", tasa_crecimiento_diaria, "\n")
 
 # Intervalo de confianza de la tasa de crecimiento diaria
@@ -656,9 +663,11 @@ tasa_crecimiento_IC <- ajuste_modelo_semanal$info$r.conf
 cat("Intervalo de confianza de la tasa de crecimiento diaria (95%):", tasa_crecimiento_IC, "\n")
 ```
 
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0, left = 0)
-```
+## Tiempo de duplicación
+
+¿Cuál es el **tiempo de duplicación** estimado de la epidemia?,
+
+¿Cómo lo interpreta?
 
 ## Tiempo de duplicación
 
@@ -666,151 +675,48 @@ countdown::countdown(minutes = 2, seconds = 0, left = 0)
 
 ¿Cómo lo interpreta?
 
-```{r eval=TRUE, echo=TRUE, message=FALSE, warning=FALSE,comment=""}
+```{r, echo=TRUE}
+# Estimación del tiempo de duplicación en días
 tiempo_duplicacion_dias <- ajuste_modelo_semanal$info$doubling
 cat("El tiempo de duplicación de la epidemia en días es:", tiempo_duplicacion_dias, "\n")
 
 # Intervalo de confianza del tiempo de duplicación
 tiempo_duplicacion_IC <- ajuste_modelo_semanal$info$doubling.conf
 cat("Intervalo de confianza del tiempo de duplicación (95%):", tiempo_duplicacion_IC, "\n")
+
 ```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 2, seconds = 0, left = 0)
-```
-
-## <font size=14>Generar red de contactos con `epicontacts`</font>
-
-<font size="6.5">
-
-**El rastreo de contactos es uno de los pilares de la respuesta a un brote.**
-
-#### Procedimientos claves:
-
--   **Definir tiempo de rastreo:** para el ejemplo de ébola se vigilan durante 21 días (el límite superior del período de incubación)
-
--   **Definir base de datos a usar:** para el ejemplo base de datos completa o base inicial
-
--   **Paquete a usar:** `{epicontacts}`
-
--   **Función y argumentos:**
-
-    -   `make_epicontacts()`
-
-</font>
-
-## Instrucciones
-
-<br>
-
-### **Lea y desarrolle la sección *5. Rastreo de contactos***
-
-<br>
-
-```{r}
-countdown::countdown(minutes = 5, seconds = 0, left=0, right=0)
-```
-
-## <font size=14>Generar red de contactos con `epicontacts`</font>
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-red_rastreo_contactos <- make_epicontacts(directorio_casos, 
-                                          contactos, 
-                                          id = "id_caso",
-                                          from = "infectante",
-                                          to = "id_caso")
-red_rastreo_contactos
-```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 0)
-```
-
-## <font size=14>Generar red de contactos con `epicontacts`</font>
-
-Observe la fuente de infección reportada de los contactos.
-
-```{r table_contact_type}
-
-table(red_rastreo_contactos$contacts$fuente, useNA = "ifany")
-```
-
-<font size="6">
-
-Usted puede graficar estos contactos de manera personalizada, por ejemplo, escogiendo símbolos por género y colores de flechas por fuente de exposición (u otras variables de interés):
-
--   Ver `?vis_epicontacts`
-
-</font>
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 0)
-```
-
-## <font size=14>Generar red de contactos con `epicontacts`</font>
-
-```{r plot_contacts, eval = TRUE, echo=TRUE}
-p <- plot(red_rastreo_contactos, node_shape = "genero", shapes = c(m = "male", f = "female"), node_color = "genero", edge_color = "fuente", selector = FALSE)
-p
-```
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 0, left = 0)
-```
-
-## <font size=14>verifique que los contactos visualizados sean realmente casos</font>
-
--   Usando la función `match` ( ver `?match` ) verifique que los contactos visualizados sean realmente casos.
-
-```{r, echo=TRUE, eval=TRUE}
-match(contactos$id_caso, directorio_casos$id_caso)
-```
-
--   Una vez se asegure de que todos estos son casos, mire la red: ¿Parece que hay superpropagación (transmisión heterogénea)?
-
-```{r, eval=FALSE, echo=FALSE}
-countdown::countdown(minutes = 1, seconds = 0)
-```
-
-## Modelo de proceso de ramificación
-
--   La transmisibilidad de la enfermedad puede evaluarse mediante la **estimación del número de reproducción (R)**, definido como el número esperado de casos secundarios por caso infectado.
-
--    En las primeras etapas de un brote, y asumiendo una gran población sin inmunidad, esta cantidad corresponde al **número de reproducción básico  R(0)** es decir, en una gran población totalmente susceptible.
-
-<!--# Estimating Individual and Household Reproduction Numbers in an Emerging Epidemic-Web of Science Core Collection -->
-
-<!--# Statistical Estimation of the Reproductive Number From Case Notification Data | American Journal of Epidemiology | Oxford Academic (oup.com) -->
-
-<!--# A simple approach to measure transmissibility and forecast incidence - ScienceDirect -->
-
-<!--# Full article: On the reproduction number in epidemics (tandfonline.com) -->
-
-<!--# EpiEstim Vignette • EpiEstim (mrc-ide.github.io) -->
 
 ## Intervalo serial:
 
 El ***intervalo serial*** es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
-
 ![](TallerEbola-qmd_files/img/serial_interval_toon.png){alt="https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16"}
-
 :::
 
 ::: {.column width="50%"}
 ![](TallerEbola-qmd_files/img/serial_interval_dist.png)
 :::
-
-::::
+:::
 
 <font size="5">
 
 <https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16>
 
 </font>
+
+## Modelo de proceso de ramificación
+
+-   ¿Qué es el **número de reproducción** $R$ y para qué sirve?
+
+-   En las primeras etapas de un brote, y asumiendo una gran población sin inmunidad, esta cantidad corresponde al **número de reproducción básico** $R(0)$.
+
+-   Cuando la suposición de que $R$ es constante no es sostenible, **una alternativa es estimar la transmisibilidad variable en el tiempo utilizando el número de reproducción instantánea** $R_t$**.**
+
+## Modelo de proceso de ramificación
+
+\[AÑADIR IMAGEN\]
 
 ## Modelo de Poisson para la incidencia
 
@@ -822,9 +728,9 @@ En donde $R_t$ representa el número de reproducción efectiyo y $w$ la distribu
 
 ## Modelo de Poisson para la incidencia
 
--   El paquete **EpiEstim** implementa una **estimación bayesiana del número reproductivo**, utilizando las fechas de inicio de los síntomas y la distribución del intervalo serial
+-   El paquete de R `{EpiEstim}` estima $R_t$ para ventanas de tiempo personalizadas **utilizando la distribución de probabilidad de Poisson** \[Cori et al. 2013\]
 
--   Descripción de **la incidencia en un día** dado como la distribución de Poisson, con una **media determinada por la fuerza total de infección en ese día**:
+-   Descripción de **la incidencia** por medio de la ecuación de renovación:
 
 $$
 I_t \sim Poisson\left(\lambda_{t}\right | R_{t}, I_1, ..., I_{t-1}) = Poisson\left(R_{t} \sum_{s=1}^{t-1} I_{s} w_{t-s} \right)
@@ -840,128 +746,32 @@ Una medida relativa de ajuste entre los datos y el modelo. Se define como una fu
 
 <br>
 
-### Lea y desarrolle las sección *6. Intervalo serial y Rt*
+### Lea y desarrolle las sección *6. Rt*
 
 ```{r}
 countdown::countdown(minutes =10, seconds=0, left=0, right=0)
 ```
 
-## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
-
--   **Función y argumentos:**
-
-    -   `get_pairwise()`**, argumentos relevantes "x" y "attribute" los cuales corresponden a la base y a la variable que contenga las fechas para el cálculo de intervalos.**
-
-<!-- -->
-
--   Posteriormente puedes graficar la frecuencia que hay del número de días, y observar la distribución empírica que sigue.
-
-## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
-
--   Dado que los **datos se recopilaron sobre pares de individuos infecciosos e infectados**, esto debería ser suficiente para estimar la distribución del intervalo  serial
-
-<!-- -->
-
--   **Si ese no fuera el caso, que hubiera hecho para obtener esta estimación?**
-
--   Utilice la función `get_pairwise` para extraer el intervalo serial
-
-## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
-
--   Utilice la función `get_pairwise` para extraer el intervalo serial
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-intervalo_serial_observado <- get_pairwise(red_rastreo_contactos, "fecha_inicio_sintomas")
-summary(intervalo_serial_observado)
-```
-
-## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-hist(intervalo_serial_observado, breaks = 0:30,
-     xlab = "Días después de la aparición de los síntomas", ylab = "Frecuencia",
-     main = "Intervalo Serial (Distribución Empírica)",
-     col = "grey", border = "white")
-```
-
-<center>**¿Qué opina de esta distribución?**</center>
-
-## <font size="10">Ajustar una distribución discreta al intervalo serial </font>
-
-Estas distribuciones además **pueden ajustarse a varios modelos paramétricos, siendo el más frecuente el modelo gamma**, de la siguiente forma:
-
--   **Función y argumentos:**
-
-    -   **fit_disc_gamma(x),** donde x corresponde a las observaciones de los intervalos seriales
-
-## Ajuste a distribucion gamma
-
-::: columns
-::: {.column width="40%"}
-<font size="5">Use la función fit_disc_gamma del paquete epitrix para ajustar estos datos a una distribución Gamma de valores discretos </font>
-
-<br>
-
-<center>**¿Cómo interpreta estos hallazgos?**</center>
-:::
-
-::: {.column width="60%"}
-<font size="5">
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-ajuste_distribucion_gamma <- fit_disc_gamma(intervalo_serial_observado, w = 1)
-ajuste_distribucion_gamma
-```
-
-</font>
-:::
-:::
-
-## Ajuste a distribucion gamma
-
-**si_fit** contiene información diversa sobre los retrasos ajustados, incluida la distribución estimada. 
-
-Puede comparar esta distribución con los datos empíricos en la siguiente tabla:
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-distribucion_gamma <- ajuste_distribucion_gamma$distribution
-distribucion_gamma
-```
-
-## Ajuste a distribucion gamma
-
-```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-## compare fitted distribution
-hist(intervalo_serial_observado, xlab = "Días después de la aparición de los síntomas", 
-     ylab = "Frecuencia", main = "Intervalo Serial: Ajuste a los Datos", 
-     col = "salmon", border = "white", 50, ylim = c(0, 0.15), freq = FALSE, breaks = 0:35)
-points(0:60, distribucion_gamma$d(0:60), col = "#9933ff", pch = 20)
-points(0:60, distribucion_gamma$d(0:60), col = "#9933ff", type = "l", lty = 2)
-```
-
-## Estimación del número reproductivo instantáneo (Rt)
-
--   Cuando la suposición de que (R) es constante en el tiempo se vuelve insostenible, **una alternativa es estimar la transmisibilidad variable en el tiempo utilizando el número de reproducción instantánea (Rt).**
-
--   Este enfoque se implementa en el paquete \`EpiEstim.\` 
-
--   Estima (Rt) para ventanas de tiempo personalizadas (el valor predeterminado es una **sucesión de ventanas de tiempo deslizantes), utilizando la probabilidad de Poisson**
-
-## Estimación del número reproductivo instantáneo (Rt)
+## Estimación del número reproductivo instantáneo $R_t$
 
 A continuación, estimamos la transmisibilidad para ventanas de tiempo deslizantes de 1 semana (el valor predeterminado de **estimate_R**):
 
 <font size="5">
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-configuracion_rt <- make_config(mean_si = ajuste_distribucion_gamma$mu, # Media de la distribución SI estimada anteriormente
-                                std_si = ajuste_distribucion_gamma$sd,  # Desviación estándar de la distribución SI estimada anteriormente
+
+# Parametros de la distribución gamma para el invertavlo serial
+mean_si <- 8.7
+std_si <-  6.1
+
+configuracion_rt <- make_config(mean_si = mean_si, # Media de la distribución SI 
+                                std_si = std_si,  # Desviación estándar de la distribución SI 
                                 t_start = 2,                            # Día de inicio de la ventana de tiempo
                                 t_end = length(incidencia_diaria_truncada$counts)) # Último día de la ventana de tiempo
 ```
 
 ```{r echo=TRUE, message=FALSE, warning=FALSE,comment=""}
-config <- make_config(list(mean_si = ajuste_distribucion_gamma$mu, std_si = ajuste_distribucion_gamma$sd)) 
+config <- make_config(list(mean_si = mean_si, std_si = std_si)) 
 # t_start y t_end se configuran automáticamente para estimar R en ventanas deslizantes para 1 semana de forma predeterminada.
 ```
 
