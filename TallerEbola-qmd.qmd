@@ -103,11 +103,9 @@ From 5986 global cases besides the West Africa outbreak cases, 3963 died (CFR 66
 
 -   Conceptos básicos a desarrollar:
 
-    -   **Razon de letalidad por caso** (CFR - *Case Fatality **Ratio***)
+    -   **Probabilidad de muerte por caso reportado** (CFR - *Case Fatality **Ratio***)
 
-    -   **Curvas epidemiológicas** (e.g. Incidencia de casos - $I_t$)
-
-    -   **Rastreo de contactos**
+    -   **Curvas epidémicas** (e.g. Incidencia de casos - $I_t$)
 
     -   **Tiempo de duplicación** y **tasa de crecimiento**
 
@@ -117,11 +115,25 @@ From 5986 global cases besides the West Africa outbreak cases, 3963 died (CFR 66
 
 </font>
 
+::: notes
+This practice simulates the early assessment and reconstruction of an outbreak of Ebola virus disease (EVD)
+
+-   Case Fatality Ratio (CFR)
+
+-   Epidemic curves (e.g., Case incidence)
+
+-   Doubling time and growth rate
+
+-   Serial Interval (SI)
+
+-   Instantaneous Reproductive Number
+:::
+
 ## Objetivos
 
 <font size="6">
 
--   Estimar la **razon de letalidad por caso (CFR)**
+-   Estimar la **probabilidad de muerte por caso reportado (CFR)**
 
 -   Calcular, visualizar la **incidencia de casos** ($I_t$)
 
@@ -133,7 +145,23 @@ From 5986 global cases besides the West Africa outbreak cases, 3963 died (CFR 66
 
 </font>
 
+::: notes
+-   Estimate the CFR.
+
+-   Calculate and visualize the incidence of cases ($I_t$)
+
+-   Identify descriptive parameters of the transmission of an infectious disease (human-to-human).
+
+-   Estimate and interpret the growth rate and doubling time of the epidemic.
+
+-   Estimate and interpret the instantaneous reproduction number of the epidemic ($R_t$).
+:::
+
 # Situación a analizar
+
+::: notes
+<font size="15">**Situation to analyse** </font>
+:::
 
 ## Hay un nuevo brote de EVE en un país ficticio de África occidental
 
@@ -144,6 +172,15 @@ From 5986 global cases besides the West Africa outbreak cases, 3963 died (CFR 66
 <br>
 
 -   El Ministerio de Salud se encarga de coordinar la respuesta al brote, y lo ha contratado a usted como consultor en análisis epidémico para informar la respuesta en tiempo real.
+
+::: notes
+**There is a new outbreak of EVD in a fictional country in West Africa.\
+**
+
+-   A new outbreak of EVD has been reported in a fictional country in West Africa
+
+-   The Ministry of Health is responsible for coordinating the response to the outbreak and has hired you as an epidemiological analysis consultant to provide real-time information for the response
+:::
 
 ## Al inicio del brote
 
@@ -159,6 +196,12 @@ Análisis rápido de la situación para orientar la toma de decisiones
 
 **¿Qué preguntas surgen inmediatamente?**
 :::
+:::
+
+::: notes
+Quick analysis of the situation to guide decision-making<br>
+
+**What questions arise immediately?**
 :::
 
 ## Al inicio del brote
@@ -179,6 +222,20 @@ Se requieren datos para **planear la respuesta a:**
 
 </center>
 
+::: notes
+**Data is needed to plan the response to:**
+
+-   How quickly is an epidemic spreading?
+
+-   What is the risk of death?
+
+-   How many cases can I expect in the coming days?
+
+-   How much hospital and healthcare system capacity will we need in the coming days?
+
+<center>**What data do you need?**</center>
+:::
+
 ## Datos disponibles usuales en epidemias nuevas
 
 -   Fecha de inicio de síntomas: *date of onset*
@@ -191,6 +248,20 @@ Se requieren datos para **planear la respuesta a:**
 
 -   Datos de brotes anteriores
 
+::: notes
+**Commonly available data in new epidemics:**
+
+-   Date of onset of symptoms: date of onset
+
+-   Date of exposure/infection: infection date
+
+-   Outcome date (recovery, death): outcome date
+
+-   General individual data: age, gender, occupation, etc.
+
+-   Data from previous outbreaks
+:::
+
 ## Metodología del taller
 
 La práctica está divida en 6 secciones. En cada una de ellas vamos a tener:
@@ -198,6 +269,16 @@ La práctica está divida en 6 secciones. En cada una de ellas vamos a tener:
 1.  Explicaciones de los conceptos a trabajar
 2.  Espacio de lectura y ejecución del código
 3.  Espacios de reflexión y discusión
+
+::: notes
+The practice is divided into 6 sections. In each of them, we will:
+
+1.  Get explanations of the concepts to be worked on.
+
+2.  Read guide and run the code.
+
+3.  Discuss the results.
+:::
 
 # Pasemos a R 👩‍💻👨‍💻
 
@@ -259,6 +340,12 @@ glimpse(directorio_casos)
 
 </font>
 
+::: notes
+-   Are the data and format similar to case databases you have seen in the past?
+
+-   What other information would you like to gather?
+:::
+
 ## Probabilidad de muerte en los casos reportados (CFR)
 
 **CFR: *Case Fatality Ratio***
@@ -278,6 +365,16 @@ $$
 -   **IFR:** Es la **probabilidad de muerte** a causa de la infección teniendo en cuenta **infecciones detectadas y no detectadas**
 
     $\rightarrow$ <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font>
+
+::: notes
+-   CFR: It can be calculated from epidemic surveillance data as:
+
+$$
+\text{CFR} = \frac{\text{confirmed deaths}}{\text{cases with known outcome}}
+$$
+
+-   IFR: Needs additional information to be computed, such as prevalence studies.
+:::
 
 ## Instrucciones
 
@@ -310,6 +407,11 @@ Piense en qué hacer con los casos cuyo resultado es \`NA\`
 :::
 
 </font>
+
+::: notes
+How would you calculate the CFR from this information? <br>\
+Consider what to do with cases whose result is 'NA'
+:::
 
 ## Tasa de fatalidad de casos (CFR)
 
@@ -360,6 +462,10 @@ CFR_con_CI
 
 </font>
 
+::: notes
+<center>**How would you interpret these results?**</center>
+:::
+
 ## Incidencia
 
 <font size="6">
@@ -374,17 +480,35 @@ CFR_con_CI
 
 ![https://www.repidemicsconsortium.org/incidence/](TallerEbola-qmd_files/img/ebola-incidence-pkg.png)
 
+::: notes
+**Incidence:**
+
+-   **Number of new cases in a specific time period.**
+
+-   It is based on dates, usually the **onset of symptoms**.
+
+-   It is affected by **reporting delays** (e.g., those who started symptoms yesterday will only be reported several days later).
+:::
+
 ## Incidencia
 
 <font size="6">
 
--   El primer paso del análisis es descriptivo: **queremos dibujar una epicurva o curva epidemiológica**. Esto permite visualizar la incidencia a lo largo del tiempo por fecha de inicio de los síntomas.
+-   El primer paso del análisis es descriptivo: **queremos dibujar una epicurva o curva epidémica**. Esto permite visualizar la incidencia a lo largo del tiempo por fecha de inicio de los síntomas.
 
 -   La primera pregunta que queremos responder es:  **¿qué tan grave es la situación?**
 
 </font>
 
 ### **Para ello, ¡miraremos las curvas de incidencia!**
+
+::: notes The first step of the analysis is descriptive: we want to draw an epicurve or epidemic curve. This allows visualizing the incidence over time by the date of symptom onset.
+
+The first question we want to answer is: How severe is the situation?\
+
+<center>
+
+**To do that, we will look at the incidence curves!**\</center\> :::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -406,6 +530,10 @@ $$ \left. \begin{matrix} y:\text{número de casos incidentes} \\ r:\text{tasa de
 
 </center>
 
+::: notes
+<center>**The growth rate** corresponds to the **slope of the line in log-scale**</center>
+:::
+
 ## Tiempo de duplicación
 
 ::: columns
@@ -422,6 +550,10 @@ $T$ es el tiempo que le toma a la curva epidémica para **duplicarse:**
 
 $$  \hat{y}_2 = 2\hat{y}_1 \\ 2 = \frac{\hat{y}_2}{\hat{y}_1} = \frac{\exp^{rt_2 + \beta_0}}{\exp^{rt_1 + \beta_0}} \\ 2 = \exp^{r(t_2-t_1)} = \exp^{rT}\\ \Rightarrow T = \frac{\log(2)}{r} $$
 :::
+:::
+
+::: notes
+$T$ is the time that the time epidemic curve takes to double its value
 :::
 
 ## Instrucciones
@@ -494,7 +626,7 @@ plot(incidencia_diaria, border = "black")
 
 <font size="6">
 
--   Otro problema es que **puede ser difícil interpretar las tendencias al observar la incidencia diaria**
+-   **Puede ser difícil interpretar las tendencias al observar la incidencia diaria**
 
 -   Calcule la incidencia semanal:
 
@@ -508,6 +640,14 @@ incidencia_semanal
 
 </font>
 
+::: notes
+**It can be hard to identify trends observing daily incidence**
+
+<br>
+
+Compute the **weekly incidence** instead
+:::
+
 ## Incidencia de casos semanal
 
 -   Grafique la incidencia semanal:
@@ -518,6 +658,10 @@ plot(incidencia_semanal, border = "black")
 
 <center>**¿Qué opina de esta nueva gráfica?**</center>
 
+::: notes
+**What do you think about these new plot?**
+:::
+
 ## Estimación de la tasa de crecimiento mediante un modelo  log-lineal
 
 -   El modelo *log-lineal* es uno de los **modelos de incidencia más simple**
@@ -525,6 +669,16 @@ plot(incidencia_semanal, border = "black")
 -   Es un **modelo de regresión lineal implementado sobre incidencias transformadas logarítmicamente**
 
 -   Trabajaremos con **incidencia semanal**, para evitar tener problemas con valores de incidencia cero.
+
+::: notes
+**Estimation of the growth rate through a log-linear model:**
+
+-   The log-linear model is one of the simplest incidence models.
+
+-   It is a linear regression model implemented on logarithmically transformed incidences.
+
+-   We will work with weekly incidence to avoid issues with zero incidence values.
+:::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -555,7 +709,9 @@ incidencia_semanal_df <- as.data.frame(incidencia_semanal)
 :::
 
 ::: notes
-**Respuesta:** Se observa un incremento exponencial de casos semanales hasta la semana 23 (mediados de junio)
+**What does this plot tells you about the epidemic?**
+
+**Respuesta:** Se observa un incremento exponencial de casos semanales hasta la semana 23 (mediados de junio) / An exponential growth can be observed up to week 23
 :::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
@@ -567,7 +723,11 @@ ajuste_modelo <- incidence::fit(incidencia_semanal)
 ajuste_modelo
 ```
 
-<center>**¿Qué le dicen estos datos?**</center>
+<center>**¿Qué le dicen estos resultados?**</center>
+
+::: notes
+<center>**What do you think about the results?**</center>
+:::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -578,7 +738,9 @@ plot(incidencia_semanal, fit = ajuste_modelo)
 <center><font size="6">Mirando la gráfica y el ajuste, **¿cree que este es un ajuste razonable?**</font></center>
 
 ::: notes
-**Respuesta:** Lo observado se ajusta a un crecimiento exponencial, sin embargo, no es un ajuste razonable debido a que se continuan incuyendo las últimas semanas, las cuales presentan datos atípicos que pueden sesgar la gráfica (rezago)
+<center>**Is this a reasonable fit?**</center>
+
+**Respuesta:** Lo observado se ajundefinedndefinedsta a un crecimiento exponencial, sin embargo, no es un ajuste razonable debido a que se continuan incuyendo las últimas semanas, las cuales presentan datos atípicos que pueden sesgar la gráfica (rezago) / The observed data fits an exponential growth; however, it is not a reasonable fit because the last few weeks are still being included, which have atypical data that can bias the plot (delay).
 :::
 
 ## <font size=12>Curva epidémica con modelo log lineal</font>
@@ -601,6 +763,10 @@ plot(incidencia_semanal, fit = ajuste_modelo)
                             from = fecha_minima, 
                             to = fecha_maxima) # eliminamos las últimas dos semanas de datos
     ```
+
+::: notes
+**How many weeks should we discard from the epicurve?**
+:::
 
 ## <font size=12>Curva epidémica con modelo log lineal</font>
 
@@ -636,6 +802,10 @@ plot(incidencia_semanal_truncada, fit = ajuste_modelo_semanal)
 
 </font>
 
+::: notes
+**Is this fit more reasonable in comparison with the previous one?**
+:::
+
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
 #### Observe las estadísticas resumidas de su ajuste:
@@ -645,6 +815,10 @@ summary(ajuste_modelo_semanal$model)
 ```
 
 **¿El modelo se ajusta bien a los datos?**
+
+::: notes
+**How good is this fit?**
+:::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -669,6 +843,12 @@ cat("Intervalo de confianza de la tasa de crecimiento diaria (95%):", tasa_creci
 
 ¿Cómo lo interpreta?
 
+::: notes
+What's the value of the estimated **duplication time** of the epidemic?<br>
+
+How do you interpret it?
+:::
+
 ## Tiempo de duplicación
 
 ¿Cuál es el **tiempo de duplicación** estimado de la epidemia?,
@@ -686,9 +866,15 @@ cat("Intervalo de confianza del tiempo de duplicación (95%):", tiempo_duplicaci
 
 ```
 
-## Intervalo serial:
+::: notes
+What's the value of the estimated **duplication time** of the epidemic?<br>
 
-El ***intervalo serial*** es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios
+How do you interpret it?
+:::
+
+## Intervalo serial (SI):
+
+El ***intervalo serial*** (SI - *Serial Interval*) es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios
 
 ::: columns
 ::: {.column width="50%"}
@@ -706,6 +892,18 @@ El ***intervalo serial*** es el tiempo entre la fecha de inicio de síntomas ent
 
 </font>
 
+::: notes
+[***Serial interval explanation***]{.underline}
+:::
+
+## Intervalo Serial (SI)
+
+![https://mrc-ide.github.io/EpiEstim/articles/full_EpiEstim_vignette.html](TallerEbola-qmd_files/img/SI_EpiEstim.png)
+
+::: notes
+[***Serial interval explanation***]{.underline}
+:::
+
 ## Modelo de proceso de ramificación
 
 -   ¿Qué es el **número de reproducción** $R$ y para qué sirve?
@@ -714,27 +912,79 @@ El ***intervalo serial*** es el tiempo entre la fecha de inicio de síntomas ent
 
 -   Cuando la suposición de que $R$ es constante no es sostenible, **una alternativa es estimar la transmisibilidad variable en el tiempo utilizando el número de reproducción instantánea** $R_t$**.**
 
+::: notes
+**Branching process model:**
+
+-   What is the reproduction number R and what is it used for?
+
+-   In the early stages of an outbreak, assuming a large population without immunity, this quantity corresponds to the basic reproduction number R(0).
+
+-   When the assumption that R is constant is not sustainable, an alternative is to estimate time-varying transmissibility using the instantaneous reproduction number Rt​.
+:::
+
 ## Modelo de proceso de ramificación
 
-\[AÑADIR IMAGEN\]
+:::: {.columns}
+
+::: {.column width="40%"}
+![](TallerEbola-qmd_files/img/R_EpiEstim.png)
+
+:::
+
+::: {.column width="60%"}
+
+<font size="5">
+
+-   El número reproductivo $R$ cuantifica el potencial de una enfermedad de propagarse en una población.
+
+-   Se puede estimar como el número promedio the casos secundarios producido por un solo caso en una población completamente susceptible ($R_0$)
+
+-   Para evaluar los cambios en la propagación a lo largo del tiempo, usamos el número reproductivo instantáneo ($R_t$)
+
+</font>
+:::
+
+::::
+
+<font size="3"><https://mrc-ide.github.io/EpiEstim/articles/full_EpiEstim_vignette.html></font>
+
+::: notes
+The Reproductive Number $R$ quantifies the potential for a disease to spread within a population
+
+It represents the average number of secondary infections produced by a single infected individual in a completely susceptible population $R_0$
+
+When considering spread over time we use $R_t$ instead
+:::
 
 ## Modelo de Poisson para la incidencia
 
--   La **fuerza de infección** se puede calcular como
+-   El promedio e la incidencia en el tiempo $t$ se puede estimar por medio de la ecuación de renovación:
 
-$$ \lambda_t \approx R_t \sum_{s=1}^{t-1} I_{s} w_{t-s} $$
+$$ \text{E}[I_t] \approx R_t \sum_{s=1}^{t-1} I_{s} w_{t-s} $$
 
 En donde $R_t$ representa el número de reproducción efectiyo y $w$ la distribución del intervalo serial discreta.
+
+-   Si la incidencia en el tiempo $t$ es conocida, esta ecuación se puede usar para estimar $R_t$.
+
+::: notes
+The average incidence at time $t$ can be estimated according to the renewal equation.
+
+If $I_t$ is known, the renewal equation can be used to estimate $R_t$
+:::
 
 ## Modelo de Poisson para la incidencia
 
 -   El paquete de R `{EpiEstim}` estima $R_t$ para ventanas de tiempo personalizadas **utilizando la distribución de probabilidad de Poisson** \[Cori et al. 2013\]
 
--   Descripción de **la incidencia** por medio de la ecuación de renovación:
+$$
+I_t \sim Poisson\left(R_{t} \sum_{s=1}^{t-1} I_{s} w_{t-s} \right)
+$$
 
-$$
-I_t \sim Poisson\left(\lambda_{t}\right | R_{t}, I_1, ..., I_{t-1}) = Poisson\left(R_{t} \sum_{s=1}^{t-1} I_{s} w_{t-s} \right)
-$$
+::: notes
+-   The {EpiEstim} package uses a Poisson distribution to estimate $R_t$ from given incidence data.
+
+-   Personlized time windows can be specified
+:::
 
 ## Verosimilitud (Likelihood) {visibility="hidden"}
 

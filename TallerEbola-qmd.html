@@ -533,32 +533,82 @@
 <ul>
 <li><p>Conceptos básicos a desarrollar:</p>
 <ul>
-<li><p><strong>Razon de letalidad por caso</strong> (CFR - <em>Case Fatality <strong>Ratio</strong></em>)</p></li>
-<li><p><strong>Curvas epidemiológicas</strong> (e.g.&nbsp;Incidencia de casos - <span class="math inline">\(I_t\)</span>)</p></li>
-<li><p><strong>Rastreo de contactos</strong></p></li>
+<li><p><strong>Probabilidad de muerte por caso reportado</strong> (CFR - <em>Case Fatality <strong>Ratio</strong></em>)</p></li>
+<li><p><strong>Curvas epidémicas</strong> (e.g.&nbsp;Incidencia de casos - <span class="math inline">\(I_t\)</span>)</p></li>
 <li><p><strong>Tiempo de duplicación</strong> y <strong>tasa de crecimiento</strong></p></li>
 <li><p><strong>Intervalo Serial</strong> (SI - <em>Serial Inverval</em>)</p></li>
 <li><p><strong>Número reproductivo instantáneo</strong> (<span class="math inline">\(R_t\)</span>)</p></li>
 </ul></li>
 </ul>
 </font><p><font size="6"></font></p>
+<aside class="notes">
+<p>This practice simulates the early assessment and reconstruction of an outbreak of Ebola virus disease (EVD)</p>
+<ul>
+<li><p>Case Fatality Ratio (CFR)</p></li>
+<li><p>Epidemic curves (e.g., Case incidence)</p></li>
+<li><p>Doubling time and growth rate</p></li>
+<li><p>Serial Interval (SI)</p></li>
+<li><p>Instantaneous Reproductive Number</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="objetivos" class="slide level2">
 <h2>Objetivos</h2>
 <p><font size="6"></font></p><font size="6">
 <ul>
-<li><p>Estimar la <strong>razon de letalidad por caso (CFR)</strong></p></li>
+<li><p>Estimar la <strong>probabilidad de muerte por caso reportado (CFR)</strong></p></li>
 <li><p>Calcular, visualizar la <strong>incidencia de casos</strong> (<span class="math inline">\(I_t\)</span>)</p></li>
 <li><p>Identificar parámetros descriptivos de la transmisión de una <strong>enfermedad infecciosa (humano-humano)</strong>.&nbsp;</p></li>
 <li><p>Estimar e interpretar la <strong>tasa de crecimiento</strong> y el <strong>tiempo de duplicación</strong> de la epidemia.</p></li>
 <li><p>Estimar e interpretar el <strong>número de reproducción instantáneo</strong> de la epidemia (<span class="math inline">\(R_t\)</span>)</p></li>
 </ul>
 </font><p><font size="6"></font></p>
+<aside class="notes">
+<ul>
+<li><p>Estimate the CFR.</p></li>
+<li><p>Calculate and visualize the incidence of cases (<span class="math inline">\(I_t\)</span>)</p></li>
+<li><p>Identify descriptive parameters of the transmission of an infectious disease (human-to-human).</p></li>
+<li><p>Estimate and interpret the growth rate and doubling time of the epidemic.</p></li>
+<li><p>Estimate and interpret the instantaneous reproduction number of the epidemic (<span class="math inline">\(R_t\)</span>).</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="situación-a-analizar" class="title-slide slide level1 center">
 <h1>Situación a analizar</h1>
-
+<aside class="notes">
+<p><font size="15"><strong>Situation to analyse</strong> </font></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="hay-un-nuevo-brote-de-eve-en-un-país-ficticio-de-áfrica-occidental" class="slide level2">
 <h2>Hay un nuevo brote de EVE en un país ficticio de África occidental</h2>
@@ -570,6 +620,24 @@
 <ul>
 <li>El Ministerio de Salud se encarga de coordinar la respuesta al brote, y lo ha contratado a usted como consultor en análisis epidémico para informar la respuesta en tiempo real.</li>
 </ul>
+<aside class="notes">
+<p><strong>There is a new outbreak of EVD in a fictional country in West Africa.<br>
+</strong></p>
+<ul>
+<li><p>A new outbreak of EVD has been reported in a fictional country in West Africa</p></li>
+<li><p>The Ministry of Health is responsible for coordinating the response to the outbreak and has hired you as an epidemiological analysis consultant to provide real-time information for the response</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="al-inicio-del-brote" class="slide level2">
 <h2>Al inicio del brote</h2>
@@ -587,6 +655,20 @@
 <p><strong>¿Qué preguntas surgen inmediatamente?</strong></p>
 </div>
 </div>
+<aside class="notes">
+<p>Quick analysis of the situation to guide decision-making<br></p>
+<p><strong>What questions arise immediately?</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="al-inicio-del-brote-1" class="slide level2">
 <h2>Al inicio del brote</h2>
@@ -600,6 +682,28 @@
 <center>
 <h3 id="qué-datos-necesito">¿Qué datos necesito?</h3>
 </center>
+<aside class="notes">
+<p><strong>Data is needed to plan the response to:</strong></p>
+<ul>
+<li><p>How quickly is an epidemic spreading?</p></li>
+<li><p>What is the risk of death?</p></li>
+<li><p>How many cases can I expect in the coming days?</p></li>
+<li><p>How much hospital and healthcare system capacity will we need in the coming days?</p></li>
+</ul>
+<center>
+<strong>What data do you need?</strong>
+</center>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="datos-disponibles-usuales-en-epidemias-nuevas" class="slide level2">
 <h2>Datos disponibles usuales en epidemias nuevas</h2>
@@ -610,6 +714,26 @@
 <li><p>Datos generales del individuo: edad, género, ocupación, etc</p></li>
 <li><p>Datos de brotes anteriores</p></li>
 </ul>
+<aside class="notes">
+<p><strong>Commonly available data in new epidemics:</strong></p>
+<ul>
+<li><p>Date of onset of symptoms: date of onset</p></li>
+<li><p>Date of exposure/infection: infection date</p></li>
+<li><p>Outcome date (recovery, death): outcome date</p></li>
+<li><p>General individual data: age, gender, occupation, etc.</p></li>
+<li><p>Data from previous outbreaks</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="metodología-del-taller" class="slide level2">
 <h2>Metodología del taller</h2>
@@ -619,6 +743,24 @@
 <li>Espacio de lectura y ejecución del código</li>
 <li>Espacios de reflexión y discusión</li>
 </ol>
+<aside class="notes">
+<p>The practice is divided into 6 sections. In each of them, we will:</p>
+<ol type="1">
+<li><p>Get explanations of the concepts to be worked on.</p></li>
+<li><p>Read guide and run the code.</p></li>
+<li><p>Discuss the results.</p></li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="pasemos-a-r" class="title-slide slide level1 center">
@@ -631,7 +773,7 @@
 <h3 id="desarrolle-la-sección-1.-preparación">Desarrolle la sección <em>1. Preparación</em></h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_96005ce6" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
+<div class="countdown" id="timer_b11434e5" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -698,6 +840,22 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <li><p>¿Qué otra información le gustaría recopilar?</p></li>
 </ul>
 </font><p><font size="5"></font></p>
+<aside class="notes">
+<ul>
+<li><p>Are the data and format similar to case databases you have seen in the past?</p></li>
+<li><p>What other information would you like to gather?</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="probabilidad-de-muerte-en-los-casos-reportados-cfr" class="slide level2">
 <h2>Probabilidad de muerte en los casos reportados (CFR)</h2>
@@ -717,6 +875,27 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <li><p><strong>IFR:</strong> Es la <strong>probabilidad de muerte</strong> a causa de la infección teniendo en cuenta <strong>infecciones detectadas y no detectadas</strong></p>
 <p><span class="math inline">\(\rightarrow\)</span> <font size="5"> IFR sólo se puede calcular con datos de vigilancia epidemiológica + información adicional como estudios prevalencia </font></p></li>
 </ul>
+<aside class="notes">
+<ul>
+<li>CFR: It can be calculated from epidemic surveillance data as:</li>
+</ul>
+<p><span class="math display">\[
+\text{CFR} = \frac{\text{confirmed deaths}}{\text{cases with known outcome}}
+\]</span></p>
+<ul>
+<li>IFR: Needs additional information to be computed, such as prevalence studies.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="instrucciones-1" class="slide level2">
 <h2>Instrucciones</h2>
@@ -725,7 +904,7 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <p><br></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_24075a54" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
+<div class="countdown" id="timer_74407f98" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -751,6 +930,20 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </div>
 </div>
 </font><p><font size="5"></font></p>
+<aside class="notes">
+<p>How would you calculate the CFR from this information? <br><br>
+Consider what to do with cases whose result is ‘NA’</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="tasa-de-fatalidad-de-casos-cfr-1" class="slide level2">
 <h2>Tasa de fatalidad de casos (CFR)</h2>
@@ -816,6 +1009,21 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </div>
 </div>
 </font><p><font size="5"></font></p>
+<aside class="notes">
+<center>
+<strong>How would you interpret these results?</strong>
+</center>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="incidencia" class="slide level2">
 <h2>Incidencia</h2>
@@ -827,17 +1035,40 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 </ul>
 </font><p><font size="6"></font></p>
 
-<img data-src="TallerEbola-qmd_files/img/ebola-incidence-pkg.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.repidemicsconsortium.org/incidence/</p></section>
+<img data-src="TallerEbola-qmd_files/img/ebola-incidence-pkg.png" class="r-stretch quarto-figure-center"><p class="caption">https://www.repidemicsconsortium.org/incidence/</p><aside class="notes">
+<p><strong>Incidence:</strong></p>
+<ul>
+<li><p><strong>Number of new cases in a specific time period.</strong></p></li>
+<li><p>It is based on dates, usually the <strong>onset of symptoms</strong>.</p></li>
+<li><p>It is affected by <strong>reporting delays</strong> (e.g., those who started symptoms yesterday will only be reported several days later).</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="incidencia-1" class="slide level2">
 <h2>Incidencia</h2>
 <p><font size="6"></font></p><font size="6">
 <ul>
-<li><p>El primer paso del análisis es descriptivo: <strong>queremos dibujar una epicurva o curva epidemiológica</strong>. Esto permite visualizar la incidencia a lo largo del tiempo por fecha de inicio de los síntomas.</p></li>
+<li><p>El primer paso del análisis es descriptivo: <strong>queremos dibujar una epicurva o curva epidémica</strong>. Esto permite visualizar la incidencia a lo largo del tiempo por fecha de inicio de los síntomas.</p></li>
 <li><p>La primera pregunta que queremos responder es:&nbsp; <strong>¿qué tan grave es la situación?</strong></p></li>
 </ul>
 </font><p><font size="6"></font></p>
 <h3 id="para-ello-miraremos-las-curvas-de-incidencia"><strong>Para ello, ¡miraremos las curvas de incidencia!</strong></h3>
-</section>
+<p>::: notes The first step of the analysis is descriptive: we want to draw an epicurve or epidemic curve. This allows visualizing the incidence over time by the date of symptom onset.</p>
+<p>The first question we want to answer is: How severe is the situation?<br>
+</p>
+<center>
+<p><strong>To do that, we will look at the incidence curves!</strong>&lt;/center&gt; :::</p>
+</center></section>
 <section id="curva-epidémica-con-modelo-log-lineal" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
 
@@ -849,6 +1080,21 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <p><u><strong>¡La tasa de crecimiento es la pendiente de la recta en escala logarítmica!</strong></u></p>
 </font><p><font size="6"></font></p>
 </center>
+<aside class="notes">
+<center>
+<strong>The growth rate</strong> corresponds to the <strong>slope of the line in log-scale</strong>
+</center>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="tiempo-de-duplicación" class="slide level2">
 <h2>Tiempo de duplicación</h2>
@@ -862,6 +1108,19 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <p><span class="math display">\[  \hat{y}_2 = 2\hat{y}_1 \\ 2 = \frac{\hat{y}_2}{\hat{y}_1} = \frac{\exp^{rt_2 + \beta_0}}{\exp^{rt_1 + \beta_0}} \\ 2 = \exp^{r(t_2-t_1)} = \exp^{rT}\\ \Rightarrow T = \frac{\log(2)}{r} \]</span></p>
 </div>
 </div>
+<aside class="notes">
+<p><span class="math inline">\(T\)</span> is the time that the time epidemic curve takes to double its value</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="instrucciones-2" class="slide level2">
 <h2>Instrucciones</h2>
@@ -872,7 +1131,7 @@ $ latitud                  &lt;dbl&gt; 8.473514, 8.464927, 8.483356, 8.464776, 8
 <p><br></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_003e0715" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_dade444e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -921,7 +1180,7 @@ $cumulative: FALSE</code></pre>
 <h2>Incidencia de casos semanal</h2>
 <p><font size="6"></font></p><font size="6">
 <ul>
-<li><p>Otro problema es que <strong>puede ser difícil interpretar las tendencias al observar la incidencia diaria</strong></p></li>
+<li><p><strong>Puede ser difícil interpretar las tendencias al observar la incidencia diaria</strong></p></li>
 <li><p>Calcule la incidencia semanal:</p></li>
 </ul>
 <div class="cell">
@@ -944,6 +1203,21 @@ $cumulative: FALSE</code></pre>
 </div>
 </div>
 </font><p><font size="6"></font></p>
+<aside class="notes">
+<p><strong>It can be hard to identify trends observing daily incidence</strong></p>
+<p><br></p>
+<p>Compute the <strong>weekly incidence</strong> instead</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="incidencia-de-casos-semanal-1" class="slide level2">
 <h2>Incidencia de casos semanal</h2>
@@ -957,6 +1231,19 @@ $cumulative: FALSE</code></pre>
 <img data-src="TallerEbola-qmd_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"><center>
 <strong>¿Qué opina de esta nueva gráfica?</strong>
 </center>
+<aside class="notes">
+<p><strong>What do you think about these new plot?</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="estimación-de-la-tasa-de-crecimiento-mediante-un-modelo-log-lineal" class="slide level2">
 <h2>Estimación de la tasa de crecimiento mediante un modelo&nbsp; log-lineal</h2>
@@ -965,6 +1252,24 @@ $cumulative: FALSE</code></pre>
 <li><p>Es un <strong>modelo de regresión lineal implementado sobre incidencias transformadas logarítmicamente</strong></p></li>
 <li><p>Trabajaremos con <strong>incidencia semanal</strong>, para evitar tener problemas con valores de incidencia cero.</p></li>
 </ul>
+<aside class="notes">
+<p><strong>Estimation of the growth rate through a log-linear model:</strong></p>
+<ul>
+<li><p>The log-linear model is one of the simplest incidence models.</p></li>
+<li><p>It is a linear regression model implemented on logarithmically transformed incidences.</p></li>
+<li><p>We will work with weekly incidence to avoid issues with zero incidence values.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="curva-epidémica-con-modelo-log-lineal-1" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
@@ -994,7 +1299,8 @@ $cumulative: FALSE</code></pre>
 </div>
 </div>
 <aside class="notes">
-<p><strong>Respuesta:</strong> Se observa un incremento exponencial de casos semanales hasta la semana 23 (mediados de junio)</p>
+<p><strong>What does this plot tells you about the epidemic?</strong></p>
+<p><strong>Respuesta:</strong> Se observa un incremento exponencial de casos semanales hasta la semana 23 (mediados de junio) / An exponential growth can be observed up to week 23</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1037,8 +1343,23 @@ $info: list containing the following items:
 </div>
 </div>
 <center>
-<strong>¿Qué le dicen estos datos?</strong>
+<strong>¿Qué le dicen estos resultados?</strong>
 </center>
+<aside class="notes">
+<center>
+<strong>What do you think about the results?</strong>
+</center>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="curva-epidémica-con-modelo-log-lineal-3" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
@@ -1050,7 +1371,10 @@ $info: list containing the following items:
 <font size="6">Mirando la gráfica y el ajuste, <strong>¿cree que este es un ajuste razonable?</strong></font>
 </center>
 <aside class="notes">
-<p><strong>Respuesta:</strong> Lo observado se ajusta a un crecimiento exponencial, sin embargo, no es un ajuste razonable debido a que se continuan incuyendo las últimas semanas, las cuales presentan datos atípicos que pueden sesgar la gráfica (rezago)</p>
+<center>
+<strong>Is this a reasonable fit?</strong>
+</center>
+<p><strong>Respuesta:</strong> Lo observado se ajundefinedndefinedsta a un crecimiento exponencial, sin embargo, no es un ajuste razonable debido a que se continuan incuyendo las últimas semanas, las cuales presentan datos atípicos que pueden sesgar la gráfica (rezago) / The observed data fits an exponential growth; however, it is not a reasonable fit because the last few weeks are still being included, which have atypical data that can bias the plot (delay).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1083,6 +1407,19 @@ $info: list containing the following items:
 <span id="cb22-12"><a href="#cb22-12"></a>                        <span class="at">to =</span> fecha_maxima) <span class="co"># eliminamos las últimas dos semanas de datos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ul>
+<aside class="notes">
+<p><strong>How many weeks should we discard from the epicurve?</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="curva-epidémica-con-modelo-log-lineal-5" class="slide level2">
 <h2><font size="12">Curva epidémica con modelo log lineal</font></h2>
@@ -1133,6 +1470,19 @@ $info: list containing the following items:
 <strong>¿Cree que este es un ajuste más razonable comparado con el anterior?</strong>
 </center>
 </font><p><font size="6"></font></p>
+<aside class="notes">
+<p><strong>Is this fit more reasonable in comparison with the previous one?</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="curva-epidémica-con-modelo-log-lineal-6" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
@@ -1161,6 +1511,19 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 </div>
 </div>
 <p><strong>¿El modelo se ajusta bien a los datos?</strong></p>
+<aside class="notes">
+<p><strong>How good is this fit?</strong></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="curva-epidémica-con-modelo-log-lineal-7" class="slide level2">
 <h2><font size="14">Curva epidémica con modelo log lineal</font></h2>
@@ -1186,6 +1549,20 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 <h2>Tiempo de duplicación</h2>
 <p>¿Cuál es el <strong>tiempo de duplicación</strong> estimado de la epidemia?,</p>
 <p>¿Cómo lo interpreta?</p>
+<aside class="notes">
+<p>What’s the value of the estimated <strong>duplication time</strong> of the epidemic?<br></p>
+<p>How do you interpret it?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="tiempo-de-duplicación-2" class="slide level2">
 <h2>Tiempo de duplicación</h2>
@@ -1205,10 +1582,24 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 <pre><code>Intervalo de confianza del tiempo de duplicación (95%): 9.728286 20.85893 </code></pre>
 </div>
 </div>
+<aside class="notes">
+<p>What’s the value of the estimated <strong>duplication time</strong> of the epidemic?<br></p>
+<p>How do you interpret it?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="intervalo-serial" class="slide level2">
-<h2>Intervalo serial:</h2>
-<p>El <strong><em>intervalo serial</em></strong> es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios</p>
+<section id="intervalo-serial-si" class="slide level2">
+<h2>Intervalo serial (SI):</h2>
+<p>El <strong><em>intervalo serial</em></strong> (SI - <em>Serial Interval</em>) es el tiempo entre la fecha de inicio de síntomas entre casos primarios y secundarios</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="TallerEbola-qmd_files/img/serial_interval_toon.png" alt="https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16"></p>
@@ -1219,6 +1610,36 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 <p><font size="5"></font></p><font size="5">
 <p><a href="https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16" class="uri">https://www.reconlearn.org/slides/outbreak-statistics/outbreak-statistics#16</a></p>
 </font><p><font size="5"></font></p>
+<aside class="notes">
+<p><u><strong><em>Serial interval explanation</em></strong></u></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="intervalo-serial-si-1" class="slide level2">
+<h2>Intervalo Serial (SI)</h2>
+
+<img data-src="TallerEbola-qmd_files/img/SI_EpiEstim.png" class="r-stretch quarto-figure-center"><p class="caption">https://mrc-ide.github.io/EpiEstim/articles/full_EpiEstim_vignette.html</p><aside class="notes">
+<p><u><strong><em>Serial interval explanation</em></strong></u></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="modelo-de-proceso-de-ramificación" class="slide level2">
 <h2>Modelo de proceso de ramificación</h2>
@@ -1227,28 +1648,106 @@ F-statistic: 40.16 on 1 and 8 DF,  p-value: 0.0002237</code></pre>
 <li><p>En las primeras etapas de un brote, y asumiendo una gran población sin inmunidad, esta cantidad corresponde al <strong>número de reproducción básico</strong> <span class="math inline">\(R(0)\)</span>.</p></li>
 <li><p>Cuando la suposición de que <span class="math inline">\(R\)</span> es constante no es sostenible, <strong>una alternativa es estimar la transmisibilidad variable en el tiempo utilizando el número de reproducción instantánea</strong> <span class="math inline">\(R_t\)</span><strong>.</strong></p></li>
 </ul>
+<aside class="notes">
+<p><strong>Branching process model:</strong></p>
+<ul>
+<li><p>What is the reproduction number R and what is it used for?</p></li>
+<li><p>In the early stages of an outbreak, assuming a large population without immunity, this quantity corresponds to the basic reproduction number R(0).</p></li>
+<li><p>When the assumption that R is constant is not sustainable, an alternative is to estimate time-varying transmissibility using the instantaneous reproduction number Rt​.</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="modelo-de-proceso-de-ramificación-1" class="slide level2">
 <h2>Modelo de proceso de ramificación</h2>
-<p>[AÑADIR IMAGEN]</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="TallerEbola-qmd_files/img/R_EpiEstim.png"></p>
+</div><div class="column" style="width:60%;">
+<p><font size="5"></font></p><font size="5">
+<ul>
+<li><p>El número reproductivo <span class="math inline">\(R\)</span> cuantifica el potencial de una enfermedad de propagarse en una población.</p></li>
+<li><p>Se puede estimar como el número promedio the casos secundarios producido por un solo caso en una población completamente susceptible (<span class="math inline">\(R_0\)</span>)</p></li>
+<li><p>Para evaluar los cambios en la propagación a lo largo del tiempo, usamos el número reproductivo instantáneo (<span class="math inline">\(R_t\)</span>)</p></li>
+</ul>
+</font><p><font size="5"></font></p>
+</div>
+</div>
+<p><font size="3"><a href="https://mrc-ide.github.io/EpiEstim/articles/full_EpiEstim_vignette.html" class="uri">https://mrc-ide.github.io/EpiEstim/articles/full_EpiEstim_vignette.html</a></font></p>
+<aside class="notes">
+<p>The Reproductive Number <span class="math inline">\(R\)</span> quantifies the potential for a disease to spread within a population</p>
+<p>It represents the average number of secondary infections produced by a single infected individual in a completely susceptible population <span class="math inline">\(R_0\)</span></p>
+<p>When considering spread over time we use <span class="math inline">\(R_t\)</span> instead</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="modelo-de-poisson-para-la-incidencia" class="slide level2">
 <h2>Modelo de Poisson para la incidencia</h2>
 <ul>
-<li>La <strong>fuerza de infección</strong> se puede calcular como</li>
+<li>El promedio e la incidencia en el tiempo <span class="math inline">\(t\)</span> se puede estimar por medio de la ecuación de renovación:</li>
 </ul>
-<p><span class="math display">\[ \lambda_t \approx R_t \sum_{s=1}^{t-1} I_{s} w_{t-s} \]</span></p>
+<p><span class="math display">\[ \text{E}[I_t] \approx R_t \sum_{s=1}^{t-1} I_{s} w_{t-s} \]</span></p>
 <p>En donde <span class="math inline">\(R_t\)</span> representa el número de reproducción efectiyo y <span class="math inline">\(w\)</span> la distribución del intervalo serial discreta.</p>
+<ul>
+<li>Si la incidencia en el tiempo <span class="math inline">\(t\)</span> es conocida, esta ecuación se puede usar para estimar <span class="math inline">\(R_t\)</span>.</li>
+</ul>
+<aside class="notes">
+<p>The average incidence at time <span class="math inline">\(t\)</span> can be estimated according to the renewal equation.</p>
+<p>If <span class="math inline">\(I_t\)</span> is known, the renewal equation can be used to estimate <span class="math inline">\(R_t\)</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="modelo-de-poisson-para-la-incidencia-1" class="slide level2">
 <h2>Modelo de Poisson para la incidencia</h2>
 <ul>
-<li><p>El paquete de R <code>{EpiEstim}</code> estima <span class="math inline">\(R_t\)</span> para ventanas de tiempo personalizadas <strong>utilizando la distribución de probabilidad de Poisson</strong> [Cori et al.&nbsp;2013]</p></li>
-<li><p>Descripción de <strong>la incidencia</strong> por medio de la ecuación de renovación:</p></li>
+<li>El paquete de R <code>{EpiEstim}</code> estima <span class="math inline">\(R_t\)</span> para ventanas de tiempo personalizadas <strong>utilizando la distribución de probabilidad de Poisson</strong> [Cori et al.&nbsp;2013]</li>
 </ul>
 <p><span class="math display">\[
-I_t \sim Poisson\left(\lambda_{t}\right | R_{t}, I_1, ..., I_{t-1}) = Poisson\left(R_{t} \sum_{s=1}^{t-1} I_{s} w_{t-s} \right)
+I_t \sim Poisson\left(R_{t} \sum_{s=1}^{t-1} I_{s} w_{t-s} \right)
 \]</span></p>
+<aside class="notes">
+<ul>
+<li><p>The {EpiEstim} package uses a Poisson distribution to estimate <span class="math inline">\(R_t\)</span> from given incidence data.</p></li>
+<li><p>Personlized time windows can be specified</p></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="instrucciones-3" class="slide level2">
@@ -1257,7 +1756,7 @@ I_t \sim Poisson\left(\lambda_{t}\right | R_{t}, I_1, ..., I_{t-1}) = Poisson\le
 <h3 id="lea-y-desarrolle-las-sección-6.-rt">Lea y desarrolle las sección <em>6. Rt</em></h3>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_89bedb8e" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
+<div class="countdown" id="timer_eeffc840" data-update-every="1" tabindex="0" style="right:0;bottom:0;left:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
