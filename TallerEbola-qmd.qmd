@@ -510,7 +510,9 @@ The first question we want to answer is: How severe is the situation?\
 
 <center>
 
-**To do that, we will look at the incidence curves!**\</center\>
+**To do that, we will look at the incidence curves!**
+
+</center>
 
 :::
 
