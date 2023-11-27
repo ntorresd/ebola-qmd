@@ -502,13 +502,17 @@ CFR_con_CI
 
 ### **Para ello, ¡miraremos las curvas de incidencia!**
 
-::: notes The first step of the analysis is descriptive: we want to draw an epicurve or epidemic curve. This allows visualizing the incidence over time by the date of symptom onset.
+::: notes
+
+The first step of the analysis is descriptive: we want to draw an epicurve or epidemic curve. This allows visualizing the incidence over time by the date of symptom onset.
 
 The first question we want to answer is: How severe is the situation?\
 
 <center>
 
-**To do that, we will look at the incidence curves!**\</center\> :::
+**To do that, we will look at the incidence curves!**\</center\>
+
+:::
 
 ## <font size=14>Curva epidémica con modelo log lineal</font>
 
@@ -924,18 +928,15 @@ El ***intervalo serial*** (SI - *Serial Interval*) es el tiempo entre la fecha d
 
 ## Modelo de proceso de ramificación
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="40%"}
 ![](TallerEbola-qmd_files/img/R_EpiEstim.png)
-
 :::
 
 ::: {.column width="60%"}
-
 <font size="5">
 
--   El número reproductivo $R$ cuantifica el potencial de una enfermedad de propagarse en una población.
+-   El número reproductivo cuantifica el potencial de una enfermedad de propagarse en una población.
 
 -   Se puede estimar como el número promedio the casos secundarios producido por un solo caso en una población completamente susceptible ($R_0$)
 
@@ -943,8 +944,7 @@ El ***intervalo serial*** (SI - *Serial Interval*) es el tiempo entre la fecha d
 
 </font>
 :::
-
-::::
+:::
 
 <font size="3"><https://mrc-ide.github.io/EpiEstim/articles/full_EpiEstim_vignette.html></font>
 
@@ -985,6 +985,55 @@ $$
 
 -   Personlized time windows can be specified
 :::
+
+## Modelo de Poisson para la incidencia
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r, eval=TRUE, echo=FALSE}
+eg_data <- data.frame(
+  time = c(1, 2, 3, 4),
+  si = c(0.2, 0.4, 0.3, 0.1),
+  incidence = c(5, 7, 4, 3)
+)
+
+
+ggplot(data = eg_data, aes(x = time, y = si)) +
+  geom_col() + 
+  scale_y_continuous("Serial Interval") + 
+  scale_x_continuous("Time (days)")
+
+ggplot(data = eg_data, aes(x = time, y = incidence)) +
+  geom_col() + 
+  scale_y_continuous("Incidence") + 
+  scale_x_continuous("Time (days)")
+```
+
+:::
+
+::: {.column width="50%"}
+
+<font size="5">
+
+$$ \begin{align} I_5 \approx R_5 \sum_{s=1}^{t-1} I_{s} w_{t-s} &= R_5 (I_1 w_4 + I_2 w_3 + I_3 w_2 + I_4 w_1)\\ 
+&= R_5 (5\times 0.1 + 7\times 0.3 + 4 \times 0.4 + 3\times 0.2) \\
+&= R_5 (0.5 + 2.1 + 1.6 + 0.6) \\ &= R_5 \times 4.8 \end{align} $$
+
+Si $I_5=10$, podríamos estimar $R_5$:
+
+$$ R_5 \approx \frac{10}{4.8} = 2.08 $$
+
+EpiEstim hace esta estimación extrayendo muestras aleatorias de una distribución de Poisson:
+
+$$  I_5 \sim Poisson(R_5 \times 4.8) $$
+
+</font>
+
+:::
+
+::::
 
 ## Verosimilitud (Likelihood) {visibility="hidden"}
 
